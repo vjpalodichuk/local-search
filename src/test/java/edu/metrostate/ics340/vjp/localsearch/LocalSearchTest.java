@@ -10,5 +10,7 @@ public class LocalSearchTest {
         LocalSearch ls = new LocalSearch();
 
         assertNotNull(ls);
+
+        ls.search();
     }
 }
