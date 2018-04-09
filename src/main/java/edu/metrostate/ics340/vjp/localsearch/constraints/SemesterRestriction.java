@@ -1,7 +1,10 @@
 /*
  * File: SemesterRestriction.java
  */
-package edu.metrostate.ics340.vjp.localsearch;
+package edu.metrostate.ics340.vjp.localsearch.constraints;
+
+import edu.metrostate.ics340.vjp.localsearch.ScheduledCourse;
+import edu.metrostate.ics340.vjp.localsearch.Semester;
 
 import java.util.Objects;
 

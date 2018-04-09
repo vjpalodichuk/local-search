@@ -1,12 +1,12 @@
 /*
  * File: CoursesPerSemesterConstraint.java
  */
-package edu.metrostate.ics340.vjp.localsearch;
+package edu.metrostate.ics340.vjp.localsearch.constraints;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import edu.metrostate.ics340.vjp.localsearch.ScheduledCourse;
+import edu.metrostate.ics340.vjp.localsearch.Semester;
+
+import java.util.*;
 
 /**
  * The CoursesPerSemesterConstraint checks a course list to ensure that the number of classes scheduled per
@@ -28,7 +28,7 @@ public class CoursesPerSemesterConstraint extends CourseListConstraint {
      * @param classList the list of scheduled courses.
      * @throws IllegalArgumentException if the max number of courses is less than 0 or greater than 6.
      */
-    public CoursesPerSemesterConstraint(int maxCoursesPerSemester, List<Semester> semesters, List<ScheduledCourse> classList) {
+    public CoursesPerSemesterConstraint(int maxCoursesPerSemester, Collection<Semester> semesters, Collection<ScheduledCourse> classList) {
         super(semesters, classList);
 
         if (maxCoursesPerSemester < MIN_COURSES_PER_SEMESTER || maxCoursesPerSemester > MAX_COURSES_PER_SEMESTER) {

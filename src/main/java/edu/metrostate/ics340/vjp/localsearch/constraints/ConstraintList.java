@@ -1,7 +1,7 @@
 /*
  * File: ConstraintList.java
  */
-package edu.metrostate.ics340.vjp.localsearch;
+package edu.metrostate.ics340.vjp.localsearch.constraints;
 
 import java.util.ArrayList;
 import java.util.Collections;

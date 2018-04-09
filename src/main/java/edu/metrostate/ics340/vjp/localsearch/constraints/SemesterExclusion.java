@@ -1,7 +1,10 @@
 /*
  * File: SemesterExclusion.java
  */
-package edu.metrostate.ics340.vjp.localsearch;
+package edu.metrostate.ics340.vjp.localsearch.constraints;
+
+import edu.metrostate.ics340.vjp.localsearch.ScheduledCourse;
+import edu.metrostate.ics340.vjp.localsearch.Semester;
 
 /**
  * A SemesterExclusion is a type of SemesterRestriction where the ScheduledCourse must not be scheduled in the

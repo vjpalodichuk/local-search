@@ -1,7 +1,7 @@
 /*
  * File: Constraint.java
  */
-package edu.metrostate.ics340.vjp.localsearch;
+package edu.metrostate.ics340.vjp.localsearch.constraints;
 
 /**
  * This Constraint interface represents a functional constraint. That is, a constraint can be anything provided it is

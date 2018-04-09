@@ -3,11 +3,11 @@
  */
 package edu.metrostate.ics340.vjp.localsearch;
 
+import edu.metrostate.ics340.vjp.localsearch.constraints.*;
+
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class LocalSearch {
     private static final String ICS_DEPARTMENT;
@@ -30,7 +30,7 @@ public class LocalSearch {
 
     private final List<Course> courseList;
     private final List<Semester> semesterList;
-    private final List<ScheduledCourse> scheduledCourseList;
+    private final Map<Course, ScheduledCourse> scheduledCourseMap;
     private ConstraintList constraintList;
     private List<Prerequisite> prerequisiteList;
     private List<Constraint> semesterRestrictionList;
@@ -38,7 +38,7 @@ public class LocalSearch {
     public LocalSearch() {
         courseList = new ArrayList<>();
         semesterList = new ArrayList<>();
-        scheduledCourseList = new ArrayList<>();
+        scheduledCourseMap = new HashMap<>();
         constraintList = new EveryConstraintList();
         prerequisiteList = new ArrayList<>();
         semesterRestrictionList = new ArrayList<>();
@@ -69,7 +69,8 @@ public class LocalSearch {
 
         randomWalk();
 
-        for (ScheduledCourse scheduledCourse : scheduledCourseList) {
+        for (Course key : scheduledCourseMap.keySet()) {
+            ScheduledCourse scheduledCourse = scheduledCourseMap.get(key);
             answer.add(scheduledCourse.clone());
         }
 
@@ -85,11 +86,7 @@ public class LocalSearch {
             course = courseList.get(courseIndex);
 
             if (course != null) {
-                int scheduledCourseIndex = scheduledCourseList.indexOf(new ScheduledCourse(course));
-
-                if (scheduledCourseIndex >= 0) {
-                    scheduledCourse = scheduledCourseList.get(scheduledCourseIndex);
-                }
+                scheduledCourse = scheduledCourseMap.get(course);
             }
         }
 
@@ -143,7 +140,8 @@ public class LocalSearch {
 
         // All classes below 300 must be taken before any 400 level course
         // So we will add a prerequisite for them.
-        for (ScheduledCourse scheduledCourse : scheduledCourseList) {
+        for (Course key : scheduledCourseMap.keySet()) {
+            ScheduledCourse scheduledCourse = scheduledCourseMap.get(key);
             Course course = scheduledCourse.getCourse();
             int num = course.getNumber();
 
@@ -178,7 +176,7 @@ public class LocalSearch {
         semesterRestrictionList.add(new SemesterRestriction(getScheduledCourse(ICS_DEPARTMENT, 499), getSemester(semesterList.size())));
 
         // No semester can have more than 3 courses.
-        semesterRestrictionList.add(new CoursesPerSemesterConstraint(COURSES_PER_SEMESTER, semesterList, scheduledCourseList));
+        semesterRestrictionList.add(new CoursesPerSemesterConstraint(COURSES_PER_SEMESTER, semesterList, scheduledCourseMap.values()));
     }
 
     private void loadCourses() {
@@ -215,18 +213,20 @@ public class LocalSearch {
 
     private void loadScheduledCourses() {
         for (Course course : courseList) {
-            scheduledCourseList.add(new ScheduledCourse(course));
+            scheduledCourseMap.put(course, new ScheduledCourse(course));
         }
     }
 
     private void randomRestart() {
-        for (ScheduledCourse scheduledCourse : scheduledCourseList) {
+        for (Course key : scheduledCourseMap.keySet()) {
+            ScheduledCourse scheduledCourse = scheduledCourseMap.get(key);
             scheduledCourse.setSemester(getSemester(RANDOM.nextInt(semesterList.size()) + 1));
         }
     }
 
     private void randomWalk() {
-        for (ScheduledCourse scheduledCourse : scheduledCourseList) {
+        for (Course key : scheduledCourseMap.keySet()) {
+            ScheduledCourse scheduledCourse = scheduledCourseMap.get(key);
             scheduledCourse.setSemester(getSemester(RANDOM.nextInt(semesterList.size()) + 1));
         }
     }

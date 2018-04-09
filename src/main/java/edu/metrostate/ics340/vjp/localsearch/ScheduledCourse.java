@@ -106,7 +106,7 @@ public class ScheduledCourse implements Comparable<ScheduledCourse>, Cloneable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ScheduledCourse that = (ScheduledCourse) o;
-        return Objects.equals(getCourse(), that.getCourse());
+        return Objects.equals(getCourse(), that.getCourse()) && Objects.equals(getSemester(), that.getSemester());
     }
 
     @Override

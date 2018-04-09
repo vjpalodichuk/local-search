@@ -1,30 +1,15 @@
 /*
- * File: EveryConstraintList.java
+ * File: NoneConstraintList.java
  */
-package edu.metrostate.ics340.vjp.localsearch;
+package edu.metrostate.ics340.vjp.localsearch.constraints;
 
 import java.util.List;
 
 /**
- * The EveryConstraintList is a ConstraintList for any type of Constraint where all of the
- * constraints contained within it need to return true. See AnyConstraintList, NoneConstraintList for more details.
+ * The NoneConstraintList is a ConstraintList for any type of Constraint where none of the
+ * constraints contained within it can return true. See AnyConstraintList, EveryConstraintList for more details.
  */
-public class EveryConstraintList extends ConstraintList {
-    /**
-     * Initializes an empty list of constraints.
-     */
-    public EveryConstraintList() {
-    }
-
-    /**
-     * Initializes a list of constraints from the specified list of constraints.
-     *
-     * @param constraints the list of constraints to initialize this list from.
-     */
-    public EveryConstraintList(List<Constraint> constraints) {
-        super(constraints);
-    }
-
+public class NoneConstraintList extends ConstraintList {
     /**
      * Returns the number of conflicts this course has with it's constraints that have been taken.
      * If there are no conflicts, then zero is returned.
@@ -34,7 +19,7 @@ public class EveryConstraintList extends ConstraintList {
      */
     @Override
     public int getNumberOfConflicts() {
-        return getNumberOfConflictsAll();
+        return getNumberOfConflictsNone();
     }
 
     /**
@@ -46,7 +31,7 @@ public class EveryConstraintList extends ConstraintList {
      */
     @Override
     public List<Constraint> getConflicts() {
-        return getConflictsAll();
+        return getConflictsNone();
     }
 
     /**
@@ -56,6 +41,6 @@ public class EveryConstraintList extends ConstraintList {
      */
     @Override
     public boolean hasConflict() {
-        return hasConflictAll();
+        return hasConflictNone();
     }
 }

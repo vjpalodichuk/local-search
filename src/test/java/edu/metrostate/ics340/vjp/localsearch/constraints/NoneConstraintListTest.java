@@ -1,12 +1,13 @@
-package edu.metrostate.ics340.vjp.localsearch;
+package edu.metrostate.ics340.vjp.localsearch.constraints;
 
+import edu.metrostate.ics340.vjp.localsearch.Course;
+import edu.metrostate.ics340.vjp.localsearch.ScheduledCourse;
+import edu.metrostate.ics340.vjp.localsearch.Semester;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -17,7 +18,7 @@ public class NoneConstraintListTest {
 
     private static final List<Course> courseList;
     private static final List<Semester> semesterList;
-    private static final List<ScheduledCourse> scheduledCourseList;
+    private static final Map<Course, ScheduledCourse> scheduledCourseMap;
 
     static {
         ICS_DEPARTMENT = "ICS";
@@ -26,7 +27,7 @@ public class NoneConstraintListTest {
 
         courseList = new ArrayList<>();
         semesterList = new ArrayList<>();
-        scheduledCourseList = new ArrayList<>();
+        scheduledCourseMap = new HashMap<>();
 
         loadCourses();
         loadSemesters();
@@ -67,7 +68,7 @@ public class NoneConstraintListTest {
 
     private static void loadScheduledCourses() {
         for (Course course : courseList) {
-            scheduledCourseList.add(new ScheduledCourse(course));
+            scheduledCourseMap.put(course, new ScheduledCourse(course));
         }
     }
 
@@ -84,11 +85,7 @@ public class NoneConstraintListTest {
             course = courseList.get(courseIndex);
 
             if (course != null) {
-                int scheduledCourseIndex = scheduledCourseList.indexOf(new ScheduledCourse(course));
-
-                if (scheduledCourseIndex >= 0) {
-                    scheduledCourse = scheduledCourseList.get(scheduledCourseIndex);
-                }
+                scheduledCourse = scheduledCourseMap.get(course);
             }
         }
 
@@ -140,7 +137,8 @@ public class NoneConstraintListTest {
         addPrerequisite(ICS_DEPARTMENT, 440, ICS_DEPARTMENT, 340);
         addPrerequisite(ICS_DEPARTMENT, 499, ICS_DEPARTMENT, 372);
 
-        for (ScheduledCourse scheduledCourse : scheduledCourseList) {
+        for (Course key : scheduledCourseMap.keySet()) {
+            ScheduledCourse scheduledCourse = scheduledCourseMap.get(key);
             if (scheduledCourse.getCourse().getNumber() < 300) {
                 addPrerequisite(ICS_DEPARTMENT, 440, scheduledCourse.getCourse().getDepartment(), scheduledCourse.getCourse().getNumber());
                 addPrerequisite(ICS_DEPARTMENT, 460, scheduledCourse.getCourse().getDepartment(), scheduledCourse.getCourse().getNumber());
@@ -177,7 +175,8 @@ public class NoneConstraintListTest {
         final Random rand = new Random(SEED);
 //        final Random rand = new Random();
 
-        for (ScheduledCourse scheduledCourse : scheduledCourseList) {
+        for (Course key : scheduledCourseMap.keySet()) {
+            ScheduledCourse scheduledCourse = scheduledCourseMap.get(key);
             scheduledCourse.setSemester(getSemester(rand.nextInt(semesterList.size()) + 1));
         }
     }
@@ -248,7 +247,7 @@ public class NoneConstraintListTest {
     @Test
     public void hasConflictShouldBeFalse() {
         constraintList.clear();
-        constraintList.add(prerequisiteList.get(1));
+        constraintList.add(prerequisiteList.get(0));
         boolean expected = false;
         boolean actual = constraintList.hasConflict();
 

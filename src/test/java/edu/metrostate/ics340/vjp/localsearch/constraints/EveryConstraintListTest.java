@@ -1,42 +1,38 @@
-package edu.metrostate.ics340.vjp.localsearch;
+package edu.metrostate.ics340.vjp.localsearch.constraints;
 
+import edu.metrostate.ics340.vjp.localsearch.Course;
+import edu.metrostate.ics340.vjp.localsearch.ScheduledCourse;
+import edu.metrostate.ics340.vjp.localsearch.Semester;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
-public class CoursesPerSemesterConstraintTest {
+public class EveryConstraintListTest {
     private static final String ICS_DEPARTMENT;
     private static final String MATH_DEPARTMENT;
     private static final String LIBS_DEPARTMENT;
-    private static final int COURSES_PER_SEMESTER;
+
     private static final List<Course> courseList;
     private static final List<Semester> semesterList;
-    private static final List<ScheduledCourse> scheduledCourseList;
+    private static final Map<Course, ScheduledCourse> scheduledCourseMap;
 
     static {
         ICS_DEPARTMENT = "ICS";
         MATH_DEPARTMENT = "MATH";
         LIBS_DEPARTMENT = "LIBS";
 
-        COURSES_PER_SEMESTER = 3;
-
         courseList = new ArrayList<>();
         semesterList = new ArrayList<>();
-        scheduledCourseList = new ArrayList<>();
+        scheduledCourseMap = new HashMap<>();
 
         loadCourses();
         loadSemesters();
         loadScheduledCourses();
     }
-
-    private CoursesPerSemesterConstraint coursesPerSemesterConstraint;
 
     private static void loadCourses() {
         courseList.add(new Course(MATH_DEPARTMENT, 120));
@@ -72,7 +68,7 @@ public class CoursesPerSemesterConstraintTest {
 
     private static void loadScheduledCourses() {
         for (Course course : courseList) {
-            scheduledCourseList.add(new ScheduledCourse(course));
+            scheduledCourseMap.put(course, new ScheduledCourse(course));
         }
     }
 
@@ -89,11 +85,7 @@ public class CoursesPerSemesterConstraintTest {
             course = courseList.get(courseIndex);
 
             if (course != null) {
-                int scheduledCourseIndex = scheduledCourseList.indexOf(new ScheduledCourse(course));
-
-                if (scheduledCourseIndex >= 0) {
-                    scheduledCourse = scheduledCourseList.get(scheduledCourseIndex);
-                }
+                scheduledCourse = scheduledCourseMap.get(course);
             }
         }
 
@@ -145,7 +137,8 @@ public class CoursesPerSemesterConstraintTest {
         addPrerequisite(ICS_DEPARTMENT, 440, ICS_DEPARTMENT, 340);
         addPrerequisite(ICS_DEPARTMENT, 499, ICS_DEPARTMENT, 372);
 
-        for (ScheduledCourse scheduledCourse : scheduledCourseList) {
+        for (Course key : scheduledCourseMap.keySet()) {
+            ScheduledCourse scheduledCourse = scheduledCourseMap.get(key);
             if (scheduledCourse.getCourse().getNumber() < 300) {
                 addPrerequisite(ICS_DEPARTMENT, 440, scheduledCourse.getCourse().getDepartment(), scheduledCourse.getCourse().getNumber());
                 addPrerequisite(ICS_DEPARTMENT, 460, scheduledCourse.getCourse().getDepartment(), scheduledCourse.getCourse().getNumber());
@@ -175,17 +168,15 @@ public class CoursesPerSemesterConstraintTest {
         semesterRestrictionList.add(cl);
 
         semesterRestrictionList.add(new SemesterRestriction(getScheduledCourse(ICS_DEPARTMENT, 499), getSemester(7)));
-
-        // No semester can have more than 3 courses.
-        this.coursesPerSemesterConstraint = new CoursesPerSemesterConstraint(COURSES_PER_SEMESTER, semesterList, scheduledCourseList);
-        semesterRestrictionList.add(coursesPerSemesterConstraint);
     }
 
     private void randomlyScheduleCourses() {
-        final int SEED = 20180409;
+        final int SEED = 20180408;
         final Random rand = new Random(SEED);
+//        final Random rand = new Random();
 
-        for (ScheduledCourse scheduledCourse : scheduledCourseList) {
+        for (Course key : scheduledCourseMap.keySet()) {
+            ScheduledCourse scheduledCourse = scheduledCourseMap.get(key);
             scheduledCourse.setSemester(getSemester(rand.nextInt(semesterList.size()) + 1));
         }
     }
@@ -219,41 +210,96 @@ public class CoursesPerSemesterConstraintTest {
         semesterRestrictionList = null;
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void constructorShouldThrowExceptionWithBadSemesters() {
-        CoursesPerSemesterConstraint constraint = new CoursesPerSemesterConstraint(COURSES_PER_SEMESTER, null, scheduledCourseList);
+    @Test
+    public void oneArgConstructorWithValidListShouldCopyTheList() {
+        ConstraintList cs = new EveryConstraintList(constraintList.getConstraints());
 
-        fail("IllegalArgumentException was not thrown.");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void constructorShouldThrowExceptionWithBadCourseList() {
-        CoursesPerSemesterConstraint constraint = new CoursesPerSemesterConstraint(COURSES_PER_SEMESTER, semesterList, null);
-
-        fail("IllegalArgumentException was not thrown.");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void constructorShouldThrowExceptionWithBadCoursesPerSemester() {
-        CoursesPerSemesterConstraint constraint = new CoursesPerSemesterConstraint(COURSES_PER_SEMESTER * 3, semesterList, scheduledCourseList);
-
-        fail("IllegalArgumentException was not thrown.");
+        assertEquals(cs.getConstraints(), constraintList.getConstraints());
     }
 
     @Test
-    public void isSatisfied() {
+    public void getNumberOfConflictsShouldBeNonZero() {
         randomlyScheduleCourses();
+        int notExpected = 0;
+        int actual = constraintList.getNumberOfConflicts();
 
-        if (!coursesPerSemesterConstraint.isSatisfied()) {
-            coursesPerSemesterConstraint.getConflicts();
-        }
+        assertNotEquals(notExpected, actual);
     }
 
     @Test
-    public void cloneShouldMakeAnEqualButDifferentCbject() {
+    public void getConflictsShouldNotBeEmpty() {
         randomlyScheduleCourses();
-        CoursesPerSemesterConstraint clone = coursesPerSemesterConstraint.clone();
+        int notExpected = 0;
+        int actual = constraintList.getConflicts().size();
 
-        assertFalse(coursesPerSemesterConstraint == clone);
+        assertNotEquals(notExpected, actual);
+    }
+
+    @Test
+    public void hasConflictShouldBeTrue() {
+        randomlyScheduleCourses();
+        boolean expected = true;
+        boolean actual = constraintList.hasConflict();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void clearShouldEmptyTheListOfConstraints() {
+        ConstraintList cs = new EveryConstraintList(constraintList.getConstraints());
+
+        assertEquals(cs.getConstraints(), constraintList.getConstraints());
+
+        cs.clear();
+
+        int expected = 0;
+        int actual = cs.getConstraints().size();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getNumConstraintsBeNonZero() {
+        int notExpected = 0;
+        int actual = constraintList.getNumConstraints();
+
+        assertNotEquals(notExpected, actual);
+    }
+
+    @Test
+    public void getConstraintsShouldNotBeEmpty() {
+        int notExpected = 0;
+        int actual = constraintList.getConstraints().size();
+
+        assertNotEquals(notExpected, actual);
+    }
+
+    @Test
+    public void addShouldReturnTrue() {
+        ConstraintList cs = new EveryConstraintList();
+
+        boolean expected = true;
+        boolean actual = cs.add(prerequisiteList.get(0));
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void isSatisfiedShouldReturnFalse() {
+        randomlyScheduleCourses();
+
+        boolean expected = false;
+        boolean actual = constraintList.isSatisfied();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testToString() {
+        randomlyScheduleCourses();
+
+        String actual = constraintList.toString();
+
+        assertFalse(actual.isEmpty());
     }
 }

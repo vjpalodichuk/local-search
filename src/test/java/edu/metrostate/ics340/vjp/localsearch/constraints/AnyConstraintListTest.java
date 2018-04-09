@@ -1,23 +1,24 @@
-package edu.metrostate.ics340.vjp.localsearch;
+package edu.metrostate.ics340.vjp.localsearch.constraints;
 
+import edu.metrostate.ics340.vjp.localsearch.Course;
+import edu.metrostate.ics340.vjp.localsearch.ScheduledCourse;
+import edu.metrostate.ics340.vjp.localsearch.Semester;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
-public class EveryConstraintListTest {
+public class AnyConstraintListTest {
     private static final String ICS_DEPARTMENT;
     private static final String MATH_DEPARTMENT;
     private static final String LIBS_DEPARTMENT;
 
     private static final List<Course> courseList;
     private static final List<Semester> semesterList;
-    private static final List<ScheduledCourse> scheduledCourseList;
+    private static final Map<Course, ScheduledCourse> scheduledCourseMap;
 
     static {
         ICS_DEPARTMENT = "ICS";
@@ -26,7 +27,7 @@ public class EveryConstraintListTest {
 
         courseList = new ArrayList<>();
         semesterList = new ArrayList<>();
-        scheduledCourseList = new ArrayList<>();
+        scheduledCourseMap = new HashMap<>();
 
         loadCourses();
         loadSemesters();
@@ -67,7 +68,7 @@ public class EveryConstraintListTest {
 
     private static void loadScheduledCourses() {
         for (Course course : courseList) {
-            scheduledCourseList.add(new ScheduledCourse(course));
+            scheduledCourseMap.put(course, new ScheduledCourse(course));
         }
     }
 
@@ -84,11 +85,7 @@ public class EveryConstraintListTest {
             course = courseList.get(courseIndex);
 
             if (course != null) {
-                int scheduledCourseIndex = scheduledCourseList.indexOf(new ScheduledCourse(course));
-
-                if (scheduledCourseIndex >= 0) {
-                    scheduledCourse = scheduledCourseList.get(scheduledCourseIndex);
-                }
+                scheduledCourse = scheduledCourseMap.get(course);
             }
         }
 
@@ -140,7 +137,8 @@ public class EveryConstraintListTest {
         addPrerequisite(ICS_DEPARTMENT, 440, ICS_DEPARTMENT, 340);
         addPrerequisite(ICS_DEPARTMENT, 499, ICS_DEPARTMENT, 372);
 
-        for (ScheduledCourse scheduledCourse : scheduledCourseList) {
+        for (Course key : scheduledCourseMap.keySet()) {
+            ScheduledCourse scheduledCourse = scheduledCourseMap.get(key);
             if (scheduledCourse.getCourse().getNumber() < 300) {
                 addPrerequisite(ICS_DEPARTMENT, 440, scheduledCourse.getCourse().getDepartment(), scheduledCourse.getCourse().getNumber());
                 addPrerequisite(ICS_DEPARTMENT, 460, scheduledCourse.getCourse().getDepartment(), scheduledCourse.getCourse().getNumber());
@@ -173,18 +171,19 @@ public class EveryConstraintListTest {
     }
 
     private void randomlyScheduleCourses() {
-        final int SEED = 20180408;
+        final int SEED = 2018040810;
         final Random rand = new Random(SEED);
 //        final Random rand = new Random();
 
-        for (ScheduledCourse scheduledCourse : scheduledCourseList) {
+        for (Course key : scheduledCourseMap.keySet()) {
+            ScheduledCourse scheduledCourse = scheduledCourseMap.get(key);
             scheduledCourse.setSemester(getSemester(rand.nextInt(semesterList.size()) + 1));
         }
     }
 
     @Before
     public void setupTestHarness() {
-        constraintList = new EveryConstraintList();
+        constraintList = new AnyConstraintList();
         prerequisiteList = new ArrayList<>();
         semesterRestrictionList = new ArrayList<>();
 
@@ -219,27 +218,27 @@ public class EveryConstraintListTest {
     }
 
     @Test
-    public void getNumberOfConflictsShouldBeNonZero() {
+    public void getNumberOfConflictsShouldBeZero() {
         randomlyScheduleCourses();
-        int notExpected = 0;
+        int expected = 0;
         int actual = constraintList.getNumberOfConflicts();
 
-        assertNotEquals(notExpected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void getConflictsShouldNotBeEmpty() {
+    public void getConflictsShouldBeEmpty() {
         randomlyScheduleCourses();
-        int notExpected = 0;
+        int expected = 0;
         int actual = constraintList.getConflicts().size();
 
-        assertNotEquals(notExpected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void hasConflictShouldBeTrue() {
+    public void hasConflictShouldBeFalse() {
         randomlyScheduleCourses();
-        boolean expected = true;
+        boolean expected = false;
         boolean actual = constraintList.hasConflict();
 
         assertEquals(expected, actual);
@@ -252,7 +251,6 @@ public class EveryConstraintListTest {
         assertEquals(cs.getConstraints(), constraintList.getConstraints());
 
         cs.clear();
-
         int expected = 0;
         int actual = cs.getConstraints().size();
 
@@ -286,10 +284,9 @@ public class EveryConstraintListTest {
     }
 
     @Test
-    public void isSatisfiedShouldReturnFalse() {
+    public void isSatisfiedShouldReturnTrue() {
         randomlyScheduleCourses();
-
-        boolean expected = false;
+        boolean expected = true;
         boolean actual = constraintList.isSatisfied();
 
         assertEquals(expected, actual);

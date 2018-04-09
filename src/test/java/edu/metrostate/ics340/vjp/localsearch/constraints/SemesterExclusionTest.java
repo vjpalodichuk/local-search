@@ -1,5 +1,8 @@
-package edu.metrostate.ics340.vjp.localsearch;
+package edu.metrostate.ics340.vjp.localsearch.constraints;
 
+import edu.metrostate.ics340.vjp.localsearch.Course;
+import edu.metrostate.ics340.vjp.localsearch.ScheduledCourse;
+import edu.metrostate.ics340.vjp.localsearch.Semester;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

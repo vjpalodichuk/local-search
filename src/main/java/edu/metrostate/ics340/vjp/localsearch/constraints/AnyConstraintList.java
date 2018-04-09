@@ -1,15 +1,15 @@
 /*
- * File: NoneConstraintList.java
+ * File: AnyConstraintList.java
  */
-package edu.metrostate.ics340.vjp.localsearch;
+package edu.metrostate.ics340.vjp.localsearch.constraints;
 
 import java.util.List;
 
 /**
- * The NoneConstraintList is a ConstraintList for any type of Constraint where none of the
- * constraints contained within it can return true. See AnyConstraintList, EveryConstraintList for more details.
+ * The AnyConstraintList is a ConstraintList for any type of Constraint where at least one of the
+ * constraints contained within it needs to return true. See EveryConstraintList, NoneConstraintList for more details.
  */
-public class NoneConstraintList extends ConstraintList {
+public class AnyConstraintList extends ConstraintList {
     /**
      * Returns the number of conflicts this course has with it's constraints that have been taken.
      * If there are no conflicts, then zero is returned.
@@ -19,7 +19,7 @@ public class NoneConstraintList extends ConstraintList {
      */
     @Override
     public int getNumberOfConflicts() {
-        return getNumberOfConflictsNone();
+        return getNumberOfConflictsAny();
     }
 
     /**
@@ -31,7 +31,7 @@ public class NoneConstraintList extends ConstraintList {
      */
     @Override
     public List<Constraint> getConflicts() {
-        return getConflictsNone();
+        return getConflictsAny();
     }
 
     /**
@@ -41,6 +41,6 @@ public class NoneConstraintList extends ConstraintList {
      */
     @Override
     public boolean hasConflict() {
-        return hasConflictNone();
+        return hasConflictAny();
     }
 }

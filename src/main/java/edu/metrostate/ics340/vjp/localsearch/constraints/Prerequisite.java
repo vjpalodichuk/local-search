@@ -1,7 +1,9 @@
 /*
  * File: Prerequisite.java
  */
-package edu.metrostate.ics340.vjp.localsearch;
+package edu.metrostate.ics340.vjp.localsearch.constraints;
+
+import edu.metrostate.ics340.vjp.localsearch.ScheduledCourse;
 
 import java.util.Objects;
 
