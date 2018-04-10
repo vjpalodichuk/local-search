@@ -7,10 +7,15 @@ import static org.junit.Assert.assertNotNull;
 public class LocalSearchTest {
     @Test
     public void defaultConstructedLocalSearchIsNotNull() {
-        LocalSearch ls = new LocalSearch();
+        LocalSearchProblem lsp = new LocalSearchProblem();
+        LocalSearch ls = new LocalSearch(lsp.getVariables(), lsp, lsp.getConstraints());
 
         assertNotNull(ls);
 
-        ls.search();
+        assertNotNull(ls.search());
+
+        System.out.println(ls.getLog());
+
+        System.out.println(ls.getSummary());
     }
 }

@@ -76,8 +76,9 @@ public class CoursesPerSemesterConstraint extends CourseListConstraint {
      *
      * @return a list of semesters that have more than the maximum number of courses scheduled.
      */
-    public List<Semester> getConflicts() {
-        List<Semester> answer = new ArrayList<>();
+    @Override
+    public List<ScheduledCourse> getConflicts() {
+        List<ScheduledCourse> answer = new ArrayList<>();
 
         initCounts();
 
@@ -93,7 +94,12 @@ public class CoursesPerSemesterConstraint extends CourseListConstraint {
 
         for (Semester semester : counts.keySet()) {
             if (counts.get(semester) > coursesPerSemester) {
-                answer.add(semester);
+
+                for (ScheduledCourse course : classList) {
+                    if (course.isScheduled() && course.getSemester().equals(semester)) {
+                        answer.add(course);
+                    }
+                }
             }
         }
 

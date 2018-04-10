@@ -3,9 +3,10 @@
  */
 package edu.metrostate.ics340.vjp.localsearch.constraints;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import edu.metrostate.ics340.vjp.localsearch.ScheduledCourse;
+import edu.metrostate.ics340.vjp.localsearch.SearchVariable;
+
+import java.util.*;
 
 /**
  * A ConstraintList is an abstract base class for a type of Constraint where any, every, or none of the
@@ -52,20 +53,72 @@ public abstract class ConstraintList implements Constraint {
         return constraints.size();
     }
 
-
+    /**
+     * Returns an unmodifiable list of all the constraints contained within the list.
+     *
+     * @return an unmodifiable list of all the constraints contained within the list.
+     */
     public List<Constraint> getConstraints() {
         return Collections.unmodifiableList(constraints);
     }
 
+    /**
+     * Returns the actual list of all the constraints contained within the list.
+     *
+     * @return the actual list of all the constraints contained within the list.
+     */
     protected List<Constraint> getRealConstraints() {
         return constraints;
     }
 
+    /**
+     * Adds a single constraint to the list of constraints. If the constraint already exists it is not added.
+     *
+     * @param constraint the constraint to add to the list. Cannot be null.
+     *
+     * @return true if the constraint was added to the list.
+     * @throws IllegalArgumentException indicates that the constraint is null.
+     */
     public boolean add(Constraint constraint) {
+        if (constraint == null) {
+            throw new IllegalArgumentException("constraint cannot be null");
+        }
+
         boolean answer = false;
 
         if (!constraints.contains(constraint)) {
             answer = constraints.add(constraint);
+        }
+
+        return answer;
+    }
+
+    /**
+     * Adds a Collection of constraints to the list of constraints. Only constraints that do not already exist in the
+     * list are added.
+     *
+     * @param constraints the collection of constraints to add.
+     * @return true if all of the constraints were added; otherwise false.
+     * @throws IllegalArgumentException indicates that contraints is null or contains a null constraint.
+     */
+    public boolean addAll(Collection<Constraint> constraints) {
+        if (constraints == null) {
+            throw new IllegalArgumentException("constraints cannot be null.");
+        }
+
+        boolean answer = false;
+        boolean atLeastOneFail = false;
+
+        for (Constraint constraint : constraints) {
+            answer = add(constraint);
+
+            if (!answer) {
+                atLeastOneFail = true;
+            }
+        }
+
+        if (atLeastOneFail) {
+            answer = false;
         }
 
         return answer;
@@ -305,4 +358,79 @@ public abstract class ConstraintList implements Constraint {
         sb.append('}');
         return sb.toString();
     }
+
+    private void processPrereqForConflicts(Map<SearchVariable, Integer> counts, Prerequisite prerequisite) {
+        processCourseForConflicts(counts, prerequisite.getCourse());
+        processCourseForConflicts(counts, prerequisite.getPrerequisiteCourse());
+    }
+
+    private void processCourseForConflicts(Map<SearchVariable, Integer> counts, ScheduledCourse course) {
+        int count = 0;
+
+        if (counts.containsKey(course)) {
+            count = counts.get(course);
+        }
+
+        count++;
+        counts.put(course, count);
+    }
+
+    public Map<SearchVariable, Integer> getVariablesWithConflictCounts() {
+        Map<SearchVariable, Integer> counts = new LinkedHashMap<>();
+
+        for (Constraint constraint : getConflicts()) {
+            boolean process = false;
+            if (constraint instanceof Prerequisite) {
+                Prerequisite prerequisite = (Prerequisite) constraint;
+                processPrereqForConflicts(counts, prerequisite);
+                process = true;
+            } else if (constraint instanceof ConstraintList) {
+                ConstraintList cs = (ConstraintList) constraint;
+
+                for (Constraint listConstraint : cs.getConflicts()) {
+                    if (listConstraint instanceof Prerequisite) {
+                        Prerequisite prerequisite = (Prerequisite) listConstraint;
+                        processPrereqForConflicts(counts, prerequisite);
+                        process = true;
+                    } else if (listConstraint instanceof SemesterRestriction) {
+                        SemesterRestriction sr = (SemesterRestriction) listConstraint;
+                        processCourseForConflicts(counts, sr.getCourse());
+                        process = true;
+                    }
+                }
+            } else if (constraint instanceof CourseListConstraint) {
+                CourseListConstraint clc = (CourseListConstraint) constraint;
+
+                for (ScheduledCourse course : clc.getConflicts()) {
+                    processCourseForConflicts(counts, course);
+                    process = true;
+                }
+            } else if (constraint instanceof SemesterRestriction) {
+                SemesterRestriction sr = (SemesterRestriction) constraint;
+                processCourseForConflicts(counts, sr.getCourse());
+                process = true;
+            }
+        }
+
+        return counts;
+    }
+
+    public SearchVariable getVariableWithTheMostConflicts() {
+        Map<SearchVariable, Integer> counts = getVariablesWithConflictCounts();
+        SearchVariable answer = null;
+
+        int max = 0;
+
+        for (SearchVariable key : counts.keySet()) {
+            int violations = counts.get(key);
+
+            if (violations > max) {
+                max = violations;
+                answer = key;
+            }
+        }
+
+        return answer;
+    }
+
 }

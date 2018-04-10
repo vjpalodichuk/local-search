@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author Vincent J. Palodichuk
  */
-public class ScheduledCourse implements Comparable<ScheduledCourse>, Cloneable {
+public class ScheduledCourse implements SearchVariable, Comparable<ScheduledCourse>, Cloneable {
     private Course course;
     private Semester semester;
 
@@ -150,6 +150,39 @@ public class ScheduledCourse implements Comparable<ScheduledCourse>, Cloneable {
         return answer;
     }
 
+    @Override
+    public String getName() {
+        String answer = "";
+
+        if (isValid()) {
+            answer = getCourse().getNumberAsString();
+        }
+
+        return answer;
+    }
+
+    @Override
+    public String getValueName() {
+        String answer = "";
+
+        if (isScheduled()) {
+            answer = "" + getSemester().getName();
+        }
+
+        return answer;
+    }
+
+    @Override
+    public String getValueAsString() {
+        String answer = "";
+
+        if (isScheduled()) {
+            answer = "" + getSemester().getId();
+        }
+
+        return answer;
+    }
+
     /**
      * Compares this object with the specified object for order.  Returns a
      * negative integer, zero, or a positive integer as this object is less
@@ -191,5 +224,21 @@ public class ScheduledCourse implements Comparable<ScheduledCourse>, Cloneable {
         }
 
         return answer;
+    }
+
+    @Override
+    public void setValue(Object value) {
+        if (value == null || !(value instanceof Semester)) {
+            throw new IllegalArgumentException("value must be a non null semester");
+        }
+
+        Semester semester = (Semester) value;
+
+        setSemester(semester);
+    }
+
+    @Override
+    public Object getValue() {
+        return getSemester();
     }
 }

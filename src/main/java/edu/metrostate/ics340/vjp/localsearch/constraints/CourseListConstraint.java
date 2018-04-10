@@ -43,6 +43,8 @@ public abstract class CourseListConstraint implements Constraint, Cloneable {
         this.classList.addAll(classList);
     }
 
+    public abstract List<ScheduledCourse> getConflicts();
+
     @Override
     public CourseListConstraint clone() {
         CourseListConstraint answer;

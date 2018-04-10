@@ -7,6 +7,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.*;
 
 import static org.junit.Assert.*;
@@ -19,6 +21,9 @@ public class CoursesPerSemesterConstraintTest {
     private static final List<Course> courseList;
     private static final List<Semester> semesterList;
     private static final Map<Course, ScheduledCourse> scheduledCourseMap;
+    private static final long SEED;
+    private static final Random RAND;
+
 
     static {
         ICS_DEPARTMENT = "ICS";
@@ -27,9 +32,12 @@ public class CoursesPerSemesterConstraintTest {
 
         COURSES_PER_SEMESTER = 3;
 
+        //SEED = 20180409;
+        SEED = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        RAND = new Random(SEED);
         courseList = new ArrayList<>();
         semesterList = new ArrayList<>();
-        scheduledCourseMap = new HashMap<>();
+        scheduledCourseMap = new LinkedHashMap<>();
 
         loadCourses();
         loadSemesters();
@@ -40,12 +48,10 @@ public class CoursesPerSemesterConstraintTest {
 
     private static void loadCourses() {
         courseList.add(new Course(MATH_DEPARTMENT, 120));
-        courseList.add(new Course(MATH_DEPARTMENT, 210));
-        courseList.add(new Course(MATH_DEPARTMENT, 215));
-        courseList.add(new Course(LIBS_DEPARTMENT, 998));
-        courseList.add(new Course(LIBS_DEPARTMENT, 999));
         courseList.add(new Course(ICS_DEPARTMENT, 140));
         courseList.add(new Course(ICS_DEPARTMENT, 141));
+        courseList.add(new Course(MATH_DEPARTMENT, 210));
+        courseList.add(new Course(MATH_DEPARTMENT, 215));
         courseList.add(new Course(ICS_DEPARTMENT, 232));
         courseList.add(new Course(ICS_DEPARTMENT, 240));
         courseList.add(new Course(ICS_DEPARTMENT, 311));
@@ -58,6 +64,8 @@ public class CoursesPerSemesterConstraintTest {
         courseList.add(new Course(ICS_DEPARTMENT, 490));
         courseList.add(new Course(ICS_DEPARTMENT, 492));
         courseList.add(new Course(ICS_DEPARTMENT, 499));
+        courseList.add(new Course(LIBS_DEPARTMENT, 998));
+        courseList.add(new Course(LIBS_DEPARTMENT, 999));
     }
 
     private static void loadSemesters() {
@@ -134,7 +142,7 @@ public class CoursesPerSemesterConstraintTest {
         addPrerequisite(ICS_DEPARTMENT, 232, ICS_DEPARTMENT, 141);
         addPrerequisite(ICS_DEPARTMENT, 240, ICS_DEPARTMENT, 141);
         addPrerequisite(ICS_DEPARTMENT, 311, ICS_DEPARTMENT, 141);
-        addPrerequisite(ICS_DEPARTMENT, 311, ICS_DEPARTMENT, 240, true);
+        addPrerequisite(ICS_DEPARTMENT, 311, ICS_DEPARTMENT, 240);
         addPrerequisite(ICS_DEPARTMENT, 340, ICS_DEPARTMENT, 240);
         addPrerequisite(ICS_DEPARTMENT, 365, ICS_DEPARTMENT, 240);
         addPrerequisite(ICS_DEPARTMENT, 372, ICS_DEPARTMENT, 240);
@@ -179,13 +187,89 @@ public class CoursesPerSemesterConstraintTest {
     }
 
     private void randomlyScheduleCourses() {
-        final int SEED = 20180409;
-        final Random rand = new Random(SEED);
 
         for (Course key : scheduledCourseMap.keySet()) {
             ScheduledCourse scheduledCourse = scheduledCourseMap.get(key);
-            scheduledCourse.setSemester(getSemester(rand.nextInt(semesterList.size()) + 1));
+            scheduledCourse.setSemester(getRamdomSemester());
         }
+    }
+
+    private Semester getRamdomSemester() {
+        return getSemester(RAND.nextInt(semesterList.size()) + 1);
+    }
+
+    private ScheduledCourse getCourseWithTheMostConflicts() {
+        Map<ScheduledCourse, Integer> counts = new LinkedHashMap<>();
+
+        for (ScheduledCourse course : scheduledCourseMap.values()) {
+            counts.put(course, 0);
+        }
+
+        for (Constraint constraint : constraintList.getConflicts()) {
+            if (constraint instanceof Prerequisite) {
+                Prerequisite prerequisite = (Prerequisite) constraint;
+
+                int count = counts.get(prerequisite.getCourse());
+                count++;
+                counts.put(prerequisite.getCourse(), count);
+
+                count = counts.get(prerequisite.getPrerequisiteCourse());
+                count++;
+                counts.put(prerequisite.getPrerequisiteCourse(), count);
+
+            } else if (constraint instanceof ConstraintList) {
+                ConstraintList cs = (ConstraintList) constraint;
+
+                for (Constraint listConstraint : cs.getConflicts()) {
+                    if (listConstraint instanceof Prerequisite) {
+                        Prerequisite prerequisite = (Prerequisite) listConstraint;
+
+                        int count = counts.get(prerequisite.getCourse());
+                        count++;
+                        counts.put(prerequisite.getCourse(), count);
+
+                        count = counts.get(prerequisite.getPrerequisiteCourse());
+                        count++;
+                        counts.put(prerequisite.getPrerequisiteCourse(), count);
+
+                    } else if (listConstraint instanceof SemesterRestriction) {
+                        SemesterRestriction sr = (SemesterRestriction) listConstraint;
+
+                        int count = counts.get(sr.getCourse());
+                        count++;
+                        counts.put(sr.getCourse(), count);
+                    }
+                }
+            } else if (constraint instanceof CourseListConstraint) {
+                CourseListConstraint clc = (CourseListConstraint) constraint;
+
+                for (ScheduledCourse course : clc.getConflicts()) {
+                    int count = counts.get(course);
+                    count++;
+                    counts.put(course, count);
+                }
+            } else if (constraint instanceof SemesterRestriction) {
+                SemesterRestriction sr = (SemesterRestriction) constraint;
+
+                int count = counts.get(sr.getCourse());
+                count++;
+                counts.put(sr.getCourse(), count);
+            }
+        }
+
+        ScheduledCourse answer = null;
+        int max = -1;
+
+        for (ScheduledCourse key : counts.keySet()) {
+            int violations = counts.get(key);
+
+            if (violations >= max) {
+                max = violations;
+                answer = key;
+            }
+        }
+
+        return answer;
     }
 
     private void scheduleCourses() {
@@ -229,6 +313,52 @@ public class CoursesPerSemesterConstraintTest {
             }
             scheduledCourse.setSemester(getSemester(semester));
         }
+    }
+
+    private void printCourseHeader() {
+        StringBuilder sb = new StringBuilder();
+        for (ScheduledCourse course : scheduledCourseMap.values()) {
+            System.out.print(" ");
+            System.out.print(course.getCourse().getNumberAsString());
+            sb.append("----");
+        }
+        System.out.print(" ");
+        System.out.print("Score");
+        System.out.println("");
+        sb.append("----");
+        System.out.println(sb.toString());
+
+    }
+
+    private void printCourses() {
+        for (ScheduledCourse course : scheduledCourseMap.values()) {
+            System.out.print("  ");
+            System.out.print(course.getSemester().getId());
+            System.out.print(" ");
+        }
+        System.out.print("  ");
+        System.out.print(constraintList.getNumberOfConflicts());
+        System.out.println(" ");
+    }
+
+    private void printSummary(long iterations) {
+        StringBuilder sb = new StringBuilder();
+
+        for (Semester semester : semesterList) {
+            sb.append(semester.getName());
+            sb.append(":");
+            for (ScheduledCourse course : scheduledCourseMap.values()) {
+                if (course.isScheduled() && course.getSemester().equals(semester)) {
+                    sb.append(" ");
+                    sb.append(course.getCourse().getNumberAsString());
+                }
+            }
+            sb.append("\n\n");
+        }
+
+        sb.append("Total iterations to find a solution: ").append(iterations);
+
+        System.out.println(sb.toString());
     }
 
     @Before
@@ -300,10 +430,35 @@ public class CoursesPerSemesterConstraintTest {
 
     @Test
     public void isSatisfiedShouldReturnTrue() {
-        scheduleCourses();
-
+        long iterations  = 0;
         boolean expected = true;
-        boolean actual = coursesPerSemesterConstraint.isSatisfied();
+        boolean actual = constraintList.isSatisfied();
+        printCourseHeader();
+        while (!actual) {
+            randomlyScheduleCourses();
+            printCourses();
+            actual = constraintList.isSatisfied();
+
+            while (!actual && iterations % 199 != 198) {
+                ScheduledCourse course = getCourseWithTheMostConflicts();
+                Semester courseSemester = course.getSemester();
+                Semester randomSemester = getRamdomSemester();
+
+                while (courseSemester.equals(randomSemester)) {
+                    randomSemester = getRamdomSemester();
+                }
+
+                course.setSemester(randomSemester);
+                actual = constraintList.isSatisfied();
+                printCourses();
+                ++iterations;
+            }
+            ++iterations;
+        }
+
+        printCourseHeader();
+        printCourses();
+        printSummary(iterations);
 
         assertEquals(expected, actual);
     }
@@ -312,7 +467,7 @@ public class CoursesPerSemesterConstraintTest {
     public void isSatisfiedShouldReturnTrueForAllConstraints() {
         scheduleCourses();
 
-        boolean expected = true;
+        boolean expected = false;
         boolean actual = constraintList.isSatisfied();
         final List<Constraint> conflicts = constraintList.getConflicts();
 

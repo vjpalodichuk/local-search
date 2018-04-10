@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author Vincent J. Palodichuk
  */
-public class Semester implements Cloneable, Comparable<Semester> {
+public class Semester implements Cloneable, Comparable<Semester>, SearchVariable {
     private static final String DEFAULT_SEMESTER_NAME = "";
     private int id;
     private String name;
@@ -65,12 +65,38 @@ public class Semester implements Cloneable, Comparable<Semester> {
         return id;
     }
 
+    @Override
+    public void setValue(Object value) {
+        if (value instanceof Integer) {
+            Integer newId = (Integer) value;
+
+            this.id = newId;
+        }
+    }
+
+    @Override
+    public Object getValue() {
+        return id;
+    }
+
     /**
      * Returns the name of this semester.
+     *
      * @return the name of this semester.
      */
+    @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String getValueName() {
+        return "ID";
+    }
+
+    @Override
+    public String getValueAsString() {
+        return "" + getId();
     }
 
     /**
