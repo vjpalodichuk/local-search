@@ -65,6 +65,7 @@ public class LocalSearch {
         int domainSize = domain.getAllValues().size();
 
         int tabuHelped = 0;
+        int maxWalk = domainSize * variables.size();
 
         while (!done) {
             // Start off with a Random assignment of values.
@@ -76,6 +77,7 @@ public class LocalSearch {
             int variableIterations = 0;
             List<SearchVariable> variableValues = new ArrayList<>(domainSize);
             SearchVariable lastVariable = null;
+            int walkIterations = 0;
 
             // We keep walking as long as we are making progress. We stop making progress when the variable with the
             // most conflicts doesn't improve with each iteration. We use a small tabu list to know what values have
@@ -83,7 +85,7 @@ public class LocalSearch {
             // the same size as the domain for the variable. That way if the variable with the most conflicts is still
             // the same as the previous one and all values have been tried we can jump to a new search space.
             // Every time the variable with the most conflicts changes, the tabu list is reset.
-            while (!constraints.isSatisfied() && variableIterations < domainSize) {
+            while (!constraints.isSatisfied() && variableIterations < domainSize && walkIterations < maxWalk) {
                 int currentScore = constraints.getNumberOfConflicts();
 
                 SearchVariable variable = constraints.getVariableWithTheMostConflicts();
@@ -121,6 +123,11 @@ public class LocalSearch {
                     }
                 }
                 ++variableIterations;
+                ++walkIterations;
+
+                if (!(walkIterations < maxWalk)) {
+                    System.out.println("Random restart due to walking back and forth.");
+                }
             }
             done = constraints.isSatisfied();
         }

@@ -17,5 +17,7 @@ public class LocalSearchTest {
         System.out.println(ls.getLog());
 
         System.out.println(ls.getSummary());
+
+        ls.clearLog();
     }
 }

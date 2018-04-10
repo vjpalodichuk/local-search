@@ -365,16 +365,26 @@ public abstract class ConstraintList implements Constraint {
     }
 
     private void processCourseForConflicts(Map<SearchVariable, Integer> counts, ScheduledCourse course) {
+        processCourseForConflicts(counts, course, 1);
+    }
+
+    private void processCourseForConflicts(Map<SearchVariable, Integer> counts, ScheduledCourse course, int times) {
         int count = 0;
 
         if (counts.containsKey(course)) {
             count = counts.get(course);
         }
 
-        count++;
+        count += times;
         counts.put(course, count);
     }
 
+    /**
+     * Returns a map with the variables as the keys and their violation counts as the value.
+     * Prerequisite violations are worth one, Course List violations are worth 2, and
+     * Semester Restriction violations are worth 3.
+     * @return
+     */
     public Map<SearchVariable, Integer> getVariablesWithConflictCounts() {
         Map<SearchVariable, Integer> counts = new LinkedHashMap<>();
 
@@ -393,8 +403,9 @@ public abstract class ConstraintList implements Constraint {
                         processPrereqForConflicts(counts, prerequisite);
                         process = true;
                     } else if (listConstraint instanceof SemesterRestriction) {
+                        // Semester restriction violations count thrice!
                         SemesterRestriction sr = (SemesterRestriction) listConstraint;
-                        processCourseForConflicts(counts, sr.getCourse());
+                        processCourseForConflicts(counts, sr.getCourse(), 3);
                         process = true;
                     }
                 }
@@ -402,12 +413,14 @@ public abstract class ConstraintList implements Constraint {
                 CourseListConstraint clc = (CourseListConstraint) constraint;
 
                 for (ScheduledCourse course : clc.getConflicts()) {
-                    processCourseForConflicts(counts, course);
+                    // Course list violations count twice!
+                    processCourseForConflicts(counts, course, 2);
                     process = true;
                 }
             } else if (constraint instanceof SemesterRestriction) {
+                // Semester restriction violations count thrice!
                 SemesterRestriction sr = (SemesterRestriction) constraint;
-                processCourseForConflicts(counts, sr.getCourse());
+                processCourseForConflicts(counts, sr.getCourse(), 3);
                 process = true;
             }
         }
