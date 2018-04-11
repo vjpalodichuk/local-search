@@ -6,8 +6,10 @@ package edu.metrostate.ics340.vjp.localsearch;
 import java.util.Objects;
 
 /**
- * The ScheduledCourse is a Course that also has been assigned a semester that the course is taken in. If a
+ * The ScheduledCourse is a Course that can be assigned to a semester. If a
  * ScheduledCourse does not have a Semester then it has not been taken or scheduled.
+ * <p>
+ * The ScheduledCourse also implements the SearchVariable interface so that it can be used in LocalSearch problems.
  *
  * @author Vincent J. Palodichuk
  */
@@ -15,6 +17,9 @@ public class ScheduledCourse implements SearchVariable, Comparable<ScheduledCour
     private Course course;
     private Semester semester;
 
+    /**
+     * Initializes an empty course that is not valid and has not been scheduled.
+     */
     public ScheduledCourse() {
         this(null, null);
     }

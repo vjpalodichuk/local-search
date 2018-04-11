@@ -8,7 +8,8 @@ import edu.metrostate.ics340.vjp.localsearch.Semester;
 
 /**
  * A SemesterExclusion is a type of SemesterRestriction where the ScheduledCourse must not be scheduled in the
- * specified semester.
+ * specified semester. Typically SemesterRestrictions are grouped together in a ConstraintList and then operated on as
+ * a whole.
  */
 public class SemesterExclusion extends SemesterRestriction {
     /**

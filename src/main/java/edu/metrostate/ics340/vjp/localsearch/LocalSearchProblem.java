@@ -9,7 +9,14 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
 
-
+/**
+ * The LocalSearchProblem class is used to define all aspects of the local search problem to be solved. In this
+ * instance, the class is used to define a class scheduling problem where the classes may have different types of
+ * constraints, such as Prerequisite constraints, ConcurrentPrerequisite constraints, SemesterRestriction constraints,
+ * SemesterExclusion constraints, CourseList constraints and of course, ConstraintList constraints, and the classes all
+ * have to be scheduled such that all of the constraints are satisfied. The LocalSearchProblem also acts as the
+ * VariableDomain but that isn't an absolute requirement of the framework.
+ */
 public class LocalSearchProblem implements VariableDomain {
     private static final String ICS_DEPARTMENT;
     private static final String MATH_DEPARTMENT;
@@ -33,6 +40,9 @@ public class LocalSearchProblem implements VariableDomain {
     private List<Semester> semesters;
     private Map<Course, ScheduledCourse> courses;
 
+    /**
+     * Initializes this problem so that it can immediately be used.
+     */
     public LocalSearchProblem() {
         constraints = new EveryConstraintList();
         courses = new LinkedHashMap<>();
@@ -43,6 +53,14 @@ public class LocalSearchProblem implements VariableDomain {
         loadConstraints();
     }
 
+    /**
+     * Returns a list of search variables that this problem defines and that need to have values assigned to
+     * them such that all of the constraints are satisfied. This method is typically used to pass a Collection of
+     * SearchVariables to the LocalSearch class.
+     *
+     * @return a list of search variables that this problem defines and that need to have values assigned to
+     * them such that all of the constraints are satisfied.
+     */
     public List<SearchVariable> getVariables() {
         List<SearchVariable> answer = new ArrayList<>(courses.size());
 
@@ -51,6 +69,14 @@ public class LocalSearchProblem implements VariableDomain {
         return answer;
     }
 
+    /**
+     * Returns the ConstraintList for this problem. The ConstraintList is directly tied to the variables that this
+     * problem defines. Changes to the variable's values have a direct impact on the state of the ConstraintList. If
+     * a variable's value is changed, then the isSatisfied method of the returned ConstraintList should be activated
+     * to see if the new assignment is a solution.
+     *
+     * @return the ConstraintList for this problem.
+     */
     public ConstraintList getConstraints() {
         return constraints;
     }
@@ -236,6 +262,11 @@ public class LocalSearchProblem implements VariableDomain {
         return getAllValues();
     }
 
+    /**
+     * For purposes of this LocalSearch problem, the domain of every variable is the list of semesters.
+     *
+     * @return the list of possible values for all variables.
+     */
     @Override
     public List<SearchVariable> getAllValues() {
         List<SearchVariable> answer = new ArrayList<>(semesters.size());

@@ -108,9 +108,18 @@ public class LocalSearch {
     }
 
     /**
+     * Performs the local search on the variables. Please see the class description for the logic used to perform the
+     * search. If maxIterations is non-zero then, regardless if a solution is found, the search will abort if
+     * maxIterations is reached. If no solution is found because maxIterations has been reached, null is returned;
+     * otherwise the return value is a complete assignment of the variables that satisfies all of the constraints.
+     * If the local search problem does not contain a solution and maxIterations is 0, then this method will never
+     * return!
      *
-     * @param maxIterations
-     * @return
+     * @param maxIterations if non-zero then, regardless if a solution is found, the search will abort if
+     *                      maxIterations is reached. If equal to 0, the search will continue until a solution is found.
+     * @return if no solution is found, null is returned; otherwise the return value is a complete
+     * assignment of the variables that satisfies all of the constraints. If there is no solution to the problem, this
+     * method will never return unless maxIterations is non-zero.
      */
     public Map<SearchVariable, SearchVariable> search(int maxIterations) {
         // Clear any pre-existing results.
@@ -125,7 +134,7 @@ public class LocalSearch {
         List<SearchVariable> searchVariables = new ArrayList<>(variables.size());
         searchVariables.addAll(variables.keySet());
 
-        while (!done && iterations < maxIterations) {
+        while (!done && (iterations < maxIterations || maxIterations == 0)) {
             // Start off with a Random assignment of values.
             randomTotalAssignment();
             ++iterations;
@@ -250,111 +259,6 @@ public class LocalSearch {
         return answer;
     }
 
-    /**
-     * Our goal here is to produce an assignment that is better than the current assignment. If we cannot produce
-     * an assignment that is better than the current one, we return false so that we can get a new total assignment.
-     * If we find an assignment with a score of 0, we return true;
-     * @param domainSize
-     * @return
-     */
-    private boolean bestImprovement(int domainSize) {
-        boolean answer = false;
-
-        // Start off by getting the current score.
-        int currentScore = constraints.getNumberOfConflicts();
-        int newScore = currentScore;
-
-        List<SearchVariable> variableValues = new ArrayList<>(domainSize);
-        SearchVariable lastVariable = null;
-        int walkIterations = 0;
-        int maxWalkIterations = 1000;
-
-        // Save off the current assignment so that we can refer to it later
-        Map<Map<SearchVariable, SearchVariable>, Integer> previousAssignments = new HashMap<>();
-        previousAssignments.put(copyCurrentAssignment(), currentScore);
-
-        boolean done = currentScore == 0;
-
-        while (!done && walkIterations < maxWalkIterations) {
-            Map<SearchVariable, Integer> neighbors = constraints.getVariablesWithConflictCounts();
-//            SearchVariable variable = getNextNeighbor(neighbors);
-            int minScore = currentScore;
-            SearchVariable minNeighbor = null;
-            SearchVariable minValue = null;
-
-            for (SearchVariable variable : neighbors.keySet()) {
-                int variableIterations = 0;
-                SearchVariable value = domain.getRandomValue(variable);
-                SearchVariable oldValue = (SearchVariable)variable.getValue();
-                int variableDomainSize = domain.getValues(variable).size();
-
-                while (!done && variableIterations < variableDomainSize) {
-                    // We will keep walking as long as we keep improving. That is, we improve when
-                    // the variable with the most conflicts changes before the current variable exhausts all
-                    // values in the domain.
-                    if (!variable.equals(lastVariable)) {
-                        variableValues.clear();
-                        lastVariable = variable;
-                        variableIterations = 0;
-                        variableValues.add(oldValue);
-                    }
-
-                    if (variableValues.size() < variableDomainSize) {
-                        // Skip any values we have already tried for this variable
-                        // and try to get a new value if possible.
-                        int tries = 0;
-                        while (variableValues.contains(value) && tries < variableDomainSize) {
-                            value = domain.getRandomValue(variable);
-                            tries++;
-                        }
-
-                        if (!variableValues.contains(value)) {
-                            variable.setValue(value);
-                            variables.put(variable, value);
-                            variableValues.add(value);
-                            final Map<SearchVariable, SearchVariable> assignmentMap = copyCurrentAssignment();
-                            newScore = constraints.getNumberOfConflicts();
-
-
-                            if (newScore < minScore && !previousAssignments.containsKey(assignmentMap)) {
-                                minScore = newScore;
-                                minNeighbor = variable;
-                                minValue = value;
-                                logIt(getVerboseVariableValues());
-                            }
-                            previousAssignments.put(assignmentMap, newScore);
-                            variable.setValue(oldValue);
-                            variables.put(variable, oldValue);
-
-                            if (newScore == 0) {
-                                done = true;
-                                break;
-                            }
-                        }
-                    }
-
-                    ++variableIterations;
-                    ++walkIterations;
-                }
-
-                if (done) {
-                    break;
-                }
-            }
-
-            if (!done && minNeighbor != null) {
-                minNeighbor.setValue(minValue);
-                logIt(getVerboseVariableValues());
-            } else if (done) {
-                logIt(getVerboseVariableValues());
-            }
-        }
-
-        answer = constraints.isSatisfied();
-
-        return answer;
-    }
-
     private String getVerboseVariableHeaders() {
         StringBuilder sb = new StringBuilder();
         StringBuilder dashed = new StringBuilder();
@@ -388,6 +292,13 @@ public class LocalSearch {
         return sb.toString();
     }
 
+    /**
+     * Returns a summary of the solution from the current assignment. If the current assignment is not a solution,
+     * then the summary output states there is no solution and asks that you perform a search.
+     *
+     * @return a summary of the solution from the current assignment. If the current assignment is not a solution,
+     * then the summary output states there is no solution and asks that you perform a search.
+     */
     public String getSummary() {
         StringBuilder sb = new StringBuilder();
 
@@ -395,16 +306,20 @@ public class LocalSearch {
 
         sb.append("Local Search Summary:\n\n");
 
-        for (SearchVariable valueVariable : values) {
-            sb.append(valueVariable.getName());
-            sb.append(":");
-            for (SearchVariable variable : variables.keySet()) {
-                if (Objects.equals(variable.getValue(), valueVariable)) {
-                    sb.append(" ");
-                    sb.append(variable.getName());
+        if (constraints.isSatisfied()) {
+            for (SearchVariable valueVariable : values) {
+                sb.append(valueVariable.getName());
+                sb.append(":");
+                for (SearchVariable variable : variables.keySet()) {
+                    if (Objects.equals(variable.getValue(), valueVariable)) {
+                        sb.append(" ");
+                        sb.append(variable.getName());
+                    }
                 }
+                sb.append("\n\n");
             }
-            sb.append("\n\n");
+        } else {
+            sb.append("No Solution. Please try to perform a search.\n\n");
         }
 
         return sb.toString();

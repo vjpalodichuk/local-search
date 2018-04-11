@@ -13,7 +13,8 @@ import java.util.*;
 /**
  * A ConstraintList is an abstract base class for a type of Constraint where any, every, or none of the
  * constraints contained within it need to return true. See AnyConstraintList, EveryConstraintList,
- * and NoneConstraintList for more details.
+ * and NoneConstraintList for more details. A ConstraintList is used by LocalSearch to determine when it has found a
+ * solution to the problem.
  */
 public abstract class ConstraintList implements Constraint {
     private static final long SEED;
@@ -393,7 +394,10 @@ public abstract class ConstraintList implements Constraint {
      * Returns a map with the variables as the keys and their violation counts as the value.
      * Prerequisite violations are worth one, Course List violations are worth 2, and
      * Semester Restriction violations are worth 3.
-     * @return
+     *
+     * @returna map with the variables as the keys and their violation counts as the value.
+     * Prerequisite violations are worth one, Course List violations are worth 2, and
+     * Semester Restriction violations are worth 3.
      */
     public Map<SearchVariable, Integer> getVariablesWithConflictCounts() {
         Map<SearchVariable, Integer> counts = new LinkedHashMap<>();
@@ -438,6 +442,14 @@ public abstract class ConstraintList implements Constraint {
         return counts;
     }
 
+    /**
+     * Returns a variable that has the most conflicts within the list of constraints contained within this
+     * ConstraintList. If more than one variable have the greatest number of conflicts, then one of them is
+     * randomly selected to be the one returned.
+     *
+     * @return a variable that has the most conflicts within the list of constraints contained within this
+     * ConstraintList.
+     */
     public SearchVariable getVariableWithTheMostConflicts() {
         Map<SearchVariable, Integer> counts = getVariablesWithConflictCounts();
         SearchVariable answer = null;

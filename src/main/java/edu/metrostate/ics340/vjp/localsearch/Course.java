@@ -8,7 +8,8 @@ import java.util.Objects;
 
 /**
  * The Course class represents a course that could be offered at a university.
- * A course has a department and a number.
+ * A course has a department and a number. The Course is just a simple bean and is primarily used to initialize
+ * the variables of the LocalSearchProblem.
  *
  * @author Vincent J. Palodichuk
  */

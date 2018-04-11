@@ -8,7 +8,8 @@ import java.util.Objects;
 /**
  * The Semester class is used to define a semester with a unique id and name. If a semester takes place during the
  * summer, a flag can be set to indicate that at construction time. Two semesters are considered equal if they have
- * the same id.
+ * the same id. Additionally, the Semester implements the SearchVariable interface so that it can be used in
+ * the LocalSearch framework.
  *
  * @author Vincent J. Palodichuk
  */

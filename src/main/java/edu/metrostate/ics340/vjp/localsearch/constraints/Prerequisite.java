@@ -8,7 +8,7 @@ import edu.metrostate.ics340.vjp.localsearch.ScheduledCourse;
 import java.util.Objects;
 
 /**
- * The Prerequisite class represents a prerequisite course that must be taken before the course that
+ * The Prerequisite class represents a constraint where the prerequisite course must be taken before the course that
  * this prerequisite is for. The prerequisite is a type of Constraint and will be used when creating a class schedule.
  *
  * @author Vincent J. Palodichuk

@@ -13,7 +13,8 @@ import java.util.Objects;
 
 /**
  * A CourseListConstraint is exactly what it sounds like. It is a Constraint that is applied to a list of
- * Scheduled Courses.
+ * Scheduled Courses. Like all other constraint types, it implements Constraint so that it can be used with the
+ * LocalSearch problem framework.
  */
 public abstract class CourseListConstraint implements Constraint, Cloneable {
     protected List<Semester> semesters;

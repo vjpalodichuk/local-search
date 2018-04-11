@@ -7,7 +7,8 @@ import java.util.List;
 
 /**
  * The NoneConstraintList is a ConstraintList for any type of Constraint where none of the
- * constraints contained within it can return true. See AnyConstraintList, EveryConstraintList for more details.
+ * constraints contained within it can return true. The NoneConstraintList is currently not used by this problem.
+ * See AnyConstraintList, EveryConstraintList for more details.
  */
 public class NoneConstraintList extends ConstraintList {
     /**

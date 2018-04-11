@@ -10,6 +10,7 @@ import java.util.Objects;
 
 /**
  * A SemesterRestriction is a type of Constraint where the ScheduledCourse must be scheduled in the specified semester.
+ * Typically SemesterRestrictions are grouped together in a ConstraintList and then operated on as a whole.
  */
 public class SemesterRestriction implements Constraint, Cloneable {
     private ScheduledCourse course;

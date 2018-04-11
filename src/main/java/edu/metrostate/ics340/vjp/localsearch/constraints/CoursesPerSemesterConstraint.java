@@ -9,8 +9,8 @@ import edu.metrostate.ics340.vjp.localsearch.Semester;
 import java.util.*;
 
 /**
- * The CoursesPerSemesterConstraint checks a course list to ensure that the number of classes scheduled per
- * semester is no more than the number specified in the constraint.
+ * The CoursesPerSemesterConstraint is a CourseListConstraint that checks a course list to ensure that the number of
+ * classes scheduled per semester is no more than the number specified in the constraint.
  */
 public class CoursesPerSemesterConstraint extends CourseListConstraint {
     private static final int MIN_COURSES_PER_SEMESTER = 0;
@@ -72,9 +72,9 @@ public class CoursesPerSemesterConstraint extends CourseListConstraint {
     }
 
     /**
-     * Returns a list of semesters that have more than the maximum number of courses scheduled.
+     * Returns a list of ScheduledCourses that are in semesters that exceed the number of courses per semester.
      *
-     * @return a list of semesters that have more than the maximum number of courses scheduled.
+     * @return a list of ScheduledCourses that are in semesters that exceed the number of courses per semester.
      */
     @Override
     public List<ScheduledCourse> getConflicts() {
