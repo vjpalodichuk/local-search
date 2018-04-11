@@ -3,6 +3,8 @@
  */
 package edu.metrostate.ics340.vjp.localsearch;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 import java.time.LocalDateTime;
@@ -261,8 +263,8 @@ public class FindScheduleApplication extends Application  implements EventHandle
      * 
      */
     public void disableActions(boolean disable) {
-        if (optionsMenu != null) {
-        	optionsMenu.getItems().forEach((item) -> {
+        if (actionsMenu != null) {
+        	actionsMenu.getItems().forEach((item) -> {
                 item.setDisable(disable);
             });
         }
@@ -273,9 +275,7 @@ public class FindScheduleApplication extends Application  implements EventHandle
                 .forEach((node) -> {
                 if (node instanceof Button) {
                     Button btn = (Button) node;
-                    if ((Objects.equals(btn.getText(), ACTION_SUMMARY))
-                            || (Objects.equals(btn.getText(), ACTION_VERBOSE))
-                            || (Objects.equals(btn.getText(), ACTION_AUTO_SAVE))) {
+                    if (Objects.equals(btn.getText(), ACTION_PERFORM_SEARCH)) {
                         btn.setDisable(disable);
                     }
                 }
@@ -511,65 +511,74 @@ public class FindScheduleApplication extends Application  implements EventHandle
                     break;
                 case ACTION_PERFORM_SEARCH:
                     output.appendText(String.format(MSG_EXECUTING_FMT));
-                    LocalSearchProblem lsp = new LocalSearchProblem();
-                    LocalSearch ls = new LocalSearch(lsp.getVariables(), lsp, lsp.getConstraints());
-                    String results = "";
-                    ls.search(0);
-                    
-                    if (summaryOutput()) {
-                    	results = ls.getSummary();
-                    	output.appendText(results);
-                    } else {
-                    	results = ls.getLog();
-                    	output.appendText(results);
-                    }
-                    
-                    if (autoSave()) {
-                        try {
-                            String directory = System.getProperty("user.dir");
-                            String fullPath = "LocalSearch_On_" + 
-                            		LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli() +
-                            		".txt";
-                            String ext = "";
-                            String name = "";
-                            
-                            int extIndex = fullPath.lastIndexOf('.');
-                            
-                            if (extIndex >= 0) {
-                                ext = fullPath.substring(extIndex);
-                            }
-                            
-                            int index = fullPath.lastIndexOf(File.separatorChar);
-                            
-                            if (index >= 0) {
-                                name = fullPath.substring(index + 1, extIndex >= 0 ? extIndex : fullPath.length());
-                            } else {
-                                fullPath = Paths.get(fullPath).getFileName().toString();
-                                
-                                extIndex = fullPath.lastIndexOf('.');
-
-                                if (extIndex >= 0) {
-                                    ext = fullPath.substring(extIndex);
-                                }
-
-                                name = fullPath.substring(index + 1, extIndex >= 0 ? extIndex : fullPath.length());
-                            }
-                            
-                            String outFileName = name + ext;
-                            
-                            String answer = directory + File.separatorChar + outFileName;
-
-                            if (!Files.exists(Paths.get(answer))) {
-                                Files.createFile(Paths.get(answer));
-                            }
-                            
-                            saveOutputToFile(results, Paths.get(answer).toFile());
-                            
-                        } catch (IOException ex) {
-                        	Logger.getLogger(FindScheduleApplication.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    	
-                    }
+                    disableActions(true);
+        			ExecutorService executor = Executors.newCachedThreadPool();
+        			
+        			executor.submit(() -> {
+	                    LocalSearchProblem lsp = new LocalSearchProblem();
+	                    LocalSearch ls = new LocalSearch(lsp.getVariables(), lsp, lsp.getConstraints());
+	                    String results = "";
+	                    ls.search(0);
+	                    
+	                    if (summaryOutput()) {
+	                    	results = ls.getSummary();
+	                    	output.appendText(results);
+	                    } else {
+	                    	results = ls.getLog();
+	                    	output.appendText(results);
+	                    }
+	                    
+	                    if (autoSave()) {
+	                        try {
+	                            String directory = System.getProperty("user.dir");
+	                            String fullPath = "LocalSearch_On_" + 
+	                            		LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli() +
+	                            		".txt";
+	                            String ext = "";
+	                            String name = "";
+	                            
+	                            int extIndex = fullPath.lastIndexOf('.');
+	                            
+	                            if (extIndex >= 0) {
+	                                ext = fullPath.substring(extIndex);
+	                            }
+	                            
+	                            int index = fullPath.lastIndexOf(File.separatorChar);
+	                            
+	                            if (index >= 0) {
+	                                name = fullPath.substring(index + 1, extIndex >= 0 ? extIndex : fullPath.length());
+	                            } else {
+	                                fullPath = Paths.get(fullPath).getFileName().toString();
+	                                
+	                                extIndex = fullPath.lastIndexOf('.');
+	
+	                                if (extIndex >= 0) {
+	                                    ext = fullPath.substring(extIndex);
+	                                }
+	
+	                                name = fullPath.substring(index + 1, extIndex >= 0 ? extIndex : fullPath.length());
+	                            }
+	                            
+	                            String outFileName = name + ext;
+	                            
+	                            String answer = directory + File.separatorChar + outFileName;
+	
+	                            if (!Files.exists(Paths.get(answer))) {
+	                                Files.createFile(Paths.get(answer));
+	                            }
+	                            
+	                            saveOutputToFile(results, Paths.get(answer).toFile());
+	                            
+	                        } catch (IOException ex) {
+	                        	Logger.getLogger(FindScheduleApplication.class.getName()).log(Level.SEVERE, null, ex);
+	                        }
+	                    	
+	                    }
+	                    
+	                    Platform.runLater(() -> {
+	                    	disableActions(false);
+						});
+        			});
                     break;
             }
         }

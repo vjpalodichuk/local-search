@@ -109,6 +109,18 @@ public class LocalSearch {
 
     /**
      * Performs the local search on the variables. Please see the class description for the logic used to perform the
+     * search. The return value is a complete assignment of the variables that satisfies all of the constraints.
+     * If the local search problem does not contain a solution then this method will never return!
+     *
+     * @return the return value is a complete assignment of the variables that satisfies all of the constraints.
+     * If there is no solution to the problem, this method will never return.
+     */
+    public Map<SearchVariable, SearchVariable> search() {
+    	return search(0);
+    }
+    
+    /**
+     * Performs the local search on the variables. Please see the class description for the logic used to perform the
      * search. If maxIterations is non-zero then, regardless if a solution is found, the search will abort if
      * maxIterations is reached. If no solution is found because maxIterations has been reached, null is returned;
      * otherwise the return value is a complete assignment of the variables that satisfies all of the constraints.
