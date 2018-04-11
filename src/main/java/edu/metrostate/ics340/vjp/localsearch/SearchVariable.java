@@ -8,6 +8,8 @@ public interface SearchVariable extends Cloneable {
 
     Object getValue();
 
+    void clearValue();
+
     String getName();
 
     String getValueName();

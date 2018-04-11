@@ -79,6 +79,11 @@ public class Semester implements Cloneable, Comparable<Semester>, SearchVariable
         return id;
     }
 
+    @Override
+    public void clearValue() {
+        this.id = -1;
+    }
+
     /**
      * Returns the name of this semester.
      *

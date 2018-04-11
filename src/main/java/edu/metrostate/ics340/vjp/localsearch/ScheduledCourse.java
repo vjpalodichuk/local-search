@@ -241,4 +241,9 @@ public class ScheduledCourse implements SearchVariable, Comparable<ScheduledCour
     public Object getValue() {
         return getSemester();
     }
+
+    @Override
+    public void clearValue() {
+        this.semester = null;
+    }
 }

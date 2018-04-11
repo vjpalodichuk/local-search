@@ -6,6 +6,8 @@ package edu.metrostate.ics340.vjp.localsearch.constraints;
 import edu.metrostate.ics340.vjp.localsearch.ScheduledCourse;
 import edu.metrostate.ics340.vjp.localsearch.SearchVariable;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.*;
 
 /**
@@ -14,6 +16,14 @@ import java.util.*;
  * and NoneConstraintList for more details.
  */
 public abstract class ConstraintList implements Constraint {
+    private static final long SEED;
+    private static Random RANDOM;
+
+    static {
+        SEED = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        RANDOM = new Random(SEED);
+    }
+
     protected List<Constraint> constraints;
 
     /**
@@ -431,6 +441,7 @@ public abstract class ConstraintList implements Constraint {
     public SearchVariable getVariableWithTheMostConflicts() {
         Map<SearchVariable, Integer> counts = getVariablesWithConflictCounts();
         SearchVariable answer = null;
+        List<SearchVariable> maxConflicts = new ArrayList<>();
 
         int max = 0;
 
@@ -439,8 +450,20 @@ public abstract class ConstraintList implements Constraint {
 
             if (violations > max) {
                 max = violations;
+                maxConflicts.clear();
+                maxConflicts.add(key);
                 answer = key;
+            } else if (violations == max && !maxConflicts.contains(key)) {
+                maxConflicts.add(key);
             }
+        }
+
+        // If just one variable is the max we return it.
+        // Otherwise we randomly select one to return.
+        if (maxConflicts.size() == 1) {
+            answer = maxConflicts.get(0);
+        } else if (maxConflicts.size() > 1) {
+            answer = maxConflicts.get(RANDOM.nextInt(maxConflicts.size()));
         }
 
         return answer;

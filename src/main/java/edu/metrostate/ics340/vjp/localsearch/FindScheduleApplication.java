@@ -14,6 +14,10 @@ import javafx.stage.Stage;
  * allows a student coming in with an AA degree in a completely non-technical subject to complete their Computer Science
  * degree at Metro State in n semesters.
  *
+ * It offers the choice of verbose or summary output.
+ *
+ * See the LocalSearch class for more details on how the LocalSearch is actually performed.
+ *
  * @author Vincent J. Palodichuk
  *
  */
