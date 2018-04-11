@@ -3,6 +3,9 @@
  */
 package edu.metrostate.ics340.vjp.localsearch;
 
+import javafx.animation.Timeline;
+import javafx.animation.KeyFrame;
+import javafx.util.Duration;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.logging.Logger;
@@ -78,7 +81,7 @@ public class FindScheduleApplication extends Application  implements EventHandle
     private static final String ACTION_EXIT = "Exit";
     private static final String ACTION_CLEAR_OUTPUT = "Clear Output";
     private static final String ACTION_SAVE_OUTPUT = "Save Output...";
-    private static final String MSG_EXECUTING_FMT = "%nPerforming Local Search...%n";
+    private static final String MSG_EXECUTING_FMT = "%nPerforming Local Search...";
     
     private final Label lblOutputMode = new Label();
     private final Label lblAutoSave = new Label();
@@ -89,6 +92,37 @@ public class FindScheduleApplication extends Application  implements EventHandle
     private final Menu helpMenu = new Menu(MENU_HELP);
     private ToolBar toolBar = null;
     private Stage stage = null;
+    private boolean searching = false;
+    private Timeline searchTimer = new Timeline(new KeyFrame(Duration.millis(10), (event) -> {
+    	if (isSearching()) {
+    		output.appendText(".");
+    	}
+    }));
+    
+    synchronized public boolean isSearching() {
+    	return searching;
+    }
+    
+    synchronized private void beginSearch() {
+    	searching = true;
+    	disableActions(true);
+    	startTimer();
+    }
+    
+    synchronized private void endSearch() {
+    	searching = false;
+    	disableActions(false);
+    	stopTimer();
+    }
+    
+    private void startTimer() {
+    	searchTimer.setCycleCount(Timeline.INDEFINITE);
+    	searchTimer.play();
+    }
+    
+    synchronized private void stopTimer() {
+    	searchTimer.stop();
+    }
     
     /**
      * Sets up the toolbar for this application.
@@ -511,7 +545,7 @@ public class FindScheduleApplication extends Application  implements EventHandle
                     break;
                 case ACTION_PERFORM_SEARCH:
                     output.appendText(String.format(MSG_EXECUTING_FMT));
-                    disableActions(true);
+                    beginSearch();
         			ExecutorService executor = Executors.newCachedThreadPool();
         			
         			executor.submit(() -> {
@@ -522,10 +556,8 @@ public class FindScheduleApplication extends Application  implements EventHandle
 	                    
 	                    if (summaryOutput()) {
 	                    	results = ls.getSummary();
-	                    	output.appendText(results);
 	                    } else {
 	                    	results = ls.getLog();
-	                    	output.appendText(results);
 	                    }
 	                    
 	                    if (autoSave()) {
@@ -574,11 +606,16 @@ public class FindScheduleApplication extends Application  implements EventHandle
 	                        }
 	                    	
 	                    }
+	                    final String realResults = results;
 	                    
 	                    Platform.runLater(() -> {
-	                    	disableActions(false);
+	                    	endSearch();
+	                    	output.appendText("\n\n");
+	                    	output.appendText(realResults);
 						});
         			});
+        			
+        			executor.shutdown();
                     break;
             }
         }
