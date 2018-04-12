@@ -10,7 +10,7 @@ import java.util.List;
  * constraints contained within it can return true. The NoneConstraintList is currently not used by this problem.
  * See AnyConstraintList, EveryConstraintList for more details.
  */
-public class NoneConstraintList extends ConstraintList {
+public class NoneConstraintList extends AbstractConstraintList {
     /**
      * Returns the number of conflicts this course has with it's constraints that have been taken.
      * If there are no conflicts, then zero is returned.

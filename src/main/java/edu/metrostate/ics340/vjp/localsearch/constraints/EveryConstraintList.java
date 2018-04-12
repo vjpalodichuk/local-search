@@ -9,7 +9,7 @@ import java.util.List;
  * The EveryConstraintList is a ConstraintList for any type of Constraint where all of the
  * constraints contained within it need to return true. See AnyConstraintList, NoneConstraintList for more details.
  */
-public class EveryConstraintList extends ConstraintList {
+public class EveryConstraintList extends AbstractConstraintList {
     /**
      * Initializes an empty list of constraints.
      */

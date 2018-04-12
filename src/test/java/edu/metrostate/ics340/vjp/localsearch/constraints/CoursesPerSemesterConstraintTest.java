@@ -217,7 +217,7 @@ public class CoursesPerSemesterConstraintTest {
                 count++;
                 counts.put(prerequisite.getPrerequisiteCourse(), count);
 
-            } else if (constraint instanceof ConstraintList) {
+            } else if (constraint instanceof AbstractConstraintList) {
                 ConstraintList cs = (ConstraintList) constraint;
 
                 for (Constraint listConstraint : cs.getConflicts()) {

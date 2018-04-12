@@ -21,23 +21,31 @@ import java.util.*;
  * To ensure we don't keep trying the same variable value pair we keep a small tabu list
  * for the current variable of the values that were already tried. If we move to a new variable, the tabu list is
  * cleared and a new one started for the new variable. The size of the Tabu list is the size of the domain of possible
- * values for that variable.
+ * values for that variable up to a max of 256. This way we don't consume too much memory of the domain is infinite or
+ * really large.
  * <p>
- * If we get stuck on the same variable that has the most conflicts perform a Random Walk where we randomly select a
+ * If we get stuck on the same variable that has the most conflicts we perform a Random Walk where we randomly select a
  * new variable from the list of variables with conflicts that is not our current variable. If we are unsuccessful in
  * selecting another variable we perform a Random Restart and begin again. Additionally, if we have not found a
- * solution by the time we have walked (domain size * number of variables) iterations, we perform a Random Restart.
+ * solution by the time we have walked (typically domain size * number of variables but is capped at 256) iterations,
+ * we perform a Random Restart.
  * <p>
+ * To avoid not halting search may be called with an option non-zero value. The value represents the maximum number of
+ * assignments to try before completely giving up finding a solution.
  *
  * @author Vincent J. Palodichuk
  */
 public class LocalSearch {
     private static final long SEED;
-    private static Random RANDOM;
+    private static final Random RANDOM;
+    private static final int MAX_VARIABLE_TRIES;
+    private static final int MAX_VARIABLE_WALK;
 
     static {
         SEED = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
         RANDOM = new Random(SEED);
+        MAX_VARIABLE_TRIES = 256;
+        MAX_VARIABLE_WALK = 256;
     }
 
     private Map<SearchVariable, SearchVariable> variables;
@@ -121,40 +129,40 @@ public class LocalSearch {
     
     /**
      * Performs the local search on the variables. Please see the class description for the logic used to perform the
-     * search. If maxIterations is non-zero then, regardless if a solution is found, the search will abort if
-     * maxIterations is reached. If no solution is found because maxIterations has been reached, null is returned;
+     * search. If maxAssignments is non-zero then, regardless if a solution is found, the search will abort if
+     * maxAssignments is reached. If no solution is found because maxAssignments has been reached, null is returned;
      * otherwise the return value is a complete assignment of the variables that satisfies all of the constraints.
-     * If the local search problem does not contain a solution and maxIterations is 0, then this method will never
+     * If the local search problem does not contain a solution and maxAssignments is 0, then this method will never
      * return!
      *
-     * @param maxIterations if non-zero then, regardless if a solution is found, the search will abort if
-     *                      maxIterations is reached. If equal to 0, the search will continue until a solution is found.
+     * @param maxAssignments if non-zero then, regardless if a solution is found, the search will abort if
+     *                      maxAssignments is reached. If equal to 0, the search will continue until a solution is found.
      * @return if no solution is found, null is returned; otherwise the return value is a complete
      * assignment of the variables that satisfies all of the constraints. If there is no solution to the problem, this
-     * method will never return unless maxIterations is non-zero.
+     * method will never return unless maxAssignments is non-zero.
      */
-    public Map<SearchVariable, SearchVariable> search(int maxIterations) {
+    public Map<SearchVariable, SearchVariable> search(int maxAssignments) {
         // Clear any pre-existing results.
         clear();
         boolean done = false;
-        int iterations = 0;
+        int assignments = 0;
 
         logIt(getVerboseVariableHeaders());
-        int domainSize = domain.getAllValues().size();
-        int maxWalk = domainSize * variables.size();
+        int maxVariableTries = Math.min(domain.size(), MAX_VARIABLE_TRIES);
+        int maxWalk = Math.min(maxVariableTries * variables.size(), MAX_VARIABLE_WALK);
 
         List<SearchVariable> searchVariables = new ArrayList<>(variables.size());
         searchVariables.addAll(variables.keySet());
 
-        while (!done && (iterations < maxIterations || maxIterations == 0)) {
+        while (!done && (assignments < maxAssignments || maxAssignments == 0)) {
             // Start off with a Random assignment of values.
             randomTotalAssignment();
-            ++iterations;
+            ++assignments;
 
             logIt(getVerboseVariableValues());
 
             int variableIterations = 1;
-            List<SearchVariable> variableValues = new ArrayList<>(domainSize);
+            List<SearchVariable> variableValues = new ArrayList<>(maxVariableTries);
             SearchVariable lastVariable = null;
             int walkIterations = 1;
 
@@ -169,28 +177,28 @@ public class LocalSearch {
                 SearchVariable variable = constraints.getVariableWithTheMostConflicts();
 
                 // Are we stuck?
-                if (variableIterations >= domainSize) {
+                if (variableIterations >= maxVariableTries) {
                     int tries = 0;
 
                     // Try to jiggle us out of here without having to resort to a restart by selecting another
                     // variable with a conflict.
                     List<SearchVariable> conflicts = new ArrayList<>();
-                    conflicts.addAll(constraints.getVariablesWithConflictCounts().keySet());
-                    while (variable.equals(lastVariable) && tries < 100) {
+                    conflicts.addAll(constraints.getVariablesInConflictWithScores().keySet());
+                    while (variable.equals(lastVariable) && tries < maxVariableTries) {
                         variable = conflicts.get(RANDOM.nextInt(conflicts.size()));
                         tries++;
                     }
 
                     if (variable.equals(lastVariable)) {
                         // If we are unable to get a new variable with a conflict then
-                        // bail out of the while loop to get a complete new assignment
+                        // bail out of the while loop and do a RandomRestart
                         break;
                     }
                 }
 
                 SearchVariable value = domain.getRandomValue(variable);
                 SearchVariable oldValue = (SearchVariable)variable.getValue();
-                int variableDomainSize = domain.getValues(variable).size();
+                int variableDomainSize = domain.size(variable);
 
                 // We will reset and keep walking as long as we keep improving. That is, we improve when
                 // the variable with the most conflicts changes before the current variable exhausts all
@@ -221,9 +229,12 @@ public class LocalSearch {
 
                         // Is it an improvement? An improvement is a lower score or, the same score but we are no longer
                         // the variable with the most conflicts :-D
-                        if (score < currentScore) {// ||
-                                //(score == currentScore && !variable.equals(constraints.getVariableWithTheMostConflicts()))) {
+                        if (score < currentScore ||
+                                (score == currentScore && !variable.equals(constraints.getVariableWithTheMostConflicts()))) {
                             logIt(getVerboseVariableValues());
+                            ++assignments;
+                            // Walk back a bit so that we have an opportunity to improve this.
+                            walkIterations -= variableValues.size();
                         } else {
                             // Reject and go back to the old value and start again at the next iteration.
                             variable.setValue(oldValue);
@@ -231,9 +242,9 @@ public class LocalSearch {
                         }
                     }
                 }
-                ++iterations;
                 ++variableIterations;
                 ++walkIterations;
+
             }
             done = constraints.isSatisfied();
         }

@@ -44,4 +44,21 @@ public interface VariableDomain {
      * @return a list of all possible values for all variables that the domain knows about.
      */
     List<SearchVariable> getAllValues();
+
+    /**
+     * Returns the size of the entire domain. If a domain is infinite, then it should return a reasonable value.
+     *
+     * @return the size of the entire domain. If a domain is infinite, then it should return a reasonable value.
+     */
+    int size();
+
+    /**
+     * Returns the size of the entire domain for the specified variable. If a domain is infinite, then it should
+     * return a reasonable value.
+     *
+     * @return the size of the entire domain for the specified variable. If a domain is infinite, then it should
+     * return a reasonable value.
+     * @throws IllegalArgumentException indicates that variable is null.
+     */
+    int size(SearchVariable variable);
 }

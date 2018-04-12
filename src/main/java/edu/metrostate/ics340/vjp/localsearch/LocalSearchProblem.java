@@ -275,4 +275,34 @@ public class LocalSearchProblem implements VariableDomain {
 
         return answer;
     }
+
+    /**
+     * Returns the size of the entire domain. For purposes of this LocalSearch problem, the domain size of all variables
+     * is the size of the list of semesters.
+     *
+     * @return the size of the entire domain. For purposes of this LocalSearch problem, the domain size of all variables
+     * is the size of the list of semesters.
+     */
+    @Override
+    public int size() {
+        return semesters.size();
+    }
+
+    /**
+     * Returns the size of the entire domain for the specified variable. For purposes of this LocalSearch problem,
+     * the domain size of all variables is the size of the list of semesters.
+     *
+     * @return the size of the entire domain for the specified variable. For purposes of this LocalSearch problem,
+     * the domain size of all variables is the size of the list of semesters.
+     * @throws IllegalArgumentException indicates that variable is null.
+     */
+    @Override
+    public int size(SearchVariable variable) {
+        if (variable == null) {
+            throw new IllegalArgumentException("variable cannot be null.");
+        }
+
+        return size();
+    }
+
 }

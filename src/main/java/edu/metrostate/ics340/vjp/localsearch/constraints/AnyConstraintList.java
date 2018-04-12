@@ -9,7 +9,7 @@ import java.util.List;
  * The AnyConstraintList is a ConstraintList for any type of Constraint where at least one of the
  * constraints contained within it needs to return true. See EveryConstraintList, NoneConstraintList for more details.
  */
-public class AnyConstraintList extends ConstraintList {
+public class AnyConstraintList extends AbstractConstraintList {
     /**
      * Returns the number of conflicts this course has with it's constraints that have been taken.
      * If there are no conflicts, then zero is returned.
