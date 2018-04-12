@@ -43,4 +43,5 @@ public class AnyConstraintList extends AbstractConstraintList {
     public boolean hasConflict() {
         return hasConflictAny();
     }
+
 }

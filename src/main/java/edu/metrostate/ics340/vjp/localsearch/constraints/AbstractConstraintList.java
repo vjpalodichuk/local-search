@@ -371,6 +371,26 @@ public abstract class AbstractConstraintList implements ConstraintList {
     }
 
     /**
+     * Returns an integer value that represents the score of the constraints that are in conflict. The higher the
+     * score, the more sever the conflicts are. The conflict score may be higher than the number of constraints as
+     * some conflicts may be weighted more than others.
+     *
+     * @return an integer value that represents the score of the constraints that are in conflict.
+     */
+    @Override
+    public int getConflictsScore() {
+        int answer = 0;
+
+        final Map<SearchVariable, Integer> variablesInConflictWithScores = getVariablesInConflictWithScores();
+
+        for (SearchVariable variable : variablesInConflictWithScores.keySet()) {
+            answer += variablesInConflictWithScores.get(variable);
+        }
+
+        return answer;
+    }
+
+    /**
      * Returns a map with the variables as the keys and their violation score as the value.
      * Prerequisite violations are worth one, Course List violations are worth 2, and
      * Semester Restriction violations are worth 3.
@@ -432,7 +452,7 @@ public abstract class AbstractConstraintList implements ConstraintList {
      * ConstraintList.
      */
     @Override
-    public SearchVariable getVariableWithTheMostConflicts() {
+    public SearchVariable getVariableWithTheHighestScore() {
         Map<SearchVariable, Integer> counts = getVariablesInConflictWithScores();
         SearchVariable answer = null;
         List<SearchVariable> maxConflicts = new ArrayList<>();

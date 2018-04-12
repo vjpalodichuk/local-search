@@ -149,7 +149,7 @@ public class LocalSearch {
 
         logIt(getVerboseVariableHeaders());
         int maxVariableTries = Math.min(domain.size(), MAX_VARIABLE_TRIES);
-        int maxWalk = Math.min(maxVariableTries * variables.size(), MAX_VARIABLE_WALK);
+        int maxWalk = Math.min(maxVariableTries * variables.size() * 2, MAX_VARIABLE_WALK);
 
         List<SearchVariable> searchVariables = new ArrayList<>(variables.size());
         searchVariables.addAll(variables.keySet());
@@ -173,8 +173,8 @@ public class LocalSearch {
             // the same as the previous one and all values have been tried we can jump to a new search space.
             // Every time the variable with the most conflicts changes, the tabu list is reset.
             while (!constraints.isSatisfied() && walkIterations < maxWalk) {
-                int currentScore = constraints.getNumberOfConflicts();
-                SearchVariable variable = constraints.getVariableWithTheMostConflicts();
+                int currentScore = constraints.getConflictsScore();
+                SearchVariable variable = constraints.getVariableWithTheHighestScore();
 
                 // Are we stuck?
                 if (variableIterations >= maxVariableTries) {
@@ -225,12 +225,12 @@ public class LocalSearch {
                         variables.put(variable, value);
                         variableValues.add(value);
 
-                        int score = constraints.getNumberOfConflicts();
+                        int score = constraints.getConflictsScore();
 
                         // Is it an improvement? An improvement is a lower score or, the same score but we are no longer
                         // the variable with the most conflicts :-D
                         if (score < currentScore ||
-                                (score == currentScore && !variable.equals(constraints.getVariableWithTheMostConflicts()))) {
+                                (score == currentScore && !variable.equals(constraints.getVariableWithTheHighestScore()) && (variableIterations + 1 >= maxVariableTries))) {
                             logIt(getVerboseVariableValues());
                             ++assignments;
                             // Walk back a bit so that we have an opportunity to improve this.

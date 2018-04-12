@@ -3,51 +3,39 @@
  */
 package edu.metrostate.ics340.vjp.localsearch;
 
-import javafx.animation.Timeline;
 import javafx.animation.KeyFrame;
-import javafx.util.Duration;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.logging.Logger;
-import java.util.logging.Level;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;import javafx.stage.Stage;
-import java.io.File;
-import java.util.Objects;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.Control;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.CheckMenuItem;
-import javafx.scene.control.Separator;
-import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.ToolBar;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * The main application class for the ICS 340 Local Search JavaFX application.
@@ -81,7 +69,7 @@ public class FindScheduleApplication extends Application  implements EventHandle
     private static final String ACTION_EXIT = "Exit";
     private static final String ACTION_CLEAR_OUTPUT = "Clear Output";
     private static final String ACTION_SAVE_OUTPUT = "Save Output...";
-    private static final String MSG_EXECUTING_FMT = "%nPerforming Local Search...";
+    private static final String MSG_EXECUTING_FMT = "%nPerforming Local Search";
     
     private final Label lblOutputMode = new Label();
     private final Label lblAutoSave = new Label();
@@ -324,6 +312,9 @@ public class FindScheduleApplication extends Application  implements EventHandle
     private void setupTextArea() {
         output.setEditable(false);
         output.setWrapText(true);
+
+        output.setStyle("-fx-font-family: 'Courier New'");
+        output.setPadding(new Insets(5, 5, 5, 5));
     }
     
 
@@ -335,7 +326,9 @@ public class FindScheduleApplication extends Application  implements EventHandle
     public void start(Stage theStage) {
         stage = theStage;
         stage.setTitle(APP_TITLE);
-        VBox root = new VBox();
+        BorderPane root = new BorderPane();
+
+        VBox vbox = new VBox();
         Scene scene = new Scene(root, DEFAULT_WIDTH, DEFAULT_HEIGHT);
         scene.setFill(Color.VIOLET);
         
@@ -345,18 +338,11 @@ public class FindScheduleApplication extends Application  implements EventHandle
         
         setupTextArea();
         
-        HBox hbox = new HBox();
-        hbox.setAlignment(Pos.CENTER);
-        hbox.setSpacing(10);
-        hbox.setPadding(new Insets(0, 10, 0, 10));
-        hbox.getChildren().addAll(lblOutputMode, lblAutoSave);
-        VBox vbox = new VBox();
-        vbox.setAlignment(Pos.CENTER);
-        vbox.setSpacing(10);
-        vbox.setPadding(new Insets(0, 10, 0, 10));
-        vbox.getChildren().addAll(hbox, output);
-        root.getChildren().addAll(menu, toolBar, vbox);
-        output.setMinHeight(DEFAULT_HEIGHT - 135);
+        vbox.getChildren().addAll(menu, toolBar);
+        root.setTop(vbox);
+        root.setCenter(output);
+        //root.autosize();
+        //output.setMinHeight(DEFAULT_HEIGHT - 135);
         
         //output.appendText("Before you can perform any actions, please open a Graph file by clicking the File menu and selecting Open or press Ctrl + O.");
         stage.setScene(scene);
