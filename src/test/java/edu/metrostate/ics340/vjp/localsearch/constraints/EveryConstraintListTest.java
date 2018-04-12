@@ -230,7 +230,7 @@ public class EveryConstraintListTest {
     public void getConflictsShouldNotBeEmpty() {
         randomlyScheduleCourses();
         int notExpected = 0;
-        int actual = constraintList.getConflicts().size();
+        int actual = constraintList.getConflicts().getNumberOfConflicts();
 
         assertNotEquals(notExpected, actual);
     }

@@ -230,7 +230,7 @@ public class NoneConstraintListTest {
     public void getConflictsShouldNotBeEmpty() {
         randomlyScheduleCourses();
         int expected = 0;
-        int actual = constraintList.getConflicts().size();
+        int actual = constraintList.getConflicts().getNumberOfConflicts();
 
         assertNotEquals(expected, actual);
     }

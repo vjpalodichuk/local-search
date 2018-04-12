@@ -5,6 +5,7 @@ package edu.metrostate.ics340.vjp.localsearch;
 
 import edu.metrostate.ics340.vjp.localsearch.constraints.ConstraintList;
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
@@ -158,8 +159,8 @@ public class LocalSearch {
             // Start off with a Random assignment of values.
             randomTotalAssignment();
             ++assignments;
-
-            logIt(getVerboseVariableValues());
+            ConflictList cl = constraints.getConflicts();
+            logIt(getVerboseVariableValues(cl));
 
             int variableIterations = 1;
             List<SearchVariable> variableValues = new ArrayList<>(maxVariableTries);
@@ -173,8 +174,10 @@ public class LocalSearch {
             // the same as the previous one and all values have been tried we can jump to a new search space.
             // Every time the variable with the most conflicts changes, the tabu list is reset.
             while (!constraints.isSatisfied() && walkIterations < maxWalk) {
-                int currentScore = constraints.getConflictsScore();
-                SearchVariable variable = constraints.getVariableWithTheHighestScore();
+                ConflictList conflictList = constraints.getConflicts();
+
+                double currentScore = conflictList.getConflictsScore();
+                SearchVariable variable = conflictList.getVariableWithTheHighestScore();
 
                 // Are we stuck?
                 if (variableIterations >= maxVariableTries) {
@@ -183,7 +186,7 @@ public class LocalSearch {
                     // Try to jiggle us out of here without having to resort to a restart by selecting another
                     // variable with a conflict.
                     List<SearchVariable> conflicts = new ArrayList<>();
-                    conflicts.addAll(constraints.getVariablesInConflictWithScores().keySet());
+                    conflicts.addAll(conflictList.getVariablesInConflictWithScores().keySet());
                     while (variable.equals(lastVariable) && tries < maxVariableTries) {
                         variable = conflicts.get(RANDOM.nextInt(conflicts.size()));
                         tries++;
@@ -225,16 +228,18 @@ public class LocalSearch {
                         variables.put(variable, value);
                         variableValues.add(value);
 
-                        int score = constraints.getConflictsScore();
+                        conflictList = constraints.getConflicts();
+                        double score = conflictList.getConflictsScore();
 
                         // Is it an improvement? An improvement is a lower score or, the same score but we are no longer
                         // the variable with the most conflicts :-D
                         if (score < currentScore ||
-                                (score == currentScore && !variable.equals(constraints.getVariableWithTheHighestScore()) && (variableIterations + 1 >= maxVariableTries))) {
-                            logIt(getVerboseVariableValues());
+                                (score == currentScore && !variable.equals(conflictList.getVariableWithTheHighestScore()) && (variableIterations + 1 >= maxVariableTries))) {
+                            logIt(getVerboseVariableValues(conflictList));
                             ++assignments;
+                            walkIterations = 1;
                             // Walk back a bit so that we have an opportunity to improve this.
-                            walkIterations -= variableValues.size();
+                            //walkIterations -= variableValues.size();
                         } else {
                             // Reject and go back to the old value and start again at the next iteration.
                             variable.setValue(oldValue);
@@ -299,7 +304,7 @@ public class LocalSearch {
         return sb.toString();
     }
 
-    private String getVerboseVariableValues() {
+    private String getVerboseVariableValues(ConflictList conflictList) {
         StringBuilder sb = new StringBuilder();
 
         for (SearchVariable variable : variables.values()) {
@@ -308,8 +313,10 @@ public class LocalSearch {
             sb.append(" ");
         }
 
+        DecimalFormat df = new DecimalFormat("0.00");
+
         sb.append("  ");
-        sb.append(constraints.getNumberOfConflicts());
+        sb.append(String.format("%1$6s", df.format(conflictList.getConflictsScore())));
         sb.append(" ");
 
         return sb.toString();

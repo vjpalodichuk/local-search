@@ -3,7 +3,7 @@
  */
 package edu.metrostate.ics340.vjp.localsearch.constraints;
 
-import java.util.List;
+import edu.metrostate.ics340.vjp.localsearch.ConflictList;
 
 /**
  * The AnyConstraintList is a ConstraintList for any type of Constraint where at least one of the
@@ -30,7 +30,7 @@ public class AnyConstraintList extends AbstractConstraintList {
      * then an empty list is returned.
      */
     @Override
-    public List<Constraint> getConflicts() {
+    public ConflictList getConflicts() {
         return getConflictsAny();
     }
 

@@ -3,6 +3,8 @@
  */
 package edu.metrostate.ics340.vjp.localsearch.constraints;
 
+import edu.metrostate.ics340.vjp.localsearch.ConflictList;
+
 import java.util.List;
 
 /**
@@ -45,7 +47,7 @@ public class EveryConstraintList extends AbstractConstraintList {
      * then an empty list is returned.
      */
     @Override
-    public List<Constraint> getConflicts() {
+    public ConflictList getConflicts() {
         return getConflictsAll();
     }
 

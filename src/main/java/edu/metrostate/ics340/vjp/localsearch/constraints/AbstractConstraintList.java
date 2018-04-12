@@ -3,12 +3,13 @@
  */
 package edu.metrostate.ics340.vjp.localsearch.constraints;
 
-import edu.metrostate.ics340.vjp.localsearch.ScheduledCourse;
-import edu.metrostate.ics340.vjp.localsearch.SearchVariable;
+import edu.metrostate.ics340.vjp.localsearch.ConflictList;
+import edu.metrostate.ics340.vjp.localsearch.ScheduleConflictList;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * An AbstractConstraintList is an abstract base class for a type of Constraint where any, every, or none of the
@@ -17,14 +18,6 @@ import java.util.*;
  * solution to the problem.
  */
 public abstract class AbstractConstraintList implements ConstraintList {
-    private static final long SEED;
-    private static Random RANDOM;
-
-    static {
-        SEED = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
-        RANDOM = new Random(SEED);
-    }
-
     protected List<Constraint> constraints;
 
     /**
@@ -209,7 +202,7 @@ public abstract class AbstractConstraintList implements ConstraintList {
      * @return the list of constraints that have conflicts with this list. If there are no conflicts,
      * then an empty list is returned. Counts all constraint violations as a conflict.
      */
-    protected List<Constraint> getConflictsAll() {
+    protected ConflictList getConflictsAll() {
         List<Constraint> answer = new ArrayList<>();
 
         for (Constraint constraint : getRealConstraints()) {
@@ -218,7 +211,7 @@ public abstract class AbstractConstraintList implements ConstraintList {
             }
         }
 
-        return answer;
+        return new ScheduleConflictList(answer);
     }
 
     /**
@@ -228,7 +221,7 @@ public abstract class AbstractConstraintList implements ConstraintList {
      * @return the list of constraints that have conflicts with this list. If there are no conflicts,
      * then an empty list is returned. Counts all constraint satisfactions as a conflict.
      */
-    protected List<Constraint> getConflictsNone() {
+    protected ConflictList getConflictsNone() {
         List<Constraint> answer = new ArrayList<>();
 
         for (Constraint constraint : getRealConstraints()) {
@@ -237,7 +230,7 @@ public abstract class AbstractConstraintList implements ConstraintList {
             }
         }
 
-        return answer;
+        return new ScheduleConflictList(answer);
     }
 
     /**
@@ -249,7 +242,7 @@ public abstract class AbstractConstraintList implements ConstraintList {
      * then an empty list is returned. Counts any constraint violations as a conflict if there isn't at
      * least one satisfying constraint.
      */
-    protected List<Constraint> getConflictsAny() {
+    protected ConflictList getConflictsAny() {
         List<Constraint> answer = new ArrayList<>();
 
         for (Constraint constraint : getRealConstraints()) {
@@ -261,7 +254,7 @@ public abstract class AbstractConstraintList implements ConstraintList {
             }
         }
 
-        return answer;
+        return new ScheduleConflictList(answer);
     }
 
     /**
@@ -343,144 +336,9 @@ public abstract class AbstractConstraintList implements ConstraintList {
         sb.append("type = ").append(this.getClass().getSimpleName());
         sb.append(", isSatisfied = ").append(isSatisfied());
         sb.append(", numConstraints = ").append(getNumConstraints());
-        sb.append(", numberOfConflicts = ").append(getNumberOfConflicts());
-        sb.append(", conflicts = ").append(getConflicts());
         sb.append(", constraints = ").append(getRealConstraints());
         sb.append('}');
         return sb.toString();
-    }
-
-    private void processPrereqForConflicts(Map<SearchVariable, Integer> counts, Prerequisite prerequisite) {
-        processCourseForConflicts(counts, prerequisite.getCourse());
-        processCourseForConflicts(counts, prerequisite.getPrerequisiteCourse());
-    }
-
-    private void processCourseForConflicts(Map<SearchVariable, Integer> counts, ScheduledCourse course) {
-        processCourseForConflicts(counts, course, 1);
-    }
-
-    private void processCourseForConflicts(Map<SearchVariable, Integer> counts, ScheduledCourse course, int times) {
-        int count = 0;
-
-        if (counts.containsKey(course)) {
-            count = counts.get(course);
-        }
-
-        count += times;
-        counts.put(course, count);
-    }
-
-    /**
-     * Returns an integer value that represents the score of the constraints that are in conflict. The higher the
-     * score, the more sever the conflicts are. The conflict score may be higher than the number of constraints as
-     * some conflicts may be weighted more than others.
-     *
-     * @return an integer value that represents the score of the constraints that are in conflict.
-     */
-    @Override
-    public int getConflictsScore() {
-        int answer = 0;
-
-        final Map<SearchVariable, Integer> variablesInConflictWithScores = getVariablesInConflictWithScores();
-
-        for (SearchVariable variable : variablesInConflictWithScores.keySet()) {
-            answer += variablesInConflictWithScores.get(variable);
-        }
-
-        return answer;
-    }
-
-    /**
-     * Returns a map with the variables as the keys and their violation score as the value.
-     * Prerequisite violations are worth one, Course List violations are worth 2, and
-     * Semester Restriction violations are worth 3.
-     *
-     * @return map with the variables as the keys and their violation score as the value.
-     * Prerequisite violations are worth one, Course List violations are worth 2, and
-     * Semester Restriction violations are worth 3.
-     */
-    @Override
-    public Map<SearchVariable, Integer> getVariablesInConflictWithScores() {
-        Map<SearchVariable, Integer> counts = new LinkedHashMap<>();
-
-        for (Constraint constraint : getConflicts()) {
-            boolean process = false;
-            if (constraint instanceof Prerequisite) {
-                Prerequisite prerequisite = (Prerequisite) constraint;
-                processPrereqForConflicts(counts, prerequisite);
-                process = true;
-            } else if (constraint instanceof AbstractConstraintList) {
-                ConstraintList cs = (ConstraintList) constraint;
-
-                for (Constraint listConstraint : cs.getConflicts()) {
-                    if (listConstraint instanceof Prerequisite) {
-                        Prerequisite prerequisite = (Prerequisite) listConstraint;
-                        processPrereqForConflicts(counts, prerequisite);
-                        process = true;
-                    } else if (listConstraint instanceof SemesterRestriction) {
-                        // Semester restriction violations count thrice!
-                        SemesterRestriction sr = (SemesterRestriction) listConstraint;
-                        processCourseForConflicts(counts, sr.getCourse(), 3);
-                        process = true;
-                    }
-                }
-            } else if (constraint instanceof CourseListConstraint) {
-                CourseListConstraint clc = (CourseListConstraint) constraint;
-
-                for (ScheduledCourse course : clc.getConflicts()) {
-                    // Course list violations count twice!
-                    processCourseForConflicts(counts, course, 2);
-                    process = true;
-                }
-            } else if (constraint instanceof SemesterRestriction) {
-                // Semester restriction violations count thrice!
-                SemesterRestriction sr = (SemesterRestriction) constraint;
-                processCourseForConflicts(counts, sr.getCourse(), 3);
-                process = true;
-            }
-        }
-
-        return counts;
-    }
-
-    /**
-     * Returns a variable that has the most conflicts within the list of constraints contained within this
-     * ConstraintList. If more than one variable have the greatest number of conflicts, then one of them is
-     * randomly selected to be the one returned.
-     *
-     * @return a variable that has the most conflicts within the list of constraints contained within this
-     * ConstraintList.
-     */
-    @Override
-    public SearchVariable getVariableWithTheHighestScore() {
-        Map<SearchVariable, Integer> counts = getVariablesInConflictWithScores();
-        SearchVariable answer = null;
-        List<SearchVariable> maxConflicts = new ArrayList<>();
-
-        int max = 0;
-
-        for (SearchVariable key : counts.keySet()) {
-            int violations = counts.get(key);
-
-            if (violations > max) {
-                max = violations;
-                maxConflicts.clear();
-                maxConflicts.add(key);
-                answer = key;
-            } else if (violations == max && !maxConflicts.contains(key)) {
-                maxConflicts.add(key);
-            }
-        }
-
-        // If just one variable is the max we return it.
-        // Otherwise we randomly select one to return.
-        if (maxConflicts.size() == 1) {
-            answer = maxConflicts.get(0);
-        } else if (maxConflicts.size() > 1) {
-            answer = maxConflicts.get(RANDOM.nextInt(maxConflicts.size()));
-        }
-
-        return answer;
     }
 
 }

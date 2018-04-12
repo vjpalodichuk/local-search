@@ -205,7 +205,7 @@ public class CoursesPerSemesterConstraintTest {
             counts.put(course, 0);
         }
 
-        for (Constraint constraint : constraintList.getConflicts()) {
+        for (Constraint constraint : constraintList.getConflicts().getConflicts()) {
             if (constraint instanceof Prerequisite) {
                 Prerequisite prerequisite = (Prerequisite) constraint;
 
@@ -220,7 +220,7 @@ public class CoursesPerSemesterConstraintTest {
             } else if (constraint instanceof AbstractConstraintList) {
                 ConstraintList cs = (ConstraintList) constraint;
 
-                for (Constraint listConstraint : cs.getConflicts()) {
+                for (Constraint listConstraint : cs.getConflicts().getConflicts()) {
                     if (listConstraint instanceof Prerequisite) {
                         Prerequisite prerequisite = (Prerequisite) listConstraint;
 
@@ -469,7 +469,7 @@ public class CoursesPerSemesterConstraintTest {
 
         boolean expected = false;
         boolean actual = constraintList.isSatisfied();
-        final List<Constraint> conflicts = constraintList.getConflicts();
+        final List<Constraint> conflicts = constraintList.getConflicts().getConflicts();
 
         assertEquals(expected, actual);
     }

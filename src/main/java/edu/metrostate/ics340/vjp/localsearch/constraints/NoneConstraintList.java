@@ -3,7 +3,7 @@
  */
 package edu.metrostate.ics340.vjp.localsearch.constraints;
 
-import java.util.List;
+import edu.metrostate.ics340.vjp.localsearch.ConflictList;
 
 /**
  * The NoneConstraintList is a ConstraintList for any type of Constraint where none of the
@@ -31,7 +31,7 @@ public class NoneConstraintList extends AbstractConstraintList {
      * then an empty list is returned.
      */
     @Override
-    public List<Constraint> getConflicts() {
+    public ConflictList getConflicts() {
         return getConflictsNone();
     }
 
