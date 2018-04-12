@@ -159,11 +159,14 @@ public class LocalSearch {
             // Start off with a Random assignment of values.
             randomTotalAssignment();
             ++assignments;
-            ConflictList cl = constraints.getConflicts();
-            logIt(getVerboseVariableValues(cl));
+            ConflictList conflictList = constraints.getConflicts();
+            conflictList.scoreConflicts();
+            logIt(getVerboseVariableValues(conflictList));
 
             int variableIterations = 1;
             List<SearchVariable> variableValues = new ArrayList<>(maxVariableTries);
+            Set<Map<SearchVariable, SearchVariable>> previousAssignments = new HashSet<>();
+            int MAX_PREVIOUS_ASSIGNMENTS = maxWalk;
             SearchVariable lastVariable = null;
             int walkIterations = 1;
 
@@ -174,23 +177,17 @@ public class LocalSearch {
             // the same as the previous one and all values have been tried we can jump to a new search space.
             // Every time the variable with the most conflicts changes, the tabu list is reset.
             while (!constraints.isSatisfied() && walkIterations < maxWalk) {
-                ConflictList conflictList = constraints.getConflicts();
+                Map<SearchVariable, SearchVariable> currentAssignment = copyCurrentAssignment();
+                previousAssignments.add(currentAssignment);
 
                 double currentScore = conflictList.getConflictsScore();
                 SearchVariable variable = conflictList.getVariableWithTheHighestScore();
 
                 // Are we stuck?
                 if (variableIterations >= maxVariableTries) {
-                    int tries = 0;
-
                     // Try to jiggle us out of here without having to resort to a restart by selecting another
                     // variable with a conflict.
-                    List<SearchVariable> conflicts = new ArrayList<>();
-                    conflicts.addAll(conflictList.getVariablesInConflictWithScores().keySet());
-                    while (variable.equals(lastVariable) && tries < maxVariableTries) {
-                        variable = conflicts.get(RANDOM.nextInt(conflicts.size()));
-                        tries++;
-                    }
+                    variable = conflictList.getAnotherVariableInConflict(variable);
 
                     if (variable.equals(lastVariable)) {
                         // If we are unable to get a new variable with a conflict then
@@ -199,10 +196,7 @@ public class LocalSearch {
                     }
                 }
 
-                SearchVariable value = domain.getRandomValue(variable);
                 SearchVariable oldValue = (SearchVariable)variable.getValue();
-                int variableDomainSize = domain.size(variable);
-
                 // We will reset and keep walking as long as we keep improving. That is, we improve when
                 // the variable with the most conflicts changes before the current variable exhausts all
                 // values in the domain.
@@ -213,14 +207,14 @@ public class LocalSearch {
                     variableValues.add(oldValue);
                 }
 
+                //SearchVariable value = domain.getCloseValue(variable);
+                SearchVariable value = domain.getRandomValue(variable);
+                int variableDomainSize = Math.min(domain.size(variable), maxVariableTries);
+
                 if (variableValues.size() < variableDomainSize) {
                     // Skip any values we have already tried for this variable
                     // and try to get a new value if possible.
-                    int tries = 0;
-                    while (variableValues.contains(value) && tries < variableDomainSize) {
-                        value = domain.getRandomValue(variable);
-                        tries++;
-                    }
+                    //value = domain.getCloseValue(variable);
 
                     // Have we tried this value for this particular neighbor node yet?
                     if (!variableValues.contains(value)) {
@@ -228,18 +222,33 @@ public class LocalSearch {
                         variables.put(variable, value);
                         variableValues.add(value);
 
-                        conflictList = constraints.getConflicts();
-                        double score = conflictList.getConflictsScore();
+                        ConflictList newConflictList = constraints.getConflicts();
+                        newConflictList.scoreConflicts();
+                        double score = newConflictList.getConflictsScore();
+                        Map<SearchVariable, SearchVariable> newAssignment = copyCurrentAssignment();
 
-                        // Is it an improvement? An improvement is a lower score or, the same score but we are no longer
-                        // the variable with the most conflicts :-D
-                        if (score < currentScore ||
-                                (score == currentScore && !variable.equals(conflictList.getVariableWithTheHighestScore()) && (variableIterations + 1 >= maxVariableTries))) {
-                            logIt(getVerboseVariableValues(conflictList));
-                            ++assignments;
-                            walkIterations = 1;
-                            // Walk back a bit so that we have an opportunity to improve this.
-                            //walkIterations -= variableValues.size();
+                        if (!previousAssignments.contains(newAssignment)) {
+                            if (previousAssignments.size() >= MAX_PREVIOUS_ASSIGNMENTS) {
+                                previousAssignments.clear();
+                            }
+
+                            // Is it an improvement? An improvement is a lower score or, the same score but we are no longer
+                            // the variable with the most conflicts :-D
+                            if ((score < currentScore) ||
+                                    (score >= currentScore &&
+                                            variableValues.size() >= variableDomainSize &&
+                                            !newConflictList.getVariableWithTheHighestScore().equals(variable))) {
+                                ++assignments;
+                                previousAssignments.add(currentAssignment);
+                                conflictList = newConflictList;
+                                logIt(getVerboseVariableValues(conflictList));
+                                // Walk back a bit so that we have an opportunity to improve this.
+                                walkIterations -= variableValues.size();
+                            } else {
+                                // Reject and go back to the old value and start again at the next iteration.
+                                variable.setValue(oldValue);
+                                variables.put(variable, oldValue);
+                            }
                         } else {
                             // Reject and go back to the old value and start again at the next iteration.
                             variable.setValue(oldValue);

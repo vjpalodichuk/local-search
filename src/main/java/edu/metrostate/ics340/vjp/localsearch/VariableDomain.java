@@ -27,6 +27,19 @@ public interface VariableDomain {
     SearchVariable getRandomValue(SearchVariable variable);
 
     /**
+     * Returns a value close to the current value. Values wrap around and so a value at the beginning of the domain
+     * would be considered to be close to a value at the end of the domain. Meaning if the domain size is 8 and the
+     * current value is 7, then 1 is just as close to 7 as 5 is. The proximity parameter determines how close of a
+     * value we are interested in.
+     *
+     * @param variable the variable to get a close value for. Cannot be null.
+     *
+     * @return a random value value close to the current value.
+     * @throws IllegalArgumentException indicates that variable is null.
+     */
+    SearchVariable getCloseValue(SearchVariable variable);
+
+    /**
      * Returns a list of all possible values for the specified variable that is within the specified variable's
      * domain of possible values.
      *

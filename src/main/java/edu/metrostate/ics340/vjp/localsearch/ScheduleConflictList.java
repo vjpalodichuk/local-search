@@ -35,62 +35,7 @@ public class ScheduleConflictList implements ConflictList {
 
         if (!conflicts.isEmpty()) {
             this.conflicts.addAll(conflicts);
-            scoreConflicts();
         }
-    }
-
-    private void scoreConflicts() {
-        final double CONSTRAINT_SEMESTER_RESTRICTION_MULTIPLIER = 1.3;
-        final double CONSTRAINT_COURSE_LIST_MULTIPLIER = 1.4;
-
-        for (Constraint constraint : conflicts) {
-            if (constraint instanceof Prerequisite) {
-                Prerequisite prerequisite = (Prerequisite) constraint;
-                processPrereqForConflicts(scores, prerequisite);
-            } else if (constraint instanceof AbstractConstraintList) {
-                ConstraintList cs = (ConstraintList) constraint;
-
-                for (Constraint listConstraint : cs.getConflicts().getConflicts()) {
-                    if (listConstraint instanceof Prerequisite) {
-                        Prerequisite prerequisite = (Prerequisite) listConstraint;
-                        processPrereqForConflicts(scores, prerequisite);
-                    } else if (listConstraint instanceof SemesterRestriction) {
-                        // Semester restriction violations count thrice!
-                        SemesterRestriction sr = (SemesterRestriction) listConstraint;
-                        processCourseForConflicts(scores, sr.getCourse(), CONSTRAINT_SEMESTER_RESTRICTION_MULTIPLIER);
-                    }
-                }
-            } else if (constraint instanceof CourseListConstraint) {
-                CourseListConstraint clc = (CourseListConstraint) constraint;
-
-                for (ScheduledCourse course : clc.getConflicts()) {
-                    // Course list violations count twice!
-                    processCourseForConflicts(scores, course, CONSTRAINT_COURSE_LIST_MULTIPLIER);
-                }
-            } else if (constraint instanceof SemesterRestriction) {
-                // Semester restriction violations count thrice!
-                SemesterRestriction sr = (SemesterRestriction) constraint;
-                processCourseForConflicts(scores, sr.getCourse(), CONSTRAINT_SEMESTER_RESTRICTION_MULTIPLIER);
-            }
-        }
-    }
-
-    private void processPrereqForConflicts(Map<SearchVariable, Double> counts, Prerequisite prerequisite) {
-        final double CONSTRAINT_PREREQUISITE_COURSE_MULTIPLIER = 1.0;
-        final double CONSTRAINT_PREREQUISITE_PREREQUISITE_MULTIPLIER = 1.1;
-        processCourseForConflicts(counts, prerequisite.getCourse(), CONSTRAINT_PREREQUISITE_COURSE_MULTIPLIER);
-        processCourseForConflicts(counts, prerequisite.getPrerequisiteCourse(), CONSTRAINT_PREREQUISITE_PREREQUISITE_MULTIPLIER);
-    }
-
-    private void processCourseForConflicts(Map<SearchVariable, Double> counts, ScheduledCourse course, double times) {
-        double count = 0.0;
-
-        if (counts.containsKey(course)) {
-            count = counts.get(course);
-        }
-
-        count += times;
-        counts.put(course, count);
     }
 
     /**
@@ -205,4 +150,105 @@ public class ScheduleConflictList implements ConflictList {
 
         return answer;
     }
+
+    /**
+     * Calculates the scores based on the current list of conflicts.
+     */
+    @Override
+    public void scoreConflicts() {
+        if (conflicts.isEmpty()) {
+            return;
+        }
+
+        final double CONSTRAINT_SEMESTER_RESTRICTION_MULTIPLIER = 3.4;
+        final double CONSTRAINT_COURSE_LIST_MULTIPLIER = 2.2;
+
+        for (Constraint constraint : conflicts) {
+            if (constraint instanceof Prerequisite) {
+                Prerequisite prerequisite = (Prerequisite) constraint;
+                processPrereqForConflicts(scores, prerequisite);
+            } else if (constraint instanceof AbstractConstraintList) {
+                ConstraintList cs = (ConstraintList) constraint;
+
+                for (Constraint listConstraint : cs.getConflicts().getConflicts()) {
+                    if (listConstraint instanceof Prerequisite) {
+                        Prerequisite prerequisite = (Prerequisite) listConstraint;
+                        processPrereqForConflicts(scores, prerequisite);
+                    } else if (listConstraint instanceof SemesterRestriction) {
+                        // Semester restriction violations count thrice!
+                        SemesterRestriction sr = (SemesterRestriction) listConstraint;
+                        processCourseForConflicts(scores, sr.getCourse(), CONSTRAINT_SEMESTER_RESTRICTION_MULTIPLIER);
+                    }
+                }
+            } else if (constraint instanceof CourseListConstraint) {
+                CourseListConstraint clc = (CourseListConstraint) constraint;
+
+                for (ScheduledCourse course : clc.getConflicts()) {
+                    // Course list violations count twice!
+                    processCourseForConflicts(scores, course, CONSTRAINT_COURSE_LIST_MULTIPLIER);
+                }
+            } else if (constraint instanceof SemesterRestriction) {
+                // Semester restriction violations count thrice!
+                SemesterRestriction sr = (SemesterRestriction) constraint;
+                processCourseForConflicts(scores, sr.getCourse(), CONSTRAINT_SEMESTER_RESTRICTION_MULTIPLIER);
+            }
+        }
+    }
+
+    /**
+     * Returns the number of variables that are in conflict. scoreConflicts must be called first
+     * in order for this method to return valid results.
+     *
+     * @return the number of variables that are in conflict. scoreConflicts must be called first
+     * in order for this method to return valid results.
+     */
+    @Override
+    public int getNumVariablesInConflict() {
+        return scores.size();
+    }
+
+    /**
+     * Returns another variable in conflict. If the specified variable is the only one in conflict it is simply
+     * returned.
+     *
+     * @param variable the variable that we don't want to return if possible.
+     * @return another variable in conflict. If the specified variable is the only one in conflict it is simply
+     * returned.
+     */
+    @Override
+    public SearchVariable getAnotherVariableInConflict(SearchVariable variable) {
+        if (conflicts.isEmpty() || scores.size() == 1 || !scores.containsKey(variable)) {
+            return variable;
+        }
+
+        SearchVariable answer = variable;
+
+        for (SearchVariable sv : scores.keySet()) {
+            if (!variable.equals(sv)) {
+                answer = sv;
+                break;
+            }
+        }
+
+        return answer;
+    }
+
+    private void processPrereqForConflicts(Map<SearchVariable, Double> counts, Prerequisite prerequisite) {
+        final double CONSTRAINT_PREREQUISITE_COURSE_MULTIPLIER = 1.0;
+        final double CONSTRAINT_PREREQUISITE_PREREQUISITE_MULTIPLIER = 1.1;
+        processCourseForConflicts(counts, prerequisite.getCourse(), CONSTRAINT_PREREQUISITE_COURSE_MULTIPLIER);
+        processCourseForConflicts(counts, prerequisite.getPrerequisiteCourse(), CONSTRAINT_PREREQUISITE_PREREQUISITE_MULTIPLIER);
+    }
+
+    private void processCourseForConflicts(Map<SearchVariable, Double> counts, ScheduledCourse course, double times) {
+        double count = 0.0;
+
+        if (counts.containsKey(course)) {
+            count = counts.get(course);
+        }
+
+        count += times;
+        counts.put(course, count);
+    }
+
 }

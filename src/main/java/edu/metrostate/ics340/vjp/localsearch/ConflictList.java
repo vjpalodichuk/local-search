@@ -55,4 +55,29 @@ public interface ConflictList {
      * @return
      */
     public List<Constraint> getConflicts();
+
+    /**
+     * Calculates the scores based on the current list of conflicts.
+     */
+    public void scoreConflicts();
+
+    /**
+     * Returns the number of variables that are in conflict. scoreConflicts must be called first
+     * in order for this method to return valid results.
+     *
+     * @return the number of variables that are in conflict. scoreConflicts must be called first
+     * in order for this method to return valid results.
+     */
+    public int getNumVariablesInConflict();
+
+    /**
+     * Returns another variable in conflict. If the specified variable is the only one in conflict it is simply
+     * returned.
+     *
+     * @param variable the variable that we don't want to return if possible.
+     *
+     * @return another variable in conflict. If the specified variable is the only one in conflict it is simply
+     * returned.
+     */
+    public SearchVariable getAnotherVariableInConflict(SearchVariable variable);
 }

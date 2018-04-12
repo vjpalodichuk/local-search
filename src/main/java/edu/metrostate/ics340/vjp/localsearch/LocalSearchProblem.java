@@ -248,6 +248,45 @@ public class LocalSearchProblem implements VariableDomain {
     }
 
     /**
+     * Returns a value close to the current value. Values wrap around and so a value at the beginning of the domain
+     * would be considered to be close to a value at the end of the domain. Meaning if the domain size is 8 and the
+     * current value is 7, then 1 is just as close to 7 as 5 is. The proximity parameter determines how close of a
+     * value we are interested in.
+     *
+     * @param variable the variable to get a close value for. Cannot be null.
+     *
+     * @return a random value value close to the current value.
+     * @throws IllegalArgumentException indicates that variable is null.
+     */
+    @Override
+    public SearchVariable getCloseValue(SearchVariable variable) {
+        if (variable == null) {
+            throw new IllegalArgumentException("variable cannot be null.");
+        }
+
+        int currentIndex = semesters.indexOf(variable.getValue());
+        int maxValue = semesters.size();
+
+        boolean up = true; //RANDOM.nextInt() % 2 == 0;
+
+        if (up) {
+            if (currentIndex + 1 == maxValue) {
+                currentIndex = 0;
+            } else {
+                ++currentIndex;
+            }
+        } else {
+            if (currentIndex - 1 < 0) {
+                currentIndex = maxValue - 1;
+            } else {
+                --currentIndex;
+            }
+        }
+
+        return semesters.get(currentIndex);
+    }
+
+    /**
      * For purposes of this LocalSearch problem, the domain of every variable is the list of semesters.
      *
      * @param variable the variable to get the domain for.
