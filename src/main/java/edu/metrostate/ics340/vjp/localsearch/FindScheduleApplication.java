@@ -193,7 +193,7 @@ public class FindScheduleApplication extends Application  implements EventHandle
         
         /* Options menu items: */
         CheckMenuItem summary = new CheckMenuItem (ACTION_SUMMARY);
-        summary.setAccelerator(KeyCombination.keyCombination("Ctrl+M"));
+        summary.setAccelerator(KeyCombination.keyCombination("Ctrl+R"));
         summary.setOnAction(actionEvent);
         summary.setId(ACTION_SUMMARY);
         
