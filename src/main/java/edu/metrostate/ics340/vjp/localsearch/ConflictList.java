@@ -48,18 +48,18 @@ public interface ConflictList {
      *
      * @return true if this ConflictList is empty
      */
-    public boolean isEmpty();
+    boolean isEmpty();
 
     /**
      * Returns the list of Constraints that are associated with this conflict list.
      * @return
      */
-    public List<Constraint> getConflicts();
+    List<Constraint> getConflicts();
 
     /**
      * Calculates the scores based on the current list of conflicts.
      */
-    public void scoreConflicts();
+    void scoreConflicts();
 
     /**
      * Returns the number of variables that are in conflict. scoreConflicts must be called first
@@ -68,7 +68,14 @@ public interface ConflictList {
      * @return the number of variables that are in conflict. scoreConflicts must be called first
      * in order for this method to return valid results.
      */
-    public int getNumVariablesInConflict();
+    int getNumVariablesInConflict();
+
+    /**
+     * Returns a variable in conflict at random.
+     *
+     * @return a variable in conflict at random.
+     */
+    SearchVariable getRandomVariableInConflict();
 
     /**
      * Returns another variable in conflict. If the specified variable is the only one in conflict it is simply
@@ -79,5 +86,5 @@ public interface ConflictList {
      * @return another variable in conflict. If the specified variable is the only one in conflict it is simply
      * returned.
      */
-    public SearchVariable getAnotherVariableInConflict(SearchVariable variable);
+    SearchVariable getAnotherVariableInConflict(SearchVariable variable);
 }

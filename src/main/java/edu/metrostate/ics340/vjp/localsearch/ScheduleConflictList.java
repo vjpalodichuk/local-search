@@ -160,8 +160,8 @@ public class ScheduleConflictList implements ConflictList {
             return;
         }
 
-        final double CONSTRAINT_SEMESTER_RESTRICTION_MULTIPLIER = 3.4;
-        final double CONSTRAINT_COURSE_LIST_MULTIPLIER = 2.2;
+        final double CONSTRAINT_SEMESTER_RESTRICTION_MULTIPLIER = 1.3;
+        final double CONSTRAINT_COURSE_LIST_MULTIPLIER = 1.2;
 
         for (Constraint constraint : conflicts) {
             if (constraint instanceof Prerequisite) {
@@ -205,6 +205,29 @@ public class ScheduleConflictList implements ConflictList {
     @Override
     public int getNumVariablesInConflict() {
         return scores.size();
+    }
+
+    /**
+     * Returns a variable in conflict at random.
+     *
+     * @return a variable in conflict at random.
+     */
+    @Override
+    public SearchVariable getRandomVariableInConflict() {
+        SearchVariable answer = null;
+
+        int numConflicts = getNumVariablesInConflict();
+
+        if (numConflicts == 1) {
+            answer = scores.keySet().iterator().next();
+        } else {
+            List<SearchVariable> vars = new ArrayList<>(numConflicts);
+            vars.addAll(scores.keySet());
+
+            answer = vars.get(RANDOM.nextInt(numConflicts));
+        }
+
+        return answer;
     }
 
     /**

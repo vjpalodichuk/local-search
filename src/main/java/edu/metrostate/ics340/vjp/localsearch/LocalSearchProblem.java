@@ -267,7 +267,7 @@ public class LocalSearchProblem implements VariableDomain {
         int currentIndex = semesters.indexOf(variable.getValue());
         int maxValue = semesters.size();
 
-        boolean up = true; //RANDOM.nextInt() % 2 == 0;
+        boolean up = RANDOM.nextInt() % 2 == 0;
 
         if (up) {
             if (currentIndex + 1 == maxValue) {

@@ -165,8 +165,6 @@ public class LocalSearch {
 
             int variableIterations = 1;
             List<SearchVariable> variableValues = new ArrayList<>(maxVariableTries);
-            Set<Map<SearchVariable, SearchVariable>> previousAssignments = new HashSet<>();
-            int MAX_PREVIOUS_ASSIGNMENTS = maxWalk;
             SearchVariable lastVariable = null;
             int walkIterations = 1;
 
@@ -177,11 +175,9 @@ public class LocalSearch {
             // the same as the previous one and all values have been tried we can jump to a new search space.
             // Every time the variable with the most conflicts changes, the tabu list is reset.
             while (!constraints.isSatisfied() && walkIterations < maxWalk) {
-                Map<SearchVariable, SearchVariable> currentAssignment = copyCurrentAssignment();
-                previousAssignments.add(currentAssignment);
-
                 double currentScore = conflictList.getConflictsScore();
-                SearchVariable variable = conflictList.getVariableWithTheHighestScore();
+//                SearchVariable variable = conflictList.getVariableWithTheHighestScore();
+                SearchVariable variable = conflictList.getRandomVariableInConflict();
 
                 // Are we stuck?
                 if (variableIterations >= maxVariableTries) {
@@ -214,8 +210,6 @@ public class LocalSearch {
                 if (variableValues.size() < variableDomainSize) {
                     // Skip any values we have already tried for this variable
                     // and try to get a new value if possible.
-                    //value = domain.getCloseValue(variable);
-
                     // Have we tried this value for this particular neighbor node yet?
                     if (!variableValues.contains(value)) {
                         variable.setValue(value);
@@ -225,30 +219,16 @@ public class LocalSearch {
                         ConflictList newConflictList = constraints.getConflicts();
                         newConflictList.scoreConflicts();
                         double score = newConflictList.getConflictsScore();
-                        Map<SearchVariable, SearchVariable> newAssignment = copyCurrentAssignment();
+                        SearchVariable newVariable = newConflictList.getVariableWithTheHighestScore();
 
-                        if (!previousAssignments.contains(newAssignment)) {
-                            if (previousAssignments.size() >= MAX_PREVIOUS_ASSIGNMENTS) {
-                                previousAssignments.clear();
-                            }
-
-                            // Is it an improvement? An improvement is a lower score or, the same score but we are no longer
-                            // the variable with the most conflicts :-D
-                            if ((score < currentScore) ||
-                                    (score >= currentScore &&
-                                            variableValues.size() >= variableDomainSize &&
-                                            !newConflictList.getVariableWithTheHighestScore().equals(variable))) {
-                                ++assignments;
-                                previousAssignments.add(currentAssignment);
-                                conflictList = newConflictList;
-                                logIt(getVerboseVariableValues(conflictList));
-                                // Walk back a bit so that we have an opportunity to improve this.
-                                walkIterations -= variableValues.size();
-                            } else {
-                                // Reject and go back to the old value and start again at the next iteration.
-                                variable.setValue(oldValue);
-                                variables.put(variable, oldValue);
-                            }
+                        // Is it an improvement? An improvement is a lower score or, the same score but we are no longer
+                        // the variable with the most conflicts :-D
+                        if ((score < currentScore) || (score >= currentScore && newConflictList.getNumberOfConflicts() < conflictList.getNumberOfConflicts())) {
+                            ++assignments;
+                            conflictList = newConflictList;
+                            logIt(getVerboseVariableValues(conflictList));
+                            // Walk back a bit so that we have an opportunity to improve this.
+                            walkIterations = 1;
                         } else {
                             // Reject and go back to the old value and start again at the next iteration.
                             variable.setValue(oldValue);
