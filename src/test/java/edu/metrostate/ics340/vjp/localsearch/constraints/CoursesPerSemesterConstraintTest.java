@@ -433,10 +433,10 @@ public class CoursesPerSemesterConstraintTest {
         long iterations  = 0;
         boolean expected = true;
         boolean actual = constraintList.isSatisfied();
-        printCourseHeader();
+//        printCourseHeader();
         while (!actual) {
             randomlyScheduleCourses();
-            printCourses();
+//            printCourses();
             actual = constraintList.isSatisfied();
 
             while (!actual && iterations % 199 != 198) {
@@ -450,15 +450,15 @@ public class CoursesPerSemesterConstraintTest {
 
                 course.setSemester(randomSemester);
                 actual = constraintList.isSatisfied();
-                printCourses();
+//                printCourses();
                 ++iterations;
             }
             ++iterations;
         }
 
-        printCourseHeader();
-        printCourses();
-        printSummary(iterations);
+//        printCourseHeader();
+//        printCourses();
+//        printSummary(iterations);
 
         assertEquals(expected, actual);
     }
