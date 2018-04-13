@@ -223,7 +223,7 @@ public class LocalSearch {
 
                         // Is it an improvement? An improvement is a lower score or, the same score but we are no longer
                         // the variable with the most conflicts :-D
-                        if ((score < currentScore) || (score >= currentScore && newConflictList.getNumberOfConflicts() < conflictList.getNumberOfConflicts())) {
+                        if ((score < currentScore) || (score >= currentScore && newConflictList.getNumVariablesInConflict() < conflictList.getNumVariablesInConflict())) {
                             ++assignments;
                             conflictList = newConflictList;
                             logIt(getVerboseVariableValues(conflictList));

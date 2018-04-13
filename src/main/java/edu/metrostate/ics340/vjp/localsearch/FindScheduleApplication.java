@@ -34,6 +34,7 @@ import java.time.ZoneId;
 import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -64,6 +65,7 @@ public class FindScheduleApplication extends Application  implements EventHandle
     private static final String ACTION_VERBOSE = "Verbose Output";
     private static final String ACTION_SUMMARY = "Summary Output";
     private static final String ACTION_AUTO_SAVE = "Auto Save Output";
+    private static final String ACTION_CANCEL_SEARCH = "Cancel Local Search";
     private static final String ACTION_PERFORM_SEARCH = "Perform Local Search";
     private static final String ACTION_ABOUT = "About";
     private static final String ACTION_EXIT = "Exit";
@@ -81,6 +83,8 @@ public class FindScheduleApplication extends Application  implements EventHandle
     private ToolBar toolBar = null;
     private Stage stage = null;
     private boolean searching = false;
+    private ExecutorService executor = null;
+
     private Timeline searchTimer = new Timeline(new KeyFrame(Duration.millis(10), (event) -> {
     	if (isSearching()) {
     		output.appendText(".");
@@ -92,15 +96,34 @@ public class FindScheduleApplication extends Application  implements EventHandle
     }
     
     synchronized private void beginSearch() {
+        if (isSearching()) {
+            return;
+        }
+
+        output.appendText(String.format(MSG_EXECUTING_FMT));
     	searching = true;
     	disableActions(true);
     	startTimer();
     }
     
-    synchronized private void endSearch() {
+    synchronized private void endSearch(String realResults, String realFileName) {
+        if (!isSearching()) {
+            return;
+        }
+
     	searching = false;
     	disableActions(false);
     	stopTimer();
+
+    	if (realFileName != null && !realFileName.trim().isEmpty()) {
+            output.appendText("\n\n");
+    	    output.appendText("Search results written to: " + realFileName);
+        }
+
+        if (realResults != null && !realResults.isEmpty()) {
+            output.appendText("\n\n");
+            output.appendText(realResults);
+        }
     }
     
     private void startTimer() {
@@ -287,7 +310,16 @@ public class FindScheduleApplication extends Application  implements EventHandle
     public void disableActions(boolean disable) {
         if (actionsMenu != null) {
         	actionsMenu.getItems().forEach((item) -> {
-                item.setDisable(disable);
+        	    if (ACTION_PERFORM_SEARCH.equals(item.getId()) ||
+                        ACTION_CANCEL_SEARCH.equals(item.getId())) {
+        	        if (disable) {
+        	            item.setText(ACTION_CANCEL_SEARCH);
+                    } else {
+                        item.setText(ACTION_PERFORM_SEARCH);
+                    }
+                } else {
+        	        item.setDisable(disable);
+                }
             });
         }
 
@@ -297,7 +329,14 @@ public class FindScheduleApplication extends Application  implements EventHandle
                 .forEach((node) -> {
                 if (node instanceof Button) {
                     Button btn = (Button) node;
-                    if (Objects.equals(btn.getText(), ACTION_PERFORM_SEARCH)) {
+                    if (Objects.equals(btn.getText(), ACTION_PERFORM_SEARCH) ||
+                            Objects.equals(btn.getText(), ACTION_CANCEL_SEARCH)) {
+                        if (disable) {
+                            btn.setText(ACTION_CANCEL_SEARCH);
+                        } else {
+                            btn.setText(ACTION_PERFORM_SEARCH);
+                        }
+                    } else {
                         btn.setDisable(disable);
                     }
                 }
@@ -515,6 +554,7 @@ public class FindScheduleApplication extends Application  implements EventHandle
                     output.clear();
                     break;
                 case ACTION_EXIT:
+                    shutdownExecutor();
                     Platform.exit();
                     break;
                 case ACTION_ABOUT:
@@ -530,81 +570,115 @@ public class FindScheduleApplication extends Application  implements EventHandle
                 	toggleAutoSave(source, button);
                     break;
                 case ACTION_PERFORM_SEARCH:
-                    output.appendText(String.format(MSG_EXECUTING_FMT));
-                    beginSearch();
-        			ExecutorService executor = Executors.newCachedThreadPool();
-        			
-        			executor.submit(() -> {
-	                    LocalSearchProblem lsp = new LocalSearchProblem();
-	                    LocalSearch ls = new LocalSearch(lsp.getVariables(), lsp, lsp.getConstraints());
-	                    String results = "";
-	                    ls.search(0);
-	                    
-	                    if (summaryOutput()) {
-	                    	results = ls.getSummary();
-	                    } else {
-	                    	results = ls.getLog();
-	                    }
-	                    
-	                    if (autoSave()) {
-	                        try {
-	                            String directory = System.getProperty("user.dir");
-	                            String fullPath = "LocalSearch_On_" + 
-	                            		LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli() +
-	                            		".txt";
-	                            String ext = "";
-	                            String name = "";
-	                            
-	                            int extIndex = fullPath.lastIndexOf('.');
-	                            
-	                            if (extIndex >= 0) {
-	                                ext = fullPath.substring(extIndex);
-	                            }
-	                            
-	                            int index = fullPath.lastIndexOf(File.separatorChar);
-	                            
-	                            if (index >= 0) {
-	                                name = fullPath.substring(index + 1, extIndex >= 0 ? extIndex : fullPath.length());
-	                            } else {
-	                                fullPath = Paths.get(fullPath).getFileName().toString();
-	                                
-	                                extIndex = fullPath.lastIndexOf('.');
-	
-	                                if (extIndex >= 0) {
-	                                    ext = fullPath.substring(extIndex);
-	                                }
-	
-	                                name = fullPath.substring(index + 1, extIndex >= 0 ? extIndex : fullPath.length());
-	                            }
-	                            
-	                            String outFileName = name + ext;
-	                            
-	                            String answer = directory + File.separatorChar + outFileName;
-	
-	                            if (!Files.exists(Paths.get(answer))) {
-	                                Files.createFile(Paths.get(answer));
-	                            }
-	                            
-	                            saveOutputToFile(results, Paths.get(answer).toFile());
-	                            
-	                        } catch (IOException ex) {
-	                        	Logger.getLogger(FindScheduleApplication.class.getName()).log(Level.SEVERE, null, ex);
-	                        }
-	                    	
-	                    }
-	                    final String realResults = results;
-	                    
-	                    Platform.runLater(() -> {
-	                    	endSearch();
-	                    	output.appendText("\n\n");
-	                    	output.appendText(realResults);
-						});
-        			});
-        			
-        			executor.shutdown();
+                    if (isSearching()) {
+                        cancelLocalSearch();
+                    } else {
+                        executeLocalSearch();
+                    }
                     break;
             }
         }
+    }
+
+    private void shutdownExecutor() {
+        if (executor != null && !executor.isTerminated()) {
+            executor.shutdown();
+            try {
+                executor.awaitTermination(1, TimeUnit.MINUTES);
+            } catch (InterruptedException e) {
+            }
+            executor = null;
+        }
+    }
+
+    private void cancelLocalSearch() {
+        if (executor != null && !executor.isShutdown() && !executor.isTerminated()) {
+            shutdownExecutor();
+        }
+
+        if (isSearching()) {
+            endSearch("Local Search has been cancelled.", "");
+        }
+
+    }
+    private void executeLocalSearch() {
+        beginSearch();
+
+        if (executor == null || executor.isShutdown() || executor.isTerminated()) {
+            executor = Executors.newCachedThreadPool();
+        }
+
+        executor.submit(() -> {
+            LocalSearchProblem lsp = new LocalSearchProblem();
+            LocalSearch ls = new LocalSearch(lsp.getVariables(), lsp, lsp.getConstraints());
+            String results = "";
+            String fileName = "";
+
+            ls.search(0);
+
+            if (summaryOutput()) {
+                results = ls.getSummary();
+            } else {
+                results = ls.getLog();
+            }
+
+            if (autoSave()) {
+                try {
+                    fileName = getAutoSaveFileName(fileName);
+
+                    if (!Files.exists(Paths.get(fileName))) {
+                        Files.createFile(Paths.get(fileName));
+                    }
+
+                    saveOutputToFile(results, Paths.get(fileName).toFile());
+
+                } catch (IOException ex) {
+                    Logger.getLogger(FindScheduleApplication.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            final String realResults = results;
+            final String realFileName = fileName;
+
+            Platform.runLater(() -> {
+                endSearch(realResults, realFileName);
+            });
+        });
+    }
+
+    private static String getAutoSaveFileName(String fileName) {
+        String directory = System.getProperty("user.dir");
+        String fullPath = "LocalSearch_On_" +
+                LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli() +
+                ".txt";
+        String ext = "";
+        String name = "";
+
+        int extIndex = fullPath.lastIndexOf('.');
+
+        if (extIndex >= 0) {
+            ext = fullPath.substring(extIndex);
+        }
+
+        int index = fullPath.lastIndexOf(File.separatorChar);
+
+        if (index >= 0) {
+            name = fullPath.substring(index + 1, extIndex >= 0 ? extIndex : fullPath.length());
+        } else {
+            fullPath = Paths.get(fullPath).getFileName().toString();
+
+            extIndex = fullPath.lastIndexOf('.');
+
+            if (extIndex >= 0) {
+                ext = fullPath.substring(extIndex);
+            }
+
+            name = fullPath.substring(index + 1, extIndex >= 0 ? extIndex : fullPath.length());
+        }
+
+        String outFileName = name + ext;
+
+        fileName = directory + File.separatorChar + outFileName;
+        return fileName;
     }
 
 }
