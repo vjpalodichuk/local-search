@@ -12,6 +12,13 @@ package edu.metrostate.ics340.vjp.localsearch;
  */
 public interface SearchVariable extends Cloneable {
     /**
+     * Returns a unique ID that identifies this SearchVariable.
+     *
+     * @return a unique ID that identifies this SearchVariable
+     */
+    Object getUniqueID();
+
+    /**
      * Set the value of this variable to the specified value. Value cannot be null!
      * @param value the new value for this variable.
      */

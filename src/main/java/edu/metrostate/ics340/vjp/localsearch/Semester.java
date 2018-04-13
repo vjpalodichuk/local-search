@@ -67,6 +67,11 @@ public class Semester implements Cloneable, Comparable<Semester>, SearchVariable
     }
 
     @Override
+    public Object getUniqueID() {
+        return this;
+    }
+
+    @Override
     public void setValue(Object value) {
         if (value instanceof Integer) {
             Integer newId = (Integer) value;

@@ -49,7 +49,7 @@ public class LocalSearch {
         MAX_VARIABLE_WALK = 256;
     }
 
-    private Map<SearchVariable, SearchVariable> variables;
+    private Map<Object, SearchVariable> variables;
     private ConstraintList constraints;
     private VariableDomain domain;
     private StringBuffer log;
@@ -82,7 +82,7 @@ public class LocalSearch {
         this.variables = new LinkedHashMap<>();
 
         for (SearchVariable variable : variables) {
-            this.variables.put(variable, null);
+            this.variables.put(variable.getUniqueID(), variable);
         }
 
         this.domain = domain;
@@ -124,7 +124,7 @@ public class LocalSearch {
      * @return the return value is a complete assignment of the variables that satisfies all of the constraints.
      * If there is no solution to the problem, this method will never return.
      */
-    public Map<SearchVariable, SearchVariable> search() {
+    public Map<Object, SearchVariable> search() {
     	return search(0);
     }
     
@@ -142,7 +142,7 @@ public class LocalSearch {
      * assignment of the variables that satisfies all of the constraints. If there is no solution to the problem, this
      * method will never return unless maxAssignments is non-zero.
      */
-    public Map<SearchVariable, SearchVariable> search(int maxAssignments) {
+    public Map<Object, SearchVariable> search(int maxAssignments) {
         // Clear any pre-existing results.
         clear();
         boolean done = false;
@@ -153,11 +153,16 @@ public class LocalSearch {
         int maxWalk = Math.min(maxVariableTries * variables.size() * 2, MAX_VARIABLE_WALK);
 
         List<SearchVariable> searchVariables = new ArrayList<>(variables.size());
-        searchVariables.addAll(variables.keySet());
+        searchVariables.addAll(variables.values());
+        Set<Map<Object, SearchVariable>> previousAssignments = new HashSet<>();
 
         while (!done && (assignments < maxAssignments || maxAssignments == 0)) {
+            previousAssignments.clear();
+
             // Start off with a Random assignment of values.
             randomTotalAssignment();
+            previousAssignments.add(copyCurrentAssignment());
+
             ++assignments;
             ConflictList conflictList = constraints.getConflicts();
             conflictList.scoreConflicts();
@@ -176,7 +181,6 @@ public class LocalSearch {
             // Every time the variable with the most conflicts changes, the tabu list is reset.
             while (!constraints.isSatisfied() && walkIterations < maxWalk) {
                 double currentScore = conflictList.getConflictsScore();
-//                SearchVariable variable = conflictList.getVariableWithTheHighestScore();
                 SearchVariable variable = conflictList.getRandomVariableInConflict();
 
                 // Are we stuck?
@@ -203,7 +207,6 @@ public class LocalSearch {
                     variableValues.add(oldValue);
                 }
 
-                //SearchVariable value = domain.getCloseValue(variable);
                 SearchVariable value = domain.getRandomValue(variable);
                 int variableDomainSize = Math.min(domain.size(variable), maxVariableTries);
 
@@ -213,17 +216,18 @@ public class LocalSearch {
                     // Have we tried this value for this particular neighbor node yet?
                     if (!variableValues.contains(value)) {
                         variable.setValue(value);
-                        variables.put(variable, value);
+//                        variables.put(variable, value);
                         variableValues.add(value);
 
                         ConflictList newConflictList = constraints.getConflicts();
                         newConflictList.scoreConflicts();
                         double score = newConflictList.getConflictsScore();
-                        SearchVariable newVariable = newConflictList.getVariableWithTheHighestScore();
 
                         // Is it an improvement? An improvement is a lower score or, the same score but we are no longer
                         // the variable with the most conflicts :-D
-                        if ((score < currentScore) || (score >= currentScore && newConflictList.getNumVariablesInConflict() < conflictList.getNumVariablesInConflict())) {
+                        if (previousAssignments.add(copyCurrentAssignment()) &&
+                                ((score < currentScore) ||
+                                (score >= currentScore && newConflictList.getNumVariablesInConflict() < conflictList.getNumVariablesInConflict()))) {
                             ++assignments;
                             conflictList = newConflictList;
                             logIt(getVerboseVariableValues(conflictList));
@@ -232,7 +236,7 @@ public class LocalSearch {
                         } else {
                             // Reject and go back to the old value and start again at the next iteration.
                             variable.setValue(oldValue);
-                            variables.put(variable, oldValue);
+//                            variables.put(variable, oldValue);
                         }
                     }
                 }
@@ -245,7 +249,7 @@ public class LocalSearch {
 
         logIt();
 
-        Map<SearchVariable, SearchVariable> answer = null;
+        Map<Object, SearchVariable> answer = null;
 
         if (done) {
             answer = copyCurrentAssignment();
@@ -259,18 +263,16 @@ public class LocalSearch {
      */
     public void clear() {
         // Initialize the variable map
-        for (SearchVariable variable : variables.keySet()) {
-            this.variables.put(variable, null);
+        for (SearchVariable variable : variables.values()) {
             variable.clearValue();
         }
     }
 
-    private Map<SearchVariable, SearchVariable> copyCurrentAssignment() {
-        Map<SearchVariable, SearchVariable> answer = new LinkedHashMap<>();
+    private Map<Object, SearchVariable> copyCurrentAssignment() {
+        Map<Object, SearchVariable> answer = new LinkedHashMap<>();
 
-        for (SearchVariable variable : variables.keySet()) {
-            answer.put(variable.clone(), variables.get(variable).clone());
-
+        for (Object key : variables.keySet()) {
+            answer.put(key, variables.get(key).clone());
         }
 
         return answer;
@@ -279,7 +281,7 @@ public class LocalSearch {
     private String getVerboseVariableHeaders() {
         StringBuilder sb = new StringBuilder();
         StringBuilder dashed = new StringBuilder();
-        for (SearchVariable variable : variables.keySet()) {
+        for (SearchVariable variable : variables.values()) {
             sb.append(" ");
             sb.append(variable.getName());
             dashed.append("----");
@@ -298,7 +300,7 @@ public class LocalSearch {
 
         for (SearchVariable variable : variables.values()) {
             sb.append("  ");
-            sb.append(variable.getValueAsString());
+            sb.append(((SearchVariable)variable.getValue()).getValueAsString());
             sb.append(" ");
         }
 
@@ -329,7 +331,7 @@ public class LocalSearch {
             for (SearchVariable valueVariable : values) {
                 sb.append(valueVariable.getName());
                 sb.append(":");
-                for (SearchVariable variable : variables.keySet()) {
+                for (SearchVariable variable : variables.values()) {
                     if (Objects.equals(variable.getValue(), valueVariable)) {
                         sb.append(" ");
                         sb.append(variable.getName());
@@ -345,10 +347,11 @@ public class LocalSearch {
     }
 
     private void randomTotalAssignment() {
-        for (SearchVariable key : variables.keySet()) {
-            SearchVariable value = domain.getRandomValue(key);
-            key.setValue(value);
-            variables.put(key, value);
+        for (Object key : variables.keySet()) {
+            SearchVariable variable = variables.get(key);
+            SearchVariable value = domain.getRandomValue(variable);
+            variable.setValue(value);
+            variables.put(key, variable);
         }
     }
 

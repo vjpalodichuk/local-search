@@ -229,6 +229,7 @@ public class LocalSearchProblem implements VariableDomain {
         semesters.add(new Semester(5, "Autumn"));
         semesters.add(new Semester(6, "Spring"));
         semesters.add(new Semester(7, "Summer", true));
+        semesters.add(new Semester(8, "Summer"));
     }
 
     /**

@@ -380,10 +380,11 @@ public class FindScheduleApplication extends Application  implements EventHandle
         vbox.getChildren().addAll(menu, toolBar);
         root.setTop(vbox);
         root.setCenter(output);
-        //root.autosize();
-        //output.setMinHeight(DEFAULT_HEIGHT - 135);
-        
         //output.appendText("Before you can perform any actions, please open a Graph file by clicking the File menu and selecting Open or press Ctrl + O.");
+        stage.setOnCloseRequest((event) -> {
+            shutdownExecutor();
+            Platform.exit();
+        });
         stage.setScene(scene);
         stage.setResizable(true);
         stage.show();
@@ -582,9 +583,9 @@ public class FindScheduleApplication extends Application  implements EventHandle
 
     private void shutdownExecutor() {
         if (executor != null && !executor.isTerminated()) {
-            executor.shutdown();
+            executor.shutdownNow();
             try {
-                executor.awaitTermination(1, TimeUnit.MINUTES);
+                executor.awaitTermination(100, TimeUnit.MILLISECONDS);
             } catch (InterruptedException e) {
             }
             executor = null;

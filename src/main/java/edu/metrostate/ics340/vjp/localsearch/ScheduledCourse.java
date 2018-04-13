@@ -116,7 +116,7 @@ public class ScheduledCourse implements SearchVariable, Comparable<ScheduledCour
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCourse());
+        return Objects.hash(getCourse(), getSemester());
     }
 
     @Override
@@ -229,6 +229,11 @@ public class ScheduledCourse implements SearchVariable, Comparable<ScheduledCour
         }
 
         return answer;
+    }
+
+    @Override
+    public Object getUniqueID() {
+        return getCourse();
     }
 
     @Override
