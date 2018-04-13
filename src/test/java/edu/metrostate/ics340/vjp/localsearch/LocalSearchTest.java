@@ -55,7 +55,7 @@ public class LocalSearchTest {
 
         assertNotNull(ls);
 
-        final Map<SearchVariable, SearchVariable> search = ls.search();
+        final Map<Object, SearchVariable> search = ls.search();
 
         assertNotNull(search);
 
