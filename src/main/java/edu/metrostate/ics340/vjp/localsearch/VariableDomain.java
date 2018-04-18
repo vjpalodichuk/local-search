@@ -69,6 +69,7 @@ public interface VariableDomain {
      * Returns the size of the entire domain for the specified variable. If a domain is infinite, then it should
      * return a reasonable value.
      *
+     * @param variable the variable to get the domain size for.
      * @return the size of the entire domain for the specified variable. If a domain is infinite, then it should
      * return a reasonable value.
      * @throws IllegalArgumentException indicates that variable is null.

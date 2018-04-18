@@ -282,6 +282,9 @@ public class FindScheduleApplication extends Application  implements EventHandle
     
     /**
      * Saves the output text to the specified file.
+     *
+     * @param text the text to write to the file
+     * @param file the file to write the text to
      * @throws IllegalStateException Indicates there is no selected file.
      */
     public void saveOutputToFile(String text, File file) {

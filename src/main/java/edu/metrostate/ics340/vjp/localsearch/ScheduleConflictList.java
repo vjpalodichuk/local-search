@@ -138,7 +138,7 @@ public class ScheduleConflictList implements ConflictList {
     /**
      * Returns the list of Constraints that are associated with this conflict list.
      *
-     * @return
+     * @return the list of Constraints that are associated with this conflict list.
      */
     @Override
     public List<Constraint> getConflicts() {

@@ -1,6 +1,5 @@
 // Apply the java-library plugin to add support for Java Library
 apply plugin: 'java-library'
-apply plugin: 'java'
 
 sourceCompatibility = 1.8
 

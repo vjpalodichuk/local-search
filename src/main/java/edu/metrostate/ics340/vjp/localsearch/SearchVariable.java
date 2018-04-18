@@ -26,7 +26,8 @@ public interface SearchVariable extends Cloneable {
 
     /**
      * Returns the value of this variable, which may be null if no value has been set.
-     * @return
+     *
+     * @return the value of this variable, which may be null if no value has been set.
      */
     Object getValue();
 

@@ -1,3 +1,6 @@
+/*
+ * File: ConflictList.java
+ */
 package edu.metrostate.ics340.vjp.localsearch;
 
 import edu.metrostate.ics340.vjp.localsearch.constraints.Constraint;
@@ -5,6 +8,13 @@ import edu.metrostate.ics340.vjp.localsearch.constraints.Constraint;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The ConflictList class provides data about a list of conflicts. It is capable of providing the total number of
+ * conflicts, the score of all of the conflicts, a list of SearchVariable and their individual score, and many other
+ * useful properties.
+ *
+ * @author Vincent J. Palodichuk
+ */
 public interface ConflictList {
     /**
      * Returns the number of conflicts this list has with it's constraints.
@@ -29,7 +39,7 @@ public interface ConflictList {
      * violations. This means that the score for a variable may not be 1 to 1 with the number of conflicts that the
      * variable actually participates in.
      *
-     * @return
+     * @return a map of the variables with conflicts and their score.
      */
     Map<SearchVariable, Double> getVariablesInConflictWithScores();
 
@@ -52,7 +62,8 @@ public interface ConflictList {
 
     /**
      * Returns the list of Constraints that are associated with this conflict list.
-     * @return
+     *
+     * @return the list of Constraints that are associated with this conflict list.
      */
     List<Constraint> getConflicts();
 

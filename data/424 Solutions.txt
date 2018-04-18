@@ -1,0 +1,7207 @@
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 372 998
+
+Autumn: 311 460 490
+
+Spring: 365 462 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 240 999
+
+Summer: 232 311 340
+
+Autumn: 365 372 490
+
+Spring: 440 462
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 492 999
+
+Autumn: 311 365 372
+
+Spring: 440 460 490
+
+Summer: 462 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 462 492 999
+
+Autumn: 340 365 490
+
+Spring: 372 440 460
+
+Summer: 311 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 232 240 999
+
+Summer: 311 372 998
+
+Autumn: 210 340 365
+
+Spring: 440 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 240 998
+
+Summer: 210 232 311
+
+Autumn: 340 460 490
+
+Spring: 365 372 440
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 232 240
+
+Summer: 210 311 999
+
+Autumn: 340 365 372
+
+Spring: 460 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 311 462 998
+
+Autumn: 340 365 490
+
+Spring: 372 440 460
+
+Summer: 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 311 340
+
+Autumn: 460 462 490
+
+Spring: 365 372 440
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 311 340 492
+
+Autumn: 365 372 440
+
+Spring: 490 999
+
+Summer: 460 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 232 240 999
+
+Summer: 210 311
+
+Autumn: 372 460 490
+
+Spring: 340 365 462
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 462 492
+
+Autumn: 372 440 460
+
+Spring: 311 365 490
+
+Summer: 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 232 240 998
+
+Summer: 210 311
+
+Autumn: 340 365 462
+
+Spring: 372 440 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 365 492
+
+Autumn: 311 460 490
+
+Spring: 340 372 462
+
+Summer: 440 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 340 462 492
+
+Autumn: 365 372 490
+
+Spring: 311 460
+
+Summer: 440 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 372
+
+Autumn: 460 490 999
+
+Spring: 365 440 998
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 365 492 998
+
+Autumn: 311 372 462
+
+Spring: 340 460 490
+
+Summer: 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 340 462 492
+
+Autumn: 372 440 490
+
+Spring: 311 460
+
+Summer: 365 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 365 372 492
+
+Autumn: 490 999
+
+Spring: 311 340 460
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 340 365 372
+
+Autumn: 311 460 462
+
+Spring: 440 490
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 240 999
+
+Summer: 232 311 372
+
+Autumn: 340 365 462
+
+Spring: 440 460 490
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 240 998
+
+Summer: 311 340 372
+
+Autumn: 210 232 365
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 372 492
+
+Autumn: 440 490
+
+Spring: 311 365 462
+
+Summer: 460 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 311 365 372
+
+Autumn: 460 462 490
+
+Spring: 340 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 311 492
+
+Autumn: 340 365 372
+
+Spring: 440 460 490
+
+Summer: 462 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 460 462 492
+
+Autumn: 372
+
+Spring: 311 340 490
+
+Summer: 365 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 240 999
+
+Summer: 232 311 372
+
+Autumn: 340 365 998
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 240
+
+Summer: 232 340 372
+
+Autumn: 311 490 998
+
+Spring: 365 440 460
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 372 492 999
+
+Autumn: 311 365 998
+
+Spring: 340 462 490
+
+Summer: 440 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 365
+
+Autumn: 372 460 462
+
+Spring: 340 490 998
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 232 240 998
+
+Summer: 210 340 372
+
+Autumn: 365 440 490
+
+Spring: 311 460 462
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 372 492
+
+Autumn: 462 490 999
+
+Spring: 311 365 440
+
+Summer: 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 240
+
+Summer: 232 311 340
+
+Autumn: 372 460 998
+
+Spring: 365 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 340 462 492
+
+Autumn: 311 372 490
+
+Spring: 365 460 999
+
+Summer: 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 492
+
+Autumn: 365 440 490
+
+Spring: 372 460 462
+
+Summer: 499 998 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 240
+
+Summer: 232 340 365
+
+Autumn: 372 490 998
+
+Spring: 311 440 462
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 365 460 492
+
+Autumn: 340 372 462
+
+Spring: 311 440 490
+
+Summer: 499 998 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 311 372 460
+
+Autumn: 340 462 490
+
+Spring: 440 998
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 240
+
+Summer: 232 311 372
+
+Autumn: 460 490 998
+
+Spring: 340 365 462
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 240
+
+Summer: 232 311 372
+
+Autumn: 340 365 999
+
+Spring: 460 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 232 240 998
+
+Summer: 210 311 365
+
+Autumn: 340 372 999
+
+Spring: 440 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 340 372 998
+
+Autumn: 365 440 490
+
+Spring: 460 462
+
+Summer: 311 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 365 372
+
+Autumn: 440 462 999
+
+Spring: 460 490 998
+
+Summer: 311 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 460 492
+
+Autumn: 311 340 490
+
+Spring: 372 440 462
+
+Summer: 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 240 998
+
+Summer: 340 365 999
+
+Autumn: 232 311 372
+
+Spring: 460 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 365 460 462
+
+Autumn: 340 372 490
+
+Spring: 440 998 999
+
+Summer: 311 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 232 240
+
+Summer: 340 365 372
+
+Autumn: 210 311 999
+
+Spring: 460 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 365 492
+
+Autumn: 311 372 999
+
+Spring: 460 462 490
+
+Summer: 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 340 462 492
+
+Autumn: 372 440 490
+
+Spring: 311 460 998
+
+Summer: 365 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 372 462 999
+
+Autumn: 311 365
+
+Spring: 340 460 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 462 492
+
+Autumn: 311 490
+
+Spring: 340 365 372
+
+Summer: 440 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 372
+
+Autumn: 440 460 462
+
+Spring: 365 490 999
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 232 240
+
+Summer: 210 340 365
+
+Autumn: 311 460 490
+
+Spring: 372 440 998
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 372 998 999
+
+Autumn: 311 340 365
+
+Spring: 440 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 340 372 492
+
+Autumn: 462 490 998
+
+Spring: 440 460
+
+Summer: 311 365 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 462
+
+Autumn: 372 440 490
+
+Spring: 365 460 999
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 232 240
+
+Summer: 210 340 365
+
+Autumn: 311 440 490
+
+Spring: 372 460 462
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 462 999
+
+Autumn: 440 460 490
+
+Spring: 311 365 372
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 311 340 365
+
+Autumn: 460 462 490
+
+Spring: 372 440
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 365 372 492
+
+Autumn: 311 490
+
+Spring: 340 460
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 462
+
+Autumn: 365 372 440
+
+Spring: 460 490 999
+
+Summer: 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 340 372 999
+
+Autumn: 365 462 490
+
+Spring: 311 460
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 492 998
+
+Autumn: 340 372 462
+
+Spring: 365 460 490
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 365 460 462
+
+Autumn: 490
+
+Spring: 311 340 372
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 240
+
+Summer: 232 311 998
+
+Autumn: 340 365 372
+
+Spring: 440 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 372 492
+
+Autumn: 340 365 490
+
+Spring: 440 998 999
+
+Summer: 460 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 998 999
+
+Autumn: 311 340 490
+
+Spring: 372 440 460
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 460 462 492
+
+Autumn: 311 340 372
+
+Spring: 365 440 490
+
+Summer: 499 998 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 240 998
+
+Summer: 232 340 365
+
+Autumn: 311 440
+
+Spring: 372 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 240
+
+Summer: 232 311 340
+
+Autumn: 372 460 490
+
+Spring: 365 440 462
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 365
+
+Autumn: 372 440 460
+
+Spring: 462 490 999
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 999
+
+Autumn: 365 440 998
+
+Spring: 372 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 240
+
+Summer: 232 311 372
+
+Autumn: 460 462 490
+
+Spring: 340 365 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 232 240 998
+
+Summer: 210 340
+
+Autumn: 311 440 462
+
+Spring: 365 372 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 240
+
+Summer: 232 311 999
+
+Autumn: 340 365 490
+
+Spring: 372 440 460
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 365
+
+Autumn: 440 490 999
+
+Spring: 372 460 462
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 999
+
+Autumn: 340 460 490
+
+Spring: 311 372 440
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 240 999
+
+Summer: 232 311 365
+
+Autumn: 340 462 490
+
+Spring: 372 440
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 372 462
+
+Autumn: 460 490 998
+
+Spring: 311 365 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 311 365 372
+
+Autumn: 340 460
+
+Spring: 440 462 490
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 340 365 372
+
+Autumn: 460 490 999
+
+Spring: 311 440
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 232 240
+
+Summer: 210 311 999
+
+Autumn: 340 372 460
+
+Spring: 365 440 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 998 999
+
+Autumn: 311 365 490
+
+Spring: 372 440 460
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 340 462 492
+
+Autumn: 365 372 460
+
+Spring: 440 490
+
+Summer: 311 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 462 999
+
+Autumn: 340 365 372
+
+Spring: 440 490 998
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 365 372 492
+
+Autumn: 340 462 490
+
+Spring: 311 440
+
+Summer: 460 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 462 492 999
+
+Autumn: 311 340
+
+Spring: 372 440 490
+
+Summer: 365 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 460
+
+Autumn: 365 462 490
+
+Spring: 340 372 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 372 460
+
+Autumn: 311 340 462
+
+Spring: 440 490 998
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 372 460 999
+
+Autumn: 340 462 490
+
+Spring: 311 365
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 232 240 998
+
+Summer: 210 340 372
+
+Autumn: 440 460
+
+Spring: 311 365 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 492 999
+
+Autumn: 372 460 490
+
+Spring: 365 440 998
+
+Summer: 311 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 365 460 492
+
+Autumn: 311 340 462
+
+Spring: 372 440 490
+
+Summer: 499 998 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 240 999
+
+Summer: 311 340 365
+
+Autumn: 232 372 998
+
+Spring: 460 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 492 998
+
+Autumn: 340 372 462
+
+Spring: 440 460 490
+
+Summer: 311 365 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 462
+
+Autumn: 340 365 372
+
+Spring: 440 490 998
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 232 240 998
+
+Summer: 365 372 999
+
+Autumn: 210 311 340
+
+Spring: 440 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 492
+
+Autumn: 372 998 999
+
+Spring: 365 440 490
+
+Summer: 460 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 340 492 999
+
+Autumn: 372 460 462
+
+Spring: 365 440 490
+
+Summer: 311 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 311 365 372
+
+Autumn: 460 462 490
+
+Spring: 340
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 311 340 372
+
+Autumn: 365 440 490
+
+Spring: 460 462
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 311 340 460
+
+Autumn: 440 998
+
+Spring: 372 462 490
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 372 998
+
+Autumn: 365 462 490
+
+Spring: 340 460 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 372 462
+
+Autumn: 365 440 490
+
+Spring: 311 460 998
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 460 492 999
+
+Autumn: 372 462 490
+
+Spring: 311 340 365
+
+Summer: 440 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 232 240
+
+Summer: 210 311 372
+
+Autumn: 365 460 490
+
+Spring: 340 462 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 311 340 462
+
+Autumn: 440 460 490
+
+Spring: 372
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 460 462
+
+Autumn: 372 490 998
+
+Spring: 311 365 440
+
+Summer: 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 372
+
+Autumn: 440 460
+
+Spring: 365 462 490
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 372 492
+
+Autumn: 311 365 440
+
+Spring: 462 490 998
+
+Summer: 460 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 372 492 998
+
+Autumn: 311 340 490
+
+Spring: 365 440 460
+
+Summer: 462 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 311 460 492
+
+Autumn: 372 462 490
+
+Spring: 340 365
+
+Summer: 440 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 232 240
+
+Summer: 210 340 372
+
+Autumn: 365 462 490
+
+Spring: 311 440
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 365 460 492
+
+Autumn: 311 340 372
+
+Spring: 440 462 490
+
+Summer: 499 998 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 232 240
+
+Summer: 210 311 340
+
+Autumn: 440 462 999
+
+Spring: 372 460 490
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 462 492
+
+Autumn: 340 490 999
+
+Spring: 365 372 460
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 460 462 492
+
+Autumn: 340 490 998
+
+Spring: 365 372 440
+
+Summer: 311 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 372 460 462
+
+Autumn: 365 490
+
+Spring: 311 340 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 372 492
+
+Autumn: 365 462 490
+
+Spring: 311 460
+
+Summer: 440 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215 999
+
+Spring: 232 240
+
+Summer: 210 311 365
+
+Autumn: 340 460
+
+Spring: 372 440 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 492 998
+
+Autumn: 460 462 490
+
+Spring: 311 340 372
+
+Summer: 440 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 372 462
+
+Autumn: 365 460 490
+
+Spring: 311 998 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 462
+
+Autumn: 372 460 490
+
+Spring: 311 340 365
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 340 365 492
+
+Autumn: 372 460
+
+Spring: 440 462 490
+
+Summer: 311 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 460 492
+
+Autumn: 340 372 462
+
+Spring: 440 490 998
+
+Summer: 311 365 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 340 365 372
+
+Autumn: 440 460
+
+Spring: 311 462 490
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 311 492
+
+Autumn: 462 490 999
+
+Spring: 340 365 372
+
+Summer: 440 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 365 460
+
+Autumn: 311 340 372
+
+Spring: 440 490 999
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 365
+
+Autumn: 440 460 490
+
+Spring: 372 462
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 492
+
+Autumn: 340 460 490
+
+Spring: 365 372 440
+
+Summer: 462 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 232 240 998
+
+Summer: 210 311 365
+
+Autumn: 340 372 462
+
+Spring: 460 490 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 340 492
+
+Autumn: 372 460 490
+
+Spring: 365 462
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 240 998 999
+
+Summer: 210 232 340
+
+Autumn: 311 460 490
+
+Spring: 372 440 462
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 372 460 462
+
+Autumn: 340 365 999
+
+Spring: 311 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 240
+
+Summer: 232 340 372
+
+Autumn: 365 460 490
+
+Spring: 440 462 999
+
+Summer: 311 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 340 372 492
+
+Autumn: 440 462 490
+
+Spring: 365 460 998
+
+Summer: 311 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 462 999
+
+Autumn: 440 490
+
+Spring: 365 372 460
+
+Summer: 311 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 232 240
+
+Summer: 365 372 999
+
+Autumn: 210 311 340
+
+Spring: 440 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 372 462 492
+
+Autumn: 311 460 490
+
+Spring: 340
+
+Summer: 365 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 240 998
+
+Summer: 232 311 365
+
+Autumn: 372 462 490
+
+Spring: 340 460 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 460 462
+
+Autumn: 490 998 999
+
+Spring: 365 372 440
+
+Summer: 311 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 365 998
+
+Autumn: 311 440 999
+
+Spring: 372 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 240 998
+
+Summer: 340 372 999
+
+Autumn: 232 311 365
+
+Spring: 460 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 462 492 999
+
+Autumn: 460 490
+
+Spring: 340 365 372
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 240
+
+Summer: 232 311 340
+
+Autumn: 372 460 490
+
+Spring: 365 462 998
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 232 240 999
+
+Summer: 210 311 365
+
+Autumn: 462 490 998
+
+Spring: 340 372 460
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 372
+
+Autumn: 460 490 999
+
+Spring: 365 462 998
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 372 462 492
+
+Autumn: 311 340 460
+
+Spring: 440 490 999
+
+Summer: 365 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 462 998
+
+Autumn: 372 460 490
+
+Spring: 311 340 365
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 460 492 998
+
+Autumn: 365 372
+
+Spring: 311 340 490
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 311 372
+
+Autumn: 460 462 490
+
+Spring: 340 365 998
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 311 340 372
+
+Autumn: 440 490
+
+Spring: 365 460 998
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 460 492
+
+Autumn: 372 998
+
+Spring: 340 365 490
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 492 998 999
+
+Autumn: 365 372 462
+
+Spring: 340 460 490
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 365 462 998
+
+Autumn: 340 460
+
+Spring: 311 372 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215 999
+
+Spring: 232 240
+
+Summer: 210 311 340
+
+Autumn: 372 462 490
+
+Spring: 365 440
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 240 998
+
+Summer: 311 340 365
+
+Autumn: 210 232 372
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 462 492
+
+Autumn: 460 490 999
+
+Spring: 365 372 440
+
+Summer: 311 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 372 462 492
+
+Autumn: 365 460 490
+
+Spring: 340
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 240 998 999
+
+Summer: 210 232 311
+
+Autumn: 372 460 490
+
+Spring: 340 365 462
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 460 492 998
+
+Autumn: 340 372
+
+Spring: 365 462 490
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 462 492 999
+
+Autumn: 340 365
+
+Spring: 311 372 490
+
+Summer: 440 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 232 240
+
+Summer: 311 372 998
+
+Autumn: 210 340 365
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 240 999
+
+Summer: 232 311
+
+Autumn: 372 462 490
+
+Spring: 340 365 460
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 240
+
+Summer: 232 372 998
+
+Autumn: 340 460 490
+
+Spring: 311 365 440
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 240
+
+Summer: 232 311 340
+
+Autumn: 365 490 999
+
+Spring: 372 460 462
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 240
+
+Summer: 340 372 999
+
+Autumn: 232 311 365
+
+Spring: 460 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 240 998
+
+Summer: 232 340
+
+Autumn: 372 460 490
+
+Spring: 311 365 440
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 372 460 492
+
+Autumn: 311 340 490
+
+Spring: 462 998
+
+Summer: 365 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 365 460 492
+
+Autumn: 311 372 999
+
+Spring: 340 462 490
+
+Summer: 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 365 998 999
+
+Autumn: 340 462 490
+
+Spring: 372 440 460
+
+Summer: 311 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 240
+
+Summer: 232 311 340
+
+Autumn: 440 462 998
+
+Spring: 372 460 490
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 232 240 999
+
+Summer: 210 311 340
+
+Autumn: 365 372 460
+
+Spring: 440 490 998
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 365 492 998
+
+Autumn: 311 460 490
+
+Spring: 340 372
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 365
+
+Autumn: 460 490 998
+
+Spring: 372 440 462
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 340 460 462
+
+Autumn: 365 440 490
+
+Spring: 372
+
+Summer: 311 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 340 460 492
+
+Autumn: 365 440 490
+
+Spring: 372 462
+
+Summer: 311 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 365 460 998
+
+Autumn: 340 372 999
+
+Spring: 311 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 240 998 999
+
+Summer: 232 340 372
+
+Autumn: 365 460 490
+
+Spring: 311 462
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 240 998
+
+Summer: 232 365 999
+
+Autumn: 372 460 462
+
+Spring: 311 340 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 460 492 999
+
+Autumn: 340 462 490
+
+Spring: 365 372 440
+
+Summer: 311 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 460 462 492
+
+Autumn: 311 365 372
+
+Spring: 340 490 999
+
+Summer: 440 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 311 340 372
+
+Autumn: 460 490
+
+Spring: 365 440 462
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 340 460 462
+
+Autumn: 372 440 490
+
+Spring: 365 998
+
+Summer: 311 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 365
+
+Autumn: 462 490 999
+
+Spring: 372 440 998
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 365 492
+
+Autumn: 372 490 999
+
+Spring: 440 460 998
+
+Summer: 311 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 232 240
+
+Summer: 210 311 365
+
+Autumn: 372 462 490
+
+Spring: 340 460 998
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 365 460 492
+
+Autumn: 340 462
+
+Spring: 311 372 490
+
+Summer: 440 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 340 460 462
+
+Autumn: 311 490
+
+Spring: 372 440 998
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 311 365
+
+Autumn: 340 460
+
+Spring: 372 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 240 998
+
+Summer: 340 372 999
+
+Autumn: 232 311 365
+
+Spring: 440 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 372 492 998
+
+Autumn: 311 462
+
+Spring: 340 365 490
+
+Summer: 440 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 492 998
+
+Autumn: 311 340 490
+
+Spring: 372 440 460
+
+Summer: 365 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 460 492 998
+
+Autumn: 372 462 490
+
+Spring: 311 340 365
+
+Summer: 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 372 460 492
+
+Autumn: 462 490 998
+
+Spring: 311 340
+
+Summer: 365 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 372
+
+Autumn: 440 490 998
+
+Spring: 365 462
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 462 492 998
+
+Autumn: 311 490
+
+Spring: 340 365 372
+
+Summer: 440 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 460 492 999
+
+Autumn: 311 372 998
+
+Spring: 340 365 490
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 365 460 492
+
+Autumn: 311 340
+
+Spring: 372 462 490
+
+Summer: 440 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215 999
+
+Spring: 232 240
+
+Summer: 210 311 340
+
+Autumn: 365 440
+
+Spring: 372 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 460 492
+
+Autumn: 311 372 490
+
+Spring: 340 462 998
+
+Summer: 365 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 460 492 998
+
+Autumn: 311 340 490
+
+Spring: 365 372 440
+
+Summer: 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 460 462 998
+
+Autumn: 311 340 490
+
+Spring: 365 372 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 340 462 492
+
+Autumn: 372 460 998
+
+Spring: 440 490
+
+Summer: 311 365 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 232 240 999
+
+Summer: 340 365 372
+
+Autumn: 210 311 998
+
+Spring: 460 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 311 460 492
+
+Autumn: 340 365 372
+
+Spring: 440 462 490
+
+Summer: 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 365 998
+
+Autumn: 460 462 490
+
+Spring: 340 372
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 372 460 998
+
+Autumn: 340 490 999
+
+Spring: 311 365 440
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 460 492 999
+
+Autumn: 311 372 490
+
+Spring: 340 365
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 372 998
+
+Autumn: 340 365 999
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 311
+
+Autumn: 340 462 490
+
+Spring: 365 372 440
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 492 999
+
+Autumn: 372 460 462
+
+Spring: 340 490 998
+
+Summer: 365 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 492 998 999
+
+Autumn: 340 460 490
+
+Spring: 372 440 462
+
+Summer: 311 365 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 340 492
+
+Autumn: 372 460 490
+
+Spring: 311 462 998
+
+Summer: 365 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 311 340 365
+
+Autumn: 460 462 490
+
+Spring: 372 440 999
+
+Summer: 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 365 460 492
+
+Autumn: 372 462 490
+
+Spring: 340 999
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 365 372 492
+
+Autumn: 340 460 490
+
+Spring: 440 462 998
+
+Summer: 311 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 372 492 999
+
+Autumn: 311 365 998
+
+Spring: 340 460 490
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 311 462 492
+
+Autumn: 372 490 998
+
+Spring: 340 365 460
+
+Summer: 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 372 998 999
+
+Autumn: 460 462 490
+
+Spring: 311 340 365
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 311 340 365
+
+Autumn: 440 460 998
+
+Spring: 372 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215 999
+
+Spring: 210 240
+
+Summer: 232 340 372
+
+Autumn: 460 462 490
+
+Spring: 311 365
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 240 999
+
+Summer: 232 311 372
+
+Autumn: 365 462 490
+
+Spring: 340 460
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 460 492
+
+Autumn: 372 490 999
+
+Spring: 365 440
+
+Summer: 311 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 365 372
+
+Autumn: 340 490 999
+
+Spring: 440 460 998
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 240
+
+Summer: 232 372 998
+
+Autumn: 311 340 490
+
+Spring: 365 460 462
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 460 462
+
+Autumn: 372 490 999
+
+Spring: 311 365 440
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 462 492
+
+Autumn: 365 372 460
+
+Spring: 340 490 998
+
+Summer: 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 240
+
+Summer: 311 365 999
+
+Autumn: 232 340 372
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 372
+
+Autumn: 365 440
+
+Spring: 460 462 490
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 365
+
+Autumn: 311 372 999
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 365 372
+
+Autumn: 340 460 462
+
+Spring: 440 490 999
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 492
+
+Autumn: 372 460 490
+
+Spring: 311 340 462
+
+Summer: 440 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 340 462 492
+
+Autumn: 311 440 490
+
+Spring: 365 372
+
+Summer: 460 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 460 492 999
+
+Autumn: 340 365 462
+
+Spring: 372 490
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 240 999
+
+Summer: 311 365 372
+
+Autumn: 210 232 340
+
+Spring: 460 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 232 240 999
+
+Summer: 210 311 340
+
+Autumn: 440 460
+
+Spring: 372 462 490
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 999
+
+Autumn: 372 460 998
+
+Spring: 365 440 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 365
+
+Autumn: 462 490 998
+
+Spring: 372 460 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 372 492
+
+Autumn: 340 365 490
+
+Spring: 311 440 462
+
+Summer: 460 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215 999
+
+Spring: 240
+
+Summer: 210 232 372
+
+Autumn: 365 462 490
+
+Spring: 311 340 460
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 462
+
+Autumn: 340 460 490
+
+Spring: 365 372 440
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 240 999
+
+Summer: 311 365 372
+
+Autumn: 232 340 998
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 240 999
+
+Summer: 232 311 340
+
+Autumn: 460 462 490
+
+Spring: 372 440
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 365
+
+Autumn: 372 460 999
+
+Spring: 440 462 490
+
+Summer: 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 462 999
+
+Autumn: 340 460 490
+
+Spring: 372 440 998
+
+Summer: 311 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 460 462 492
+
+Autumn: 340 490 999
+
+Spring: 311 372
+
+Summer: 365 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 492 998 999
+
+Autumn: 365 372 490
+
+Spring: 311 340 460
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 460 462 492
+
+Autumn: 311 372 490
+
+Spring: 340 365 999
+
+Summer: 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 311 365
+
+Autumn: 340 372 490
+
+Spring: 440 462 999
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 365
+
+Autumn: 462 998 999
+
+Spring: 372 440 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 232 240 998
+
+Summer: 311 372 999
+
+Autumn: 210 340 365
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 232 240
+
+Summer: 210 311 372
+
+Autumn: 340 365 490
+
+Spring: 440 460 999
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 372 460 492
+
+Autumn: 311 340 490
+
+Spring: 365 440 998
+
+Summer: 462 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 372 998
+
+Autumn: 311 440 460
+
+Spring: 365 462 490
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 311 340 998
+
+Autumn: 365 372 440
+
+Spring: 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 340 372 460
+
+Autumn: 462 490 998
+
+Spring: 311 440
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 372 999
+
+Autumn: 440 460 462
+
+Spring: 311 490
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 240
+
+Summer: 232 311 340
+
+Autumn: 440 460 462
+
+Spring: 365 372 490
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 998
+
+Autumn: 365 440 460
+
+Spring: 372 462 490
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 232 240
+
+Summer: 210 365 372
+
+Autumn: 340 460 462
+
+Spring: 311 440 490
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 372 492
+
+Autumn: 365 490 999
+
+Spring: 311 440 998
+
+Summer: 460 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 462
+
+Autumn: 365 372 440
+
+Spring: 490 998 999
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 998
+
+Autumn: 365 372 490
+
+Spring: 440 460 999
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 232 240
+
+Summer: 210 340 365
+
+Autumn: 462 490 999
+
+Spring: 311 372 440
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 365 460 492
+
+Autumn: 340 372 490
+
+Spring: 440
+
+Summer: 311 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 492 999
+
+Autumn: 340 365 372
+
+Spring: 440 460 490
+
+Summer: 462 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 311 340 492
+
+Autumn: 462 490 999
+
+Spring: 372 440 460
+
+Summer: 365 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 240
+
+Summer: 232 311 340
+
+Autumn: 365 372 460
+
+Spring: 440 490 998
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 372
+
+Autumn: 460 490 998
+
+Spring: 365 462
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 340 492
+
+Autumn: 372 440 460
+
+Spring: 462 490 998
+
+Summer: 311 365 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 372
+
+Autumn: 462 490 999
+
+Spring: 365 440 460
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 462 492
+
+Autumn: 365 372 490
+
+Spring: 340 999
+
+Summer: 440 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 460 492 998
+
+Autumn: 311 340
+
+Spring: 365 372 490
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 372 492 998
+
+Autumn: 340 490 999
+
+Spring: 311 365 460
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 372 460 492
+
+Autumn: 311 340 490
+
+Spring: 440
+
+Summer: 365 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 492 999
+
+Autumn: 340 365 490
+
+Spring: 372 440 998
+
+Summer: 460 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 460
+
+Autumn: 340 365 372
+
+Spring: 311 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 240
+
+Summer: 311 365 998
+
+Autumn: 232 340 372
+
+Spring: 460 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 232 240
+
+Summer: 311 340 365
+
+Autumn: 210 372 998
+
+Spring: 460 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 372 462 492
+
+Autumn: 340 460 490
+
+Spring: 311 440
+
+Summer: 365 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 240 998
+
+Summer: 232 311 372
+
+Autumn: 340 490 999
+
+Spring: 440 460 462
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 460 462
+
+Autumn: 340 490
+
+Spring: 311 372 440
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 460 492 999
+
+Autumn: 365 462 490
+
+Spring: 340 372
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 460
+
+Autumn: 311 490 999
+
+Spring: 365 372 440
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 311 365 372
+
+Autumn: 460 462 490
+
+Spring: 340
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 460 492
+
+Autumn: 462 490 998
+
+Spring: 340 372 999
+
+Summer: 365 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 311 340 365
+
+Autumn: 440 462
+
+Spring: 372 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 311 365 372
+
+Autumn: 340 462 490
+
+Spring: 460
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 340 365 492
+
+Autumn: 490
+
+Spring: 372 440 462
+
+Summer: 311 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 365 372 999
+
+Autumn: 311 340 462
+
+Spring: 440 460 490
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 372 998 999
+
+Autumn: 311 340 365
+
+Spring: 440 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 462 492
+
+Autumn: 340 365 372
+
+Spring: 460 490 999
+
+Summer: 440 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 232 240 999
+
+Summer: 210 311
+
+Autumn: 340 365 490
+
+Spring: 372 460 462
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 240 998
+
+Summer: 232 311 340
+
+Autumn: 462 490 999
+
+Spring: 365 372 440
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 460 462 492
+
+Autumn: 340 365
+
+Spring: 372 440 490
+
+Summer: 311 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 232 240
+
+Summer: 311 365 372
+
+Autumn: 210 340 998
+
+Spring: 440 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 372 462 492
+
+Autumn: 311 340 490
+
+Spring: 365 460
+
+Summer: 440 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 365 372
+
+Autumn: 311 440 490
+
+Spring: 460 462 999
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 240
+
+Summer: 232 311 365
+
+Autumn: 340 460 998
+
+Spring: 372 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 365 372 492
+
+Autumn: 460 490 998
+
+Spring: 340 462
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 462 492 998
+
+Autumn: 340 365 490
+
+Spring: 372 440 460
+
+Summer: 311 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 340
+
+Autumn: 440 462 490
+
+Spring: 311 365 372
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 460 492 999
+
+Autumn: 340 372 998
+
+Spring: 311 365 490
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 340 460 492
+
+Autumn: 311 372 490
+
+Spring: 440 998
+
+Summer: 365 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 240 999
+
+Summer: 232 311 372
+
+Autumn: 462 490 998
+
+Spring: 340 365 460
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 240 998
+
+Summer: 232 311 365
+
+Autumn: 372 490 999
+
+Spring: 340 460 462
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 462 492 999
+
+Autumn: 340 365 460
+
+Spring: 372 440 490
+
+Summer: 311 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 492
+
+Autumn: 365 372 490
+
+Spring: 311 462 998
+
+Summer: 440 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 365 999
+
+Autumn: 311 460 462
+
+Spring: 372 440 490
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 372 462
+
+Autumn: 460 490 999
+
+Spring: 340 365 998
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215 999
+
+Spring: 232 240
+
+Summer: 210 340
+
+Autumn: 311 440 490
+
+Spring: 365 372 462
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 999
+
+Autumn: 460 462 490
+
+Spring: 365 372 440
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 232 240 998
+
+Summer: 210 311
+
+Autumn: 460 462 490
+
+Spring: 340 365 372
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 232 240 998
+
+Summer: 210 372 999
+
+Autumn: 340 460 490
+
+Spring: 311 365 440
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 311 492 999
+
+Autumn: 372 490
+
+Spring: 340 460 462
+
+Summer: 365 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 311 340 492
+
+Autumn: 460
+
+Spring: 365 372 490
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 240
+
+Summer: 232 340 365
+
+Autumn: 460 462 490
+
+Spring: 311 372 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 372 492
+
+Autumn: 311 365 999
+
+Spring: 440 460 490
+
+Summer: 462 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 365 462 492
+
+Autumn: 372 460 490
+
+Spring: 311 340
+
+Summer: 440 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 365 460 462
+
+Autumn: 311 490
+
+Spring: 340 372
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 340 365 492
+
+Autumn: 311 460 462
+
+Spring: 372 440 490
+
+Summer: 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 460 492 999
+
+Autumn: 372 462 490
+
+Spring: 311 340 365
+
+Summer: 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215 999
+
+Spring: 232 240
+
+Summer: 210 365
+
+Autumn: 311 340 372
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 340 492
+
+Autumn: 365 462 490
+
+Spring: 372 440 460
+
+Summer: 311 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 232 240 998
+
+Summer: 210 311 340
+
+Autumn: 365 440 462
+
+Spring: 372 490 999
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 460
+
+Autumn: 340 372 490
+
+Spring: 311 440 999
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 372 460
+
+Autumn: 365 462 490
+
+Spring: 311 998
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 240 999
+
+Summer: 232 372
+
+Autumn: 311 340 490
+
+Spring: 440 460 462
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 311 340 462
+
+Autumn: 365 460
+
+Spring: 372 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 372 460 492
+
+Autumn: 311 365 490
+
+Spring: 340
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 240 998 999
+
+Summer: 311 365 372
+
+Autumn: 232 340
+
+Spring: 440 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 240
+
+Summer: 232 311 372
+
+Autumn: 340 365 490
+
+Spring: 440 460 462
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 340 460 492
+
+Autumn: 311 490
+
+Spring: 372 462 998
+
+Summer: 365 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 365
+
+Autumn: 372 998 999
+
+Spring: 440 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 372 492
+
+Autumn: 311 340 999
+
+Spring: 460 490 998
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 365 492
+
+Autumn: 440 462 490
+
+Spring: 372 460
+
+Summer: 311 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 372 460 492
+
+Autumn: 462
+
+Spring: 340 365 490
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 240
+
+Summer: 232 372
+
+Autumn: 311 460 490
+
+Spring: 340 365 462
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 365 372
+
+Autumn: 462 490 999
+
+Spring: 311 460 998
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 240
+
+Summer: 210 232 311
+
+Autumn: 340 365 372
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 372 492
+
+Autumn: 311 340
+
+Spring: 440 490 999
+
+Summer: 460 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 232 240
+
+Summer: 340 372 999
+
+Autumn: 210 311 365
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 460 462 998
+
+Autumn: 311 340 490
+
+Spring: 372 440 999
+
+Summer: 365 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 365
+
+Autumn: 372 440 460
+
+Spring: 462 490 998
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 372 462 999
+
+Autumn: 340 365 998
+
+Spring: 311 440 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 998 999
+
+Autumn: 340 372 460
+
+Spring: 365 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 311 460 492
+
+Autumn: 340 365 372
+
+Spring: 440 462 490
+
+Summer: 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 365
+
+Autumn: 460 490 998
+
+Spring: 372 440 462
+
+Summer: 311 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 240
+
+Summer: 340 365
+
+Autumn: 232 311 372
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 372 460
+
+Autumn: 340 490 998
+
+Spring: 311 365 462
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 460 492
+
+Autumn: 311 372 462
+
+Spring: 340 490 998
+
+Summer: 440 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 240 998
+
+Summer: 232 311 372
+
+Autumn: 340 365 462
+
+Spring: 440 490 999
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 460 492 998
+
+Autumn: 340 372 999
+
+Spring: 311 365 490
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 372 492
+
+Autumn: 440 460
+
+Spring: 365 490 998
+
+Summer: 311 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 240 998
+
+Summer: 232 311 999
+
+Autumn: 340 365 490
+
+Spring: 372 440 462
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 240 998 999
+
+Summer: 232 311
+
+Autumn: 340 372 462
+
+Spring: 365 460 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 372 492
+
+Autumn: 311 365 440
+
+Spring: 462 490
+
+Summer: 460 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 372 462 492
+
+Autumn: 311 340 365
+
+Spring: 440 490 999
+
+Summer: 460 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 232 240 999
+
+Summer: 210 311 372
+
+Autumn: 340 490 998
+
+Spring: 365 440 460
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 462 492
+
+Autumn: 372 460 999
+
+Spring: 365 490 998
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 372 460 492
+
+Autumn: 340 490
+
+Spring: 311 365 462
+
+Summer: 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 311 372
+
+Autumn: 340 462
+
+Spring: 365 440 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 460 492
+
+Autumn: 340 372 490
+
+Spring: 365 999
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 372 460 492
+
+Autumn: 311 365 999
+
+Spring: 340 462 490
+
+Summer: 440 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 372 462 492
+
+Autumn: 340 460 490
+
+Spring: 311 365 440
+
+Summer: 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 372 460 462
+
+Autumn: 311 365 490
+
+Spring: 340
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 240 999
+
+Summer: 232 340 998
+
+Autumn: 311 365 460
+
+Spring: 372 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 372 998
+
+Autumn: 365 440 462
+
+Spring: 311 460 490
+
+Summer: 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 460 462 998
+
+Autumn: 340 365 490
+
+Spring: 311 372 440
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 372 492
+
+Autumn: 460 462 490
+
+Spring: 311 340
+
+Summer: 440 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 462 492
+
+Autumn: 372 440 460
+
+Spring: 311 490
+
+Summer: 365 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 311 492
+
+Autumn: 340 372 999
+
+Spring: 460 462 490
+
+Summer: 365 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 365 999
+
+Autumn: 372 460
+
+Spring: 440 462 490
+
+Summer: 311 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 462 492
+
+Autumn: 365 460 490
+
+Spring: 340 372 998
+
+Summer: 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 311 492
+
+Autumn: 460 462 490
+
+Spring: 340 372 999
+
+Summer: 365 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 311 372 999
+
+Autumn: 340 460 490
+
+Spring: 365 440
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 240
+
+Summer: 232 340 372
+
+Autumn: 311 365 999
+
+Spring: 460 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 372 460 492
+
+Autumn: 340 490
+
+Spring: 311 365 440
+
+Summer: 462 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 365 372 998
+
+Autumn: 311 340
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 232 240
+
+Summer: 210 365 372
+
+Autumn: 340 460 462
+
+Spring: 311 440 490
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 240
+
+Summer: 232 365 372
+
+Autumn: 311 340 998
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 372 460 492
+
+Autumn: 365 999
+
+Spring: 311 340 490
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 311 462 999
+
+Autumn: 372 460
+
+Spring: 340 365 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 311 340 365
+
+Autumn: 372 490
+
+Spring: 440 460 462
+
+Summer: 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 240
+
+Summer: 232 311 372
+
+Autumn: 340 365 462
+
+Spring: 460 490 998
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 372 492
+
+Autumn: 365 460 999
+
+Spring: 340 462 490
+
+Summer: 440 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 462 492
+
+Autumn: 340 998
+
+Spring: 365 372 490
+
+Summer: 440 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 372 492 999
+
+Autumn: 340 365 490
+
+Spring: 460 462
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 372 462
+
+Autumn: 340 460 490
+
+Spring: 311 440
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 365
+
+Autumn: 440 462 999
+
+Spring: 372 460 490
+
+Summer: 492 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 999
+
+Summer: 462 492 998
+
+Autumn: 340 460 490
+
+Spring: 365 372 440
+
+Summer: 311 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 340 365 372
+
+Autumn: 311 460 490
+
+Spring: 440 999
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 372 460 492
+
+Autumn: 311 999
+
+Spring: 340 365 490
+
+Summer: 440 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340 372
+
+Autumn: 490 998 999
+
+Spring: 365 440 460
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 240 998
+
+Summer: 210 232 311
+
+Autumn: 340 365 372
+
+Spring: 460 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 240
+
+Summer: 232 311 372
+
+Autumn: 340 460 490
+
+Spring: 365 440 999
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 311 460 492
+
+Autumn: 365 372 490
+
+Spring: 340 462
+
+Summer: 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 372 492
+
+Autumn: 311 998
+
+Spring: 340 462 490
+
+Summer: 440 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 365 460 492
+
+Autumn: 340 372 998
+
+Spring: 462 490 999
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 460 492
+
+Autumn: 340 372 462
+
+Spring: 440 490 998
+
+Summer: 365 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 372 998
+
+Autumn: 462 490 999
+
+Spring: 311 340 460
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 340
+
+Autumn: 365 460 490
+
+Spring: 372 440 462
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 365
+
+Autumn: 372 460 490
+
+Spring: 462 998 999
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 240
+
+Summer: 232 311 999
+
+Autumn: 372 462 490
+
+Spring: 340 365 460
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 372 999
+
+Autumn: 340 365 998
+
+Spring: 440 462 490
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 372 462 492
+
+Autumn: 311 340
+
+Spring: 440 490 998
+
+Summer: 365 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240 998
+
+Summer: 311 462
+
+Autumn: 460 490 999
+
+Spring: 340 365 372
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 460 492
+
+Autumn: 462 490 998
+
+Spring: 340 372
+
+Summer: 365 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 365 492 999
+
+Autumn: 372 462 490
+
+Spring: 311 340 998
+
+Summer: 440 460 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 311 340 372
+
+Autumn: 365 460 490
+
+Spring: 440 462 998
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 365 462 492
+
+Autumn: 340 372 999
+
+Spring: 460 490
+
+Summer: 311 440 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 492
+
+Autumn: 340 365 998
+
+Spring: 372 440 490
+
+Summer: 460 462 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 311 340
+
+Autumn: 365 372 999
+
+Spring: 460 462 490
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 462 492
+
+Autumn: 311 372 440
+
+Spring: 365 460 490
+
+Summer: 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 232 240 999
+
+Summer: 210 311 340
+
+Autumn: 365 440 490
+
+Spring: 372 460 462
+
+Summer: 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 999
+
+Autumn: 141 215 998
+
+Spring: 210 232 240
+
+Summer: 372 492
+
+Autumn: 340 460
+
+Spring: 440 462 490
+
+Summer: 311 365 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 311 372 999
+
+Autumn: 365 460 490
+
+Spring: 340 462 998
+
+Summer: 440 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 240 998 999
+
+Summer: 311 340 372
+
+Autumn: 210 232 365
+
+Spring: 440 460 490
+
+Summer: 462 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 372 492 999
+
+Autumn: 311 340 365
+
+Spring: 440 460 490
+
+Summer: 462 499 998
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 210 215
+
+Spring: 232 240
+
+Summer: 365 460 462
+
+Autumn: 311 340 490
+
+Spring: 372 440
+
+Summer: 492 499 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215
+
+Spring: 210 232 240
+
+Summer: 340 460 492
+
+Autumn: 311 440 490
+
+Spring: 365 372 462
+
+Summer: 499 998 999
+
+
+Local Search Summary:
+
+Summer: 120 140
+
+Autumn: 141 215 999
+
+Spring: 210 232 240
+
+Summer: 340 372 998
+
+Autumn: 440 462 490
+
+Spring: 311 365
+
+Summer: 460 492 499
+
+
+Local Search Summary:
+
+Summer: 120 140 998
+
+Autumn: 141 215
+
+Spring: 210 240
+
+Summer: 232 311 372
+
+Autumn: 340 365 999
+
+Spring: 440 462 490
+
+Summer: 460 492 499
+
