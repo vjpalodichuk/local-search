@@ -1,0 +1,2 @@
+rootProject.name = "localsearch-schedule"
+
