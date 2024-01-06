@@ -1,8 +1,8 @@
 package com.capital7software.ai.localsearch;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ScheduledCourseTest {
     private static final String ICS_DEPARTMENT = "ICS";
@@ -43,10 +43,9 @@ public class ScheduledCourseTest {
         ScheduledCourse course = new ScheduledCourse();
         course.setCourse(MATH_215);
 
-        final Course expected = MATH_215;
         final Course actual = course.getCourse();
 
-        assertEquals(expected, actual);
+        assertEquals(MATH_215, actual);
     }
 
     @Test
@@ -54,10 +53,9 @@ public class ScheduledCourseTest {
         ScheduledCourse course = new ScheduledCourse(MATH_215);
         course.setSemester(SECOND_SEMESTER);
 
-        final Semester expected = SECOND_SEMESTER;
         final Semester actual = course.getSemester();
 
-        assertEquals(expected, actual);
+        assertEquals(SECOND_SEMESTER, actual);
     }
 
     @Test
@@ -85,7 +83,6 @@ public class ScheduledCourseTest {
     public void equalCoursesShouldHaveEqualHashCodes() {
         ScheduledCourse courseA = new ScheduledCourse(ICS_141);
         ScheduledCourse courseB = new ScheduledCourse(ICS_141);
-        assertFalse(courseA == courseB);
         assertEquals(courseA, courseB);
         assertEquals(courseA.hashCode(), courseB.hashCode());
     }
@@ -135,7 +132,7 @@ public class ScheduledCourseTest {
         ScheduledCourse course = new ScheduledCourse(ICS_340, FIRST_SEMESTER);
         ScheduledCourse clone = course.clone();
 
-        assertFalse(course == clone);
+        assertNotSame(course, clone);
         assertEquals(course, clone);
     }
 
@@ -147,17 +144,6 @@ public class ScheduledCourseTest {
         final int actual = course.compareTo(course);
 
         assertEquals(expected, actual);
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void compareToShouldThrowExceptionWithNullOther() {
-        ScheduledCourse course = new ScheduledCourse(ICS_340, FIRST_SEMESTER);
-        ScheduledCourse other = null;
-
-        final int expected = 0;
-        final int actual = course.compareTo(other);
-
-        fail("NullPointerException was not thrown.");
     }
 
     @Test

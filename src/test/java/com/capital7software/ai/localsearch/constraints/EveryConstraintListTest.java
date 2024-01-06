@@ -3,13 +3,13 @@ package com.capital7software.ai.localsearch.constraints;
 import com.capital7software.ai.localsearch.Course;
 import com.capital7software.ai.localsearch.ScheduledCourse;
 import com.capital7software.ai.localsearch.Semester;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class EveryConstraintListTest {
     private static final String ICS_DEPARTMENT;
@@ -77,7 +77,7 @@ public class EveryConstraintListTest {
     private List<Constraint> semesterRestrictionList;
 
     private ScheduledCourse getScheduledCourse(String dept, int courseId) {
-        Course course = null;
+        Course course;
         ScheduledCourse scheduledCourse = null;
         int courseIndex = courseList.indexOf(new Course(dept, courseId));
 
@@ -173,7 +173,6 @@ public class EveryConstraintListTest {
     private void randomlyScheduleCourses() {
         final int SEED = 20180408;
         final Random rand = new Random(SEED);
-//        final Random rand = new Random();
 
         for (Course key : scheduledCourseMap.keySet()) {
             ScheduledCourse scheduledCourse = scheduledCourseMap.get(key);
@@ -181,7 +180,7 @@ public class EveryConstraintListTest {
         }
     }
 
-    @Before
+    @BeforeEach
     public void setupTestHarness() {
         constraintList = new EveryConstraintList();
         prerequisiteList = new ArrayList<>();
@@ -199,7 +198,7 @@ public class EveryConstraintListTest {
         }
     }
 
-    @After
+    @AfterEach
     public void tareDownTestHarness() {
         constraintList.clear();
         prerequisiteList.clear();

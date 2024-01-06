@@ -3,9 +3,9 @@ package com.capital7software.ai.localsearch.constraints;
 import com.capital7software.ai.localsearch.Course;
 import com.capital7software.ai.localsearch.ScheduledCourse;
 import com.capital7software.ai.localsearch.Semester;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ConcurrentPrerequisiteTest {
     private static final String ICS_DEPARTMENT = "ICS";
@@ -16,10 +16,8 @@ public class ConcurrentPrerequisiteTest {
     private static final Course ICS_141 = new Course(ICS_DEPARTMENT, 141);
     private static final Semester FIRST_SEMESTER = new Semester(1, "Summer", true);
     private static final Semester SECOND_SEMESTER = new Semester(2, "Autumn");
-    private static final Semester INVALID_SEMESTER = null;
     private static final ScheduledCourse MATH_120_SUMMER = new ScheduledCourse(MATH_120, FIRST_SEMESTER);
     private static final ScheduledCourse MATH_120_AUTUMN = new ScheduledCourse(MATH_120, SECOND_SEMESTER);
-    private static final ScheduledCourse MATH_215_SUMMER = new ScheduledCourse(MATH_215, FIRST_SEMESTER);
     private static final ScheduledCourse MATH_215_AUTUMN = new ScheduledCourse(MATH_215, SECOND_SEMESTER);
     private static final ScheduledCourse ICS_140_SUMMER = new ScheduledCourse(ICS_140, FIRST_SEMESTER);
     private static final ScheduledCourse ICS_140_AUTUMN = new ScheduledCourse(ICS_140, SECOND_SEMESTER);
@@ -28,7 +26,6 @@ public class ConcurrentPrerequisiteTest {
     private static final ScheduledCourse MATH_215_UNSCHEDULED = new ScheduledCourse(MATH_215);
     private static final ScheduledCourse ICS_140_UNSCHEDULED = new ScheduledCourse(ICS_140);
     private static final ScheduledCourse ICS_141_UNSCHEDULED = new ScheduledCourse(ICS_141);
-    private static final ScheduledCourse INVALID_SCHEDULED_COURSE = new ScheduledCourse();
 
     @Test
     public void isConcurrentShouldBeTrue() {
@@ -134,7 +131,7 @@ public class ConcurrentPrerequisiteTest {
         Prerequisite clone = prerequisite.clone();
 
         assertTrue(clone.isConcurrent());
-        assertFalse(prerequisite == clone);
+        assertNotSame(prerequisite, clone);
         assertEquals(prerequisite, clone);
     }
 

@@ -3,23 +3,18 @@ package com.capital7software.ai.localsearch.constraints;
 import com.capital7software.ai.localsearch.Course;
 import com.capital7software.ai.localsearch.ScheduledCourse;
 import com.capital7software.ai.localsearch.Semester;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SemesterExclusionTest {
     private static final String ICS_DEPARTMENT = "ICS";
     private static final Course ICS_490 = new Course(ICS_DEPARTMENT, 490);
     private static final Semester FIRST_SEMESTER = new Semester(1, "Summer", true);
     private static final Semester SECOND_SEMESTER = new Semester(2, "Autumn");
-    private static final Semester FIRST_FOURTH = new Semester(4, "Summer", true);
-    private static final Semester FIRST_SEVENTH = new Semester(7, "Summer", true);
     private static final ScheduledCourse ICS_490_AUTUMN = new ScheduledCourse(ICS_490, SECOND_SEMESTER);
     private static final ScheduledCourse ICS_490_SUMMER = new ScheduledCourse(ICS_490, FIRST_SEMESTER);
     private static final ScheduledCourse ICS_490_UNSCHEDULED = new ScheduledCourse(ICS_490);
-
-    private static final ScheduledCourse INVALID_SCHEDULED_COURSE = new ScheduledCourse();
 
     @Test
     public void isSatisfiedShouleReturnFalseIfCourseNotScheduled() {
@@ -87,7 +82,7 @@ public class SemesterExclusionTest {
         SemesterRestriction clone = exclusion.clone();
 
         assertFalse(clone.isSatisfied());
-        assertFalse(exclusion == clone);
+        assertNotSame(exclusion, clone);
         assertEquals(exclusion, clone);
     }
 

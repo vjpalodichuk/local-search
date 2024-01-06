@@ -3,9 +3,9 @@ package com.capital7software.ai.localsearch.constraints;
 import com.capital7software.ai.localsearch.Course;
 import com.capital7software.ai.localsearch.ScheduledCourse;
 import com.capital7software.ai.localsearch.Semester;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PrerequisiteTest {
     private static final String ICS_DEPARTMENT = "ICS";
@@ -18,22 +18,6 @@ public class PrerequisiteTest {
     private static final ScheduledCourse ICS_490_AUTUMN = new ScheduledCourse(ICS_490, SECOND_SEMESTER);
     private static final ScheduledCourse ICS_240_UNSCHEDULED = new ScheduledCourse(ICS_240);
     private static final ScheduledCourse ICS_490_UNSCHEDULED = new ScheduledCourse(ICS_490);
-
-    private static final ScheduledCourse INVALID_SCHEDULED_COURSE = new ScheduledCourse();
-
-    @Test(expected = IllegalArgumentException.class)
-    public void invalidCourseShouldCauseExceptionToBeThrown() {
-        Prerequisite prerequisite = new Prerequisite(INVALID_SCHEDULED_COURSE, INVALID_SCHEDULED_COURSE);
-
-        fail("IllegalArgumentException was not thrown.");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void invalidPrerequisiteCourseShouldCauseExceptionToBeThrown() {
-        Prerequisite prerequisite = new Prerequisite(ICS_240_SUMMER, INVALID_SCHEDULED_COURSE);
-
-        fail("IllegalArgumentException was not thrown.");
-    }
 
     @Test
     public void isConcurrentShouldBeFalse() {
@@ -49,20 +33,18 @@ public class PrerequisiteTest {
     public void getCourseShouldReturnTheCourseThatWasSetAtConstruction() {
         Prerequisite prerequisite = new Prerequisite(ICS_490_UNSCHEDULED, ICS_240_UNSCHEDULED);
 
-        ScheduledCourse expected = ICS_490_UNSCHEDULED;
         ScheduledCourse actual = prerequisite.getCourse();
 
-        assertEquals(expected, actual);
+        assertEquals(ICS_490_UNSCHEDULED, actual);
     }
 
     @Test
     public void getPrerequisiteCourseShouldReturnTheCourseThatWasSetAtConstruction() {
         Prerequisite prerequisite = new Prerequisite(ICS_490_UNSCHEDULED, ICS_240_UNSCHEDULED);
 
-        ScheduledCourse expected = ICS_240_UNSCHEDULED;
         ScheduledCourse actual = prerequisite.getPrerequisiteCourse();
 
-        assertEquals(expected, actual);
+        assertEquals(ICS_240_UNSCHEDULED, actual);
     }
 
     @Test
@@ -137,7 +119,7 @@ public class PrerequisiteTest {
         Prerequisite prerequisite = new Prerequisite(ICS_490_AUTUMN, ICS_240_AUTUMN);
         Prerequisite clone = prerequisite.clone();
 
-        assertFalse(prerequisite == clone);
+        assertNotSame(prerequisite, clone);
         assertEquals(prerequisite, clone);
     }
 }

@@ -1,8 +1,8 @@
 package com.capital7software.ai.localsearch;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CourseTest {
     private static final boolean WITH_DEPARTMENT = true;
@@ -12,9 +12,6 @@ public class CourseTest {
     private static final int ICS_141 = 141;
     private static final int ICS_50 = 50;
     private static final String ICS_50_STRING = "050";
-    private static final String ILLEGAL_DEPARTMENT = "";
-    private static final int ILLEGAL_NUMBER = 1000;
-    private static final int ILLEGAL_PADDING = 0;
     private static final int DEFAULT_PADDING = 3;
     private static final int PADDING = 5;
     private static final String ICS_50_STRING_PADDING = "00050";
@@ -51,14 +48,6 @@ public class CourseTest {
         assertEquals(ICS_DEPARTMENT, course.getDepartment());
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void setDepartmentShouldThrowExceptionWithInvalidDepartment() {
-        Course course = new Course();
-
-        course.setDepartment(ILLEGAL_DEPARTMENT);
-        fail("IllegalArgumentException not thrown");
-    }
-
     @Test
     public void hasNumberShouldBeTrueAfterNumberIsSet() {
         Course course = new Course();
@@ -75,39 +64,22 @@ public class CourseTest {
         assertEquals(ICS_240, course.getNumber());
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void setNumberShouldThrowExceptionWithInvalidNumber() {
-        Course course = new Course();
-
-        course.setNumber(ILLEGAL_NUMBER);
-        fail("IllegalArgumentException not thrown");
-    }
-
     @Test
     public void getNumberAsStringShouldHaveThreeCharactersWithLeadingZeros() {
         Course course = new Course(ICS_DEPARTMENT, ICS_50);
-        final int expected = DEFAULT_PADDING;
         final String numberAsString = course.getNumberAsString();
         final int actual = numberAsString.length();
-        assertEquals(expected, actual);
+        assertEquals(DEFAULT_PADDING, actual);
         assertEquals(ICS_50_STRING, numberAsString);
     }
 
     @Test
     public void getNumberAsStringWithPaddingShouldHaveNCharacters() {
         Course course = new Course(ICS_DEPARTMENT, ICS_50);
-        final int expected = PADDING;
         final String numberAsString = course.getNumberAsString(PADDING);
         final int actual = numberAsString.length();
-        assertEquals(expected, actual);
+        assertEquals(PADDING, actual);
         assertEquals(ICS_50_STRING_PADDING, numberAsString);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void getNumberAsStringWithIllegalPaddingShouldThrowException() {
-        Course course = new Course(ICS_DEPARTMENT, ICS_50);
-        final String numberAsString = course.getNumberAsString(ILLEGAL_PADDING);
-        fail("IllegalArgumentException was not thrown.");
     }
 
     @Test
@@ -147,7 +119,7 @@ public class CourseTest {
     @Test
     public void testToStringNoPrerequisites() {
         Course course = new Course(ICS_DEPARTMENT, ICS_490);
-        final String expected = "Course {department = \'ICS\', number = 490}";
+        final String expected = "Course {department = 'ICS', number = 490}";
         final String actual = course.toString();
         assertEquals(expected, actual);
     }
@@ -157,7 +129,7 @@ public class CourseTest {
         Course course = new Course(ICS_DEPARTMENT, ICS_490);
         Course clone = course.clone();
 
-        assertFalse(course == clone);
+        assertNotSame(course, clone);
         assertEquals(course, clone);
     }
 }

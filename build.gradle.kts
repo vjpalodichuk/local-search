@@ -8,7 +8,7 @@ group = "com.capital7software.ai"
 version = "1.0-SNAPSHOT"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
 }
 
 repositories {
@@ -20,20 +20,12 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.2")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    
-    // Mockito
-    testImplementation("org.mockito:mockito-core:5.2.0")
-    
-    // JUnitParams
-    testImplementation("pl.pragmatists:JUnitParams:1.1.1")
-    
-    // Cucumber
-    testImplementation("info.cukes:cucumber-junit:1.2.6")
 }
 
 javafx {
     version = "21.0.1"
     modules.add("javafx.controls")
+    modules.add("javafx.fxml")
 }
 
 tasks.getByName<Test>("test") {
@@ -54,6 +46,7 @@ tasks.withType<Jar>().configureEach {
 
 //create a single Jar with all dependencies
 tasks.register("fatJar", Jar::class) {
+    group = "build"
     archiveBaseName = "${project.name}-fat"
     from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE

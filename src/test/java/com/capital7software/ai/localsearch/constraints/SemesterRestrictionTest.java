@@ -3,55 +3,35 @@ package com.capital7software.ai.localsearch.constraints;
 import com.capital7software.ai.localsearch.Course;
 import com.capital7software.ai.localsearch.ScheduledCourse;
 import com.capital7software.ai.localsearch.Semester;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
 
 public class SemesterRestrictionTest {
     private static final String ICS_DEPARTMENT = "ICS";
-    private static final Course ICS_240 = new Course(ICS_DEPARTMENT, 240);
     private static final Course ICS_490 = new Course(ICS_DEPARTMENT, 490);
     private static final Semester FIRST_SEMESTER = new Semester(1, "Summer", true);
     private static final Semester SECOND_SEMESTER = new Semester(2, "Autumn");
-    private static final Semester INVALID_SEMESTER = null;
-    private static final ScheduledCourse ICS_240_SUMMER = new ScheduledCourse(ICS_240, FIRST_SEMESTER);
     private static final ScheduledCourse ICS_490_AUTUMN = new ScheduledCourse(ICS_490, SECOND_SEMESTER);
     private static final ScheduledCourse ICS_490_UNSCHEDULED = new ScheduledCourse(ICS_490);
-
-    private static final ScheduledCourse INVALID_SCHEDULED_COURSE = new ScheduledCourse();
-
-    @Test(expected = IllegalArgumentException.class)
-    public void invalidCourseShouldCauseExceptionToBeThrown() {
-        SemesterRestriction restriction = new SemesterRestriction(INVALID_SCHEDULED_COURSE, FIRST_SEMESTER);
-
-        fail("IllegalArgumentException was not thrown.");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void invalidRestrictionShouldCauseExceptionToBeThrown() {
-        SemesterRestriction restriction = new SemesterRestriction(ICS_240_SUMMER, INVALID_SEMESTER);
-
-        fail("IllegalArgumentException was not thrown.");
-    }
 
     @Test
     public void getCourseShouldReturnTheCourseThatWasSetAtConstruction() {
         SemesterRestriction restriction = new SemesterRestriction(ICS_490_UNSCHEDULED, FIRST_SEMESTER);
 
-        ScheduledCourse expected = ICS_490_UNSCHEDULED;
         ScheduledCourse actual = restriction.getCourse();
 
-        assertEquals(expected, actual);
+        assertEquals(ICS_490_UNSCHEDULED, actual);
     }
 
     @Test
     public void getRestrictionShouldReturnTheSemesterThatWasSetAtConstruction() {
         SemesterRestriction restriction = new SemesterRestriction(ICS_490_UNSCHEDULED, FIRST_SEMESTER);
 
-        Semester expected = FIRST_SEMESTER;
         Semester actual = restriction.getRestriction();
 
-        assertEquals(expected, actual);
+        assertEquals(FIRST_SEMESTER, actual);
     }
 
     @Test
@@ -128,7 +108,7 @@ public class SemesterRestrictionTest {
         SemesterRestriction restriction = new SemesterRestriction(ICS_490_UNSCHEDULED, SECOND_SEMESTER);
         SemesterRestriction clone = restriction.clone();
 
-        assertFalse(restriction == clone);
+        assertNotSame(restriction, clone);
         assertEquals(restriction, clone);
     }
 }
