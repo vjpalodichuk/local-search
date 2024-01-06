@@ -40,15 +40,15 @@ import java.util.logging.Logger;
 
 /**
  * The main application class for the ICS 340 Local Search JavaFX application.
- *
+ * <p>
  * It uses Local Search as done in Section 4.8 of the Poole &amp; Mackworth textbook to determine a course schedule that
  * allows a student coming in with an AA degree in a completely non-technical subject to complete their Computer Science
  * degree at Metro State in n semesters.
- *
+ * <p>
  * It offers the choice of verbose or summary output.
- * 
+ * <p>
  * Because we use Local Search, a different result is possible everytime you search for a solution :-D
- *
+ * <p>
  * See the LocalSearch class for more details on how the LocalSearch is actually performed.
  *
  * @author Vincent J. Palodichuk
@@ -85,7 +85,7 @@ public class FindScheduleApplication extends Application  implements EventHandle
     private boolean searching = false;
     private ExecutorService executor = null;
 
-    private Timeline searchTimer = new Timeline(new KeyFrame(Duration.millis(10), (event) -> {
+    private final Timeline searchTimer = new Timeline(new KeyFrame(Duration.millis(10), (event) -> {
     	if (isSearching()) {
     		output.appendText(".");
     	}
@@ -330,8 +330,7 @@ public class FindScheduleApplication extends Application  implements EventHandle
             toolBar
                 .getItems()
                 .forEach((node) -> {
-                if (node instanceof Button) {
-                    Button btn = (Button) node;
+                if (node instanceof Button btn) {
                     if (Objects.equals(btn.getText(), ACTION_PERFORM_SEARCH) ||
                             Objects.equals(btn.getText(), ACTION_CANCEL_SEARCH)) {
                         if (disable) {
@@ -546,40 +545,28 @@ public class FindScheduleApplication extends Application  implements EventHandle
             if (source instanceof Control) {
                 id = ((Control) source).getId();
                 button = true;
-            } else if (source instanceof MenuItem) {
+            } else {
                 id = ((MenuItem) source).getId();
             }
-            
+
             switch (id) {
-                case ACTION_SAVE_OUTPUT:
-                	saveOutput(stage);
-                    break;
-                case ACTION_CLEAR_OUTPUT:
-                    output.clear();
-                    break;
-                case ACTION_EXIT:
+                case ACTION_SAVE_OUTPUT -> saveOutput(stage);
+                case ACTION_CLEAR_OUTPUT -> output.clear();
+                case ACTION_EXIT -> {
                     shutdownExecutor();
                     Platform.exit();
-                    break;
-                case ACTION_ABOUT:
-                    aboutProgram();
-                    break;
-                case ACTION_VERBOSE:
-                	toggleVerbose(source, button);
-                    break;
-                case ACTION_SUMMARY:
-                	toggleSummary(source, button);
-                    break;
-                case ACTION_AUTO_SAVE:
-                	toggleAutoSave(source, button);
-                    break;
-                case ACTION_PERFORM_SEARCH:
+                }
+                case ACTION_ABOUT -> aboutProgram();
+                case ACTION_VERBOSE -> toggleVerbose(source, button);
+                case ACTION_SUMMARY -> toggleSummary(source, button);
+                case ACTION_AUTO_SAVE -> toggleAutoSave(source, button);
+                case ACTION_PERFORM_SEARCH -> {
                     if (isSearching()) {
                         cancelLocalSearch();
                     } else {
                         executeLocalSearch();
                     }
-                    break;
+                }
             }
         }
     }
@@ -589,7 +576,7 @@ public class FindScheduleApplication extends Application  implements EventHandle
             executor.shutdownNow();
             try {
                 executor.awaitTermination(100, TimeUnit.MILLISECONDS);
-            } catch (InterruptedException e) {
+            } catch (InterruptedException ignored) {
             }
             executor = null;
         }
@@ -676,7 +663,7 @@ public class FindScheduleApplication extends Application  implements EventHandle
                 ext = fullPath.substring(extIndex);
             }
 
-            name = fullPath.substring(index + 1, extIndex >= 0 ? extIndex : fullPath.length());
+            name = fullPath.substring(0, extIndex >= 0 ? extIndex : fullPath.length());
         }
 
         String outFileName = name + ext;
