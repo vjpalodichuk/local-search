@@ -2,10 +2,11 @@ plugins {
     java
     application
     id("org.openjfx.javafxplugin") version "0.1.0"
+    id("org.beryx.jlink") version "2.26.0"
 }
 
 group = "com.capital7software.ai"
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
@@ -26,6 +27,14 @@ javafx {
     version = "21.0.1"
     modules.add("javafx.controls")
     modules.add("javafx.fxml")
+}
+
+jlink {
+    launcher {
+        name = "local-search"
+        moduleName = "com.capital7software.ai.localsearch"
+        mainClass = "com.capital7software.ai.localsearch.FindScheduleApplication"
+    }
 }
 
 tasks.getByName<Test>("test") {
